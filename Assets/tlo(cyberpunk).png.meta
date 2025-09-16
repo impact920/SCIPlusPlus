@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tlo(cyberpunk)_0: 1016023925712683845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
