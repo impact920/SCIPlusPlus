@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0c8ded71a320748f38d3de3778ea5a8c
+guid: 2da188e57829f3f4ab63bc5ed4f9b22e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6434606258596263005
-    second: snowy_mountains_0
+      213: 9167848856825926894
+    second: maska1_walk_0
+  - first:
+      213: 296495092356361126
+    second: maska1_walk_1
+  - first:
+      213: 902711639885654562
+    second: maska1_walk_2
+  - first:
+      213: -5868655806375308838
+    second: maska1_walk_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snowy_mountains_0
+      name: maska1_walk_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 0
-        width: 683
-        height: 360
+        width: 15
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d54b229dc405c4950800000000000000
-      internalID: 6434606258596263005
+      spriteID: ee4949146fdba3f70800000000000000
+      internalID: 9167848856825926894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: maska1_walk_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab2c8137bc5d1400800000000000000
+      internalID: 296495092356361126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: maska1_walk_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22aaef52473178c00800000000000000
+      internalID: 902711639885654562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: maska1_walk_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad157f733a85e8ea0800000000000000
+      internalID: -5868655806375308838
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      snowy_mountains_0: 6434606258596263005
+      maska1_walk_0: 9167848856825926894
+      maska1_walk_1: 296495092356361126
+      maska1_walk_2: 902711639885654562
+      maska1_walk_3: -5868655806375308838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
