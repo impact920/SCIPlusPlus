@@ -118,155 +118,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maska2_chodzenie_0
+      name: przyzywacz_chodzenie_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 18
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a298154ea79cd3390800000000000000
-      internalID: -7836886246901053142
+      spriteID: 79fef2f9b02d30b40b080293b390f732
+      internalID: 1795507691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maska2_chodzenie_1
+      name: przyzywacz_chodzenie_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 32
         y: 0
-        width: 18
-        height: 27
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8d82d454ce45a4200800000000000000
-      internalID: 165037710104144088
+      spriteID: cb1432b19582d444190da000f60dadf6
+      internalID: -84655185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maska2_chodzenie_2
+      name: przyzywacz_chodzenie_2
       rect:
         serializedVersion: 2
-        x: 73
+        x: 64
         y: 0
-        width: 14
-        height: 29
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5a92826580bb3f1d0800000000000000
-      internalID: -3318102855962318427
+      spriteID: 86a2bb65c425d26478a02912af6327a5
+      internalID: 73096301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maska2_chodzenie_3
+      name: przyzywacz_chodzenie_3
       rect:
         serializedVersion: 2
-        x: 104
+        x: 96
         y: 0
-        width: 16
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 12aec9fe29f32fd50800000000000000
-      internalID: 6769543090209090081
+      spriteID: cb62e26ff4c4c924299851b9e418d676
+      internalID: 99684543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maska2_chodzenie_4
+      name: przyzywacz_chodzenie_4
       rect:
         serializedVersion: 2
-        x: 134
+        x: 128
         y: 0
-        width: 20
-        height: 27
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 32e527227239e1e70800000000000000
-      internalID: 9087862894371167779
+      spriteID: 9ae2dc9f35ab5074d9fc96a5b29a15d0
+      internalID: -277100708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maska2_chodzenie_5
+      name: przyzywacz_chodzenie_5
       rect:
         serializedVersion: 2
-        x: 169
+        x: 160
         y: 0
-        width: 15
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3a849c468b6f282a0800000000000000
-      internalID: -6736550820767512413
+      spriteID: 797e2581e4231c74d81cb7ef91600935
+      internalID: -1950149595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maska2_chodzenie_6
+      name: przyzywacz_chodzenie_6
       rect:
         serializedVersion: 2
-        x: 201
+        x: 192
         y: 0
-        width: 14
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f3ad939a20711c3d0800000000000000
-      internalID: -3188241761005086145
+      spriteID: 03b6be430a385d84ba5966f0a2ea0c64
+      internalID: 927868501
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2640a847ac176324f89b555f2561cf7e
     internalID: 0
     vertices: []
     indices: 
@@ -283,15 +283,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      maska2_chodzenie_0: -7836886246901053142
-      maska2_chodzenie_1: 165037710104144088
-      maska2_chodzenie_2: -3318102855962318427
-      maska2_chodzenie_3: 6769543090209090081
-      maska2_chodzenie_4: 9087862894371167779
-      maska2_chodzenie_5: -6736550820767512413
-      maska2_chodzenie_6: -3188241761005086145
+      przyzywacz_chodzenie_0: 1795507691
+      przyzywacz_chodzenie_1: -84655185
+      przyzywacz_chodzenie_2: 73096301
+      przyzywacz_chodzenie_3: 99684543
+      przyzywacz_chodzenie_4: -277100708
+      przyzywacz_chodzenie_5: -1950149595
+      przyzywacz_chodzenie_6: 927868501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -109,89 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ptzyzywacz_atack_0
+      name: przyzywacz_atack_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 18
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1f3e33eb92b2bd00800000000000000
-      internalID: 987047650949742362
+      spriteID: 5fed05f2f0e424f43ade666bed46e9a8
+      internalID: 844922079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ptzyzywacz_atack_1
+      name: przyzywacz_atack_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 32
         y: 0
-        width: 23
-        height: 27
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a45b09954e2ca38a0800000000000000
-      internalID: -6324528440677452470
+      spriteID: 89b0bdf3b12e90441826b3a5d9e6ab86
+      internalID: -112221165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ptzyzywacz_atack_2
+      name: przyzywacz_atack_2
       rect:
         serializedVersion: 2
-        x: 71
+        x: 64
         y: 0
-        width: 19
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3c797aa01c5005570800000000000000
-      internalID: 8453262827240003523
+      spriteID: ffaceeb2b947c2d459f6e35eec29336b
+      internalID: -1051507209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ptzyzywacz_atack_3
+      name: przyzywacz_atack_3
       rect:
         serializedVersion: 2
-        x: 103
+        x: 96
         y: 0
-        width: 25
-        height: 27
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c835960a334c08f50800000000000000
-      internalID: 6881715956635751308
+      spriteID: 65744a780a4a21040b0ffcfb5b851c54
+      internalID: -1523665173
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c0985d9909824cf439392ef18763bf66
     internalID: 0
     vertices: []
     indices: 
@@ -208,12 +208,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ptzyzywacz_atack_0: 987047650949742362
-      ptzyzywacz_atack_1: -6324528440677452470
-      ptzyzywacz_atack_2: 8453262827240003523
-      ptzyzywacz_atack_3: 6881715956635751308
+      przyzywacz_atack_0: 844922079
+      przyzywacz_atack_1: -112221165
+      przyzywacz_atack_2: -1051507209
+      przyzywacz_atack_3: -1523665173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
