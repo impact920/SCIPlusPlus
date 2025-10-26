@@ -315,7 +315,7 @@ public class PlayerMovement : MonoBehaviour
     tr.startWidth = 0.2f;
     tr.endWidth = 0f;
     tr.material = new Material(Shader.Find("Sprites/Default"));
-    tr.startColor = Color.magenta;
+    tr.startColor = Color.red;
     tr.endColor = Color.clear;
 
     // Animacja smug

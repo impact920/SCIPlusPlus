@@ -17,7 +17,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip deathSound;
     public int attackDamage = 20; // obrażenia zadawane przeciwnikowi
-    public float knockbackForce = 5f; // siła odepchnięcia wroga
+    public float knockbackForce = 5f;
+    public float Reach = 5f;
 
     private AudioSource audioSource;
     private SpriteRenderer spriteRenderer;
@@ -48,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
     void Attack()
     {
         // Sprawdzenie kolizji z wrogami w zasięgu 1 jednostki
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, 1f);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, Reach);
         foreach (var enemyCollider in hitEnemies)
         {
             EnemyHealth enemy = enemyCollider.GetComponent<EnemyHealth>();
@@ -138,6 +139,6 @@ public class PlayerHealth : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 1f);
+        Gizmos.DrawWireSphere(transform.position, Reach);
     }
 }

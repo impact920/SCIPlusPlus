@@ -36,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
             Die();
+        else
+            StartCoroutine(FlashCoroutine()); // efekt flash przy obrażeniach
     }
 
     public IEnumerator FlashCoroutine()
@@ -56,22 +58,28 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        // Zatrzymanie ruchu Rigidbody
+        Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
+        if (rb2D != null)
+        {
+            rb2D.linearVelocity = Vector2.zero;
+            rb2D.angularVelocity = 0f;
+            rb2D.gravityScale = 0f; // wyłączenie grawitacji
+            rb2D.constraints = RigidbodyConstraints2D.FreezeAll; // blokada pozycji i rotacji
+        }
+
         // Wywołanie animacji śmierci
         if (animator != null && !string.IsNullOrEmpty(deathAnimationTrigger))
         {
             animator.SetTrigger(deathAnimationTrigger);
-            // Uruchom Coroutine, która zniszczy obiekt po zakończeniu animacji
-            StartCoroutine(DestroyAfterAnimation());
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        // Zniszczenie obiektu po animacji
+        StartCoroutine(DestroyAfterAnimation());
     }
 
     private IEnumerator DestroyAfterAnimation()
     {
-        // Czekamy długość animacji
         yield return new WaitForSeconds(deathAnimationDuration);
         Destroy(gameObject);
     }
