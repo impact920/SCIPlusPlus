@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         {
             recordTimer = 0f;
             positionHistory.Add(transform.position);
-            if (positionHistory.Count > 15)
+            if (positionHistory.Count > 10)
                 positionHistory.RemoveAt(0);
         }
 
@@ -276,7 +276,6 @@ public class PlayerMovement : MonoBehaviour
     yield return new WaitForSeconds(ghostCooldown);
     canUseGhost = true;
 }
-
 
 
 

@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject deathEffect;
     public AudioClip hitSound;
     public AudioClip deathSound;
-    public int attackDamage = 20; // obrażenia zadawane przeciwnikowi
+    public int attackDamage = 20;
     public float knockbackForce = 5f;
     public float Reach = 5f;
 
@@ -26,11 +26,15 @@ public class PlayerHealth : MonoBehaviour
     private bool isInvincible = false;
     private bool isDead = false;
 
+    private Rigidbody2D rb;
+
     void Start()
     {
         currentHealth = maxHealth;
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
     }
@@ -39,31 +43,46 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
-        // Atak lewym przyciskiem myszy
+        HandleFlip();
+
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
         }
     }
 
+    // ✅ Obracanie postaci na podstawie prędkości (działa z dashowaniem)
+    void HandleFlip()
+    {
+        if (rb.linearVelocity.x > 0.1f)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (rb.linearVelocity.x < -0.1f)
+            transform.localScale = new Vector3(-1, 1, 1);
+    }
+
     void Attack()
     {
-        // Sprawdzenie kolizji z wrogami w zasięgu 1 jednostki
+        float direction = Mathf.Sign(transform.localScale.x);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, Reach);
+
         foreach (var enemyCollider in hitEnemies)
         {
             EnemyHealth enemy = enemyCollider.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(attackDamage);
-                enemy.StartCoroutine(enemy.FlashCoroutine());
+                Vector2 toEnemy = enemy.transform.position - transform.position;
 
-                // Odepchnięcie wroga
-                Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
-                if (enemyRb != null)
+                if (Mathf.Sign(toEnemy.x) == direction)
                 {
-                    Vector2 knockbackDir = (enemy.transform.position - transform.position).normalized;
-                    enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+                    enemy.TakeDamage(attackDamage);
+                    enemy.StartCoroutine(enemy.FlashCoroutine());
+
+                    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+                    if (enemyRb != null)
+                    {
+                        Vector2 knockbackDir = toEnemy.normalized;
+                        enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+                    }
                 }
             }
         }
@@ -78,8 +97,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (audioSource && hitSound)
             audioSource.PlayOneShot(hitSound);
-
-        Debug.Log($"Gracz otrzymał {damage} obrażeń. HP: {currentHealth}");
 
         if (currentHealth <= 0)
             Die();
@@ -105,8 +122,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (deathEffect)
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-
-        Debug.Log("Gracz zginął!");
     }
 
     private System.Collections.IEnumerator InvincibilityCoroutine()
@@ -135,10 +150,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Wizualizacja zasięgu ataku w edytorze
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, Reach);
+
+        float direction = Mathf.Sign(transform.localScale.x);
+        Vector3 forward = new Vector3(direction, 0, 0);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + forward * Reach);
     }
 }
