@@ -13,23 +13,29 @@ public class EnemyHealth : MonoBehaviour
     private Color originalColor;
 
     [Header("Animacje")]
-    public Animator animator; // przypisz Animator w Inspectorze
-    public string deathAnimationTrigger = "Death"; // trigger animacji śmierci
-    public float deathAnimationDuration = 1.0f; // czas trwania animacji śmierci w sekundach
+    public Animator animator;
+    public string deathAnimationTrigger = "Death";
+    public float deathAnimationDuration = 1.0f;
 
-    private bool isDead = false;
+    [HideInInspector] public bool IsDead = false;
+
+    private Rigidbody2D rb2D;
+    private Collider2D col2D;
 
     void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb2D = GetComponent<Rigidbody2D>();
+        col2D = GetComponent<Collider2D>();
+
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
     }
 
     public void TakeDamage(int amount)
     {
-        if (isDead) return;
+        if (IsDead) return;
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -37,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
             Die();
         else
-            StartCoroutine(FlashCoroutine()); // efekt flash przy obrażeniach
+            StartCoroutine(FlashCoroutine());
     }
 
     public IEnumerator FlashCoroutine()
@@ -55,26 +61,28 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        if (isDead) return;
-        isDead = true;
+        if (IsDead) return;
+        IsDead = true;
 
-        // Zatrzymanie ruchu Rigidbody
-        Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
+        // Zatrzymanie fizyki i kolizji
         if (rb2D != null)
         {
             rb2D.linearVelocity = Vector2.zero;
             rb2D.angularVelocity = 0f;
-            rb2D.gravityScale = 0f; // wyłączenie grawitacji
-            rb2D.constraints = RigidbodyConstraints2D.FreezeAll; // blokada pozycji i rotacji
+            rb2D.gravityScale = 0f;
+            rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
-        // Wywołanie animacji śmierci
+        if (col2D != null)
+            col2D.enabled = false;
+
+        // Animacja śmierci
         if (animator != null && !string.IsNullOrEmpty(deathAnimationTrigger))
         {
             animator.SetTrigger(deathAnimationTrigger);
         }
 
-        // Zniszczenie obiektu po animacji
+        // Zniszczenie po czasie trwania animacji
         StartCoroutine(DestroyAfterAnimation());
     }
 

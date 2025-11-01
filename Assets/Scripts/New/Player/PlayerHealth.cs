@@ -61,32 +61,40 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void Attack()
+{
+    float direction = Mathf.Sign(transform.localScale.x);
+    Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
+    Vector2 capsuleSize = new Vector2(Reach, 2f); // Możesz ustawić wysokość kapsuły np. = wysokość postaci
+
+    Collider2D[] hitEnemies = Physics2D.OverlapCapsuleAll(
+        capsuleCenter,
+        capsuleSize,
+        CapsuleDirection2D.Horizontal,
+        0f
+    );
+
+    foreach (var enemyCollider in hitEnemies)
     {
-        float direction = Mathf.Sign(transform.localScale.x);
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, Reach);
-
-        foreach (var enemyCollider in hitEnemies)
+        EnemyHealth enemy = enemyCollider.GetComponent<EnemyHealth>();
+        if (enemy != null)
         {
-            EnemyHealth enemy = enemyCollider.GetComponent<EnemyHealth>();
-            if (enemy != null)
+            Vector2 toEnemy = enemy.transform.position - transform.position;
+            if (Mathf.Sign(toEnemy.x) == direction)
             {
-                Vector2 toEnemy = enemy.transform.position - transform.position;
+                enemy.TakeDamage(attackDamage);
+                enemy.StartCoroutine(enemy.FlashCoroutine());
 
-                if (Mathf.Sign(toEnemy.x) == direction)
+                Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+                if (enemyRb != null)
                 {
-                    enemy.TakeDamage(attackDamage);
-                    enemy.StartCoroutine(enemy.FlashCoroutine());
-
-                    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
-                    if (enemyRb != null)
-                    {
-                        Vector2 knockbackDir = toEnemy.normalized;
-                        enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
-                    }
+                    Vector2 knockbackDir = toEnemy.normalized;
+                    enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
                 }
             }
         }
     }
+}
+
 
     public void TakeDamage(int damage)
     {
@@ -150,14 +158,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, Reach);
+    void OnDrawGizmosSelected()
+{
+    Gizmos.color = Color.yellow;
 
-        float direction = Mathf.Sign(transform.localScale.x);
-        Vector3 forward = new Vector3(direction, 0, 0);
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + forward * Reach);
-    }
+    float direction = Mathf.Sign(transform.localScale.x);
+    Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
+    Vector2 capsuleSize = new Vector2(Reach, 2f);
+
+    // Rysuj prostokąt, żeby zobaczyć obszar kapsuły
+    Gizmos.DrawWireCube(capsuleCenter, capsuleSize);
+}
+
 }

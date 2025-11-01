@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyChase : MonoBehaviour
+public class EnemyChasing : MonoBehaviour
 {
     public Transform player;       
     public float chaseRange = 5f;  
@@ -11,15 +11,26 @@ public class EnemyChase : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private float attackTimer = 0f;
+    private EnemyHealth enemyHealth;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Update()
     {
+        // Jeśli przeciwnik martwy — całkowity stop
+        if (enemyHealth != null && enemyHealth.IsDead)
+        {
+            rb.linearVelocity = Vector2.zero;
+            anim.SetFloat("Speed", 0f);
+            return;
+        }
+
         if (player == null) return;
 
         float distanceX = player.position.x - transform.position.x;
@@ -33,17 +44,17 @@ public class EnemyChase : MonoBehaviour
         {
             // Atak
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            anim.SetTrigger("Attack"); // Użycie Triggera zamiast Bool
+            anim.SetTrigger("Attack");
             anim.SetFloat("Speed", 0f);
             attackTimer = attackCooldown;
         }
         else if (absDistanceX <= chaseRange)
         {
-            // Pościg (Walk)
+            // Pościg
             float move = Mathf.Sign(distanceX) * speed;
             rb.linearVelocity = new Vector2(move, rb.linearVelocity.y);
 
-            // Odwrócenie przeciwnika w stronę gracza
+            // Obrót w stronę gracza
             Vector3 scale = transform.localScale;
             scale.x = move > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
             transform.localScale = scale;

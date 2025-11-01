@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public float ghostJumpMultiplier = 1.5f;
     public float ghostDashMultiplier = 1.2f;
     public float ghostLifetime = 3f;
-    public float ghostCooldown = 5f; // Cooldown Q
+    public float ghostCooldown = 5f;
     private bool ghostActive;
     private bool canUseGhost = true;
     private GameObject activeGhost;
@@ -57,14 +57,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Duch Cofający (F)")]
     public GameObject staticGhostPrefab;
     public float staticGhostLifetime = 5f;
-    public float staticGhostCooldown = 6f; // Cooldown F
+    public float staticGhostCooldown = 6f;
     public float positionRecordInterval = 0.2f;
     private List<Vector3> positionHistory = new List<Vector3>();
     private float recordTimer;
     private bool canUseStaticGhost = true;
     private bool staticGhostActive;
 
-    // Flaga blokująca jednoczesne użycie duchów
     private bool abilityInUse = false;
 
     private void Start()
@@ -76,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        // Rejestrowanie pozycji co 0.2s (dla cofania)
+        // Rejestrowanie pozycji (dla cofania)
         recordTimer += Time.deltaTime;
         if (recordTimer >= positionRecordInterval)
         {
@@ -92,13 +91,11 @@ public class PlayerMovement : MonoBehaviour
         if (!wasGrounded && isGrounded)
             jumpPerformed = false;
 
-        // Coyote time
         if (isGrounded)
             coyoteTimeCounter = coyoteTime;
         else
             coyoteTimeCounter -= Time.deltaTime;
 
-        // Jump buffer
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
@@ -112,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
 
         jumpBufferCounter -= Time.deltaTime;
 
-        // Skok
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && !isDashing && !jumpPerformed)
         {
             Jump();
@@ -123,25 +119,21 @@ public class PlayerMovement : MonoBehaviour
             jumpHoldTimer += Time.deltaTime;
         }
 
-        // Dash
         if (Input.GetKeyDown(KeyCode.E) && canDash)
         {
             StartCoroutine(Dash());
         }
 
-        // Duch teleportacyjny (Q)
         if (Input.GetKeyDown(KeyCode.Q) && canUseGhost && !abilityInUse)
         {
             StartCoroutine(SpawnGhost());
         }
 
-        // Duch cofający (F)
         if (Input.GetKeyDown(KeyCode.F) && canUseStaticGhost && !abilityInUse)
         {
             StartCoroutine(SpawnStaticGhostAndRewind());
         }
 
-        // Skrócony skok
         if (rb.linearVelocity.y > 0 && !jumpButtonHeld && jumpHoldTimer < minHoldTime)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
@@ -185,78 +177,146 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    //  Duch teleportacyjny (Q)
+    // ✅ Poprawiony Duch teleportacyjny (Q) — bliżej gracza
     private IEnumerator SpawnGhost()
-{
-    abilityInUse = true;
-    canUseGhost = false;
-    ghostActive = true;
-
-    // Kierunek patrzenia gracza
-    float direction = Mathf.Sign(transform.localScale.x);
-
-    // Pozycja pojawienia się ducha przed graczem
-    float spawnDistance = 1.5f;
-    Vector3 spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
-
-    // Stwórz ducha przed graczem
-    activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
-    activeGhost.transform.localScale = new Vector3(direction, 1f, 1f);
-
-    // Dodaj półprzezroczystość i fade-in
-    SpriteRenderer sr = activeGhost.GetComponent<SpriteRenderer>();
-    if (sr != null)
     {
-        Color c = sr.color;
-        c.a = 0f;
-        sr.color = c;
+        abilityInUse = true;
+        canUseGhost = false;
+        ghostActive = true;
 
-        float fadeDuration = 0.3f;
-        float timer = 0f;
+        float direction = Mathf.Sign(transform.localScale.x);
+        float spawnDistance = 0.6f; // 👈 teraz duch pojawia się tuż obok gracza
 
-        while (timer < fadeDuration)
+        // 🔍 Raycast aby sprawdzić, czy przed graczem jest ściana
+        Vector2 origin = transform.position;
+        RaycastHit2D hitFront = Physics2D.Raycast(origin, Vector2.right * direction, spawnDistance, groundLayer);
+
+        Vector3 spawnPosition;
+
+        if (hitFront.collider != null)
         {
-            timer += Time.deltaTime;
-            c.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-            sr.color = c;
-            yield return null;
+            // 🔄 Ściana z przodu – spawn z tyłu gracza
+            spawnPosition = transform.position - new Vector3(direction * spawnDistance, 0f, 0f);
         }
+        else
+        {
+            // ✅ Brak przeszkody – spawn z przodu gracza
+            spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
+        }
+
+        // 🧱 Jeśli spawn w kolizji, przerzuć stronę
+        Collider2D overlap = Physics2D.OverlapCircle(spawnPosition, 0.25f, groundLayer);
+        if (overlap != null)
+        {
+            spawnPosition = transform.position - new Vector3(direction * spawnDistance, 0f, 0f);
+        }
+
+        // Tworzymy ducha
+        activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
+        activeGhost.transform.localScale = new Vector3(direction, 1f, 1f);
+
+        // Fade-in efekt
+        SpriteRenderer sr = activeGhost.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            Color c = sr.color;
+            c.a = 0f;
+            sr.color = c;
+
+            float fadeDuration = 0.3f;
+            float timer = 0f;
+
+            while (timer < fadeDuration)
+            {
+                timer += Time.deltaTime;
+                c.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+                sr.color = c;
+                yield return null;
+            }
+        }
+
+        // Parametry ducha
+        PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
+        ghostScript.followInput = () => moveInput;
+        ghostScript.jumpInput = () => Input.GetButtonDown("Jump");
+        ghostScript.jumpForce = jumpForce * ghostJumpMultiplier;
+        ghostScript.moveSpeed = moveSpeed * ghostMoveSpeedMultiplier;
+        ghostScript.groundLayer = groundLayer;
+        ghostScript.groundCheckRadius = groundCheckRadius;
+
+        // Czekamy określony czas
+        yield return new WaitForSeconds(ghostLifetime);
+
+        if (activeGhost != null)
+        {
+            Vector3 startPos = transform.position;
+            transform.position = activeGhost.transform.position;
+
+            // Efekt smugi
+            GameObject trail = new GameObject("TeleportTrail");
+            trail.transform.position = startPos;
+
+            TrailRenderer tr = trail.AddComponent<TrailRenderer>();
+            tr.time = 0.3f;
+            tr.startWidth = 0.2f;
+            tr.endWidth = 0f;
+            tr.material = new Material(Shader.Find("Sprites/Default"));
+            tr.startColor = Color.cyan;
+            tr.endColor = Color.clear;
+
+            float duration = 0.1f;
+            float t = 0f;
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                tr.transform.position = Vector3.Lerp(startPos, transform.position, t / duration);
+                yield return null;
+            }
+
+            Destroy(trail);
+            Destroy(activeGhost);
+        }
+
+        ghostActive = false;
+        abilityInUse = false;
+
+        yield return new WaitForSeconds(ghostCooldown);
+        canUseGhost = true;
     }
 
-    //Skrypt ducha
-    PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
-    ghostScript.followInput = () => moveInput;
-    ghostScript.jumpInput = () => Input.GetButtonDown("Jump");
-    ghostScript.jumpForce = jumpForce * ghostJumpMultiplier;
-    ghostScript.moveSpeed = moveSpeed * ghostMoveSpeedMultiplier;
-    ghostScript.groundLayer = groundLayer;
-    ghostScript.groundCheckRadius = groundCheckRadius;
-
-    // Czekamy określony czas
-    yield return new WaitForSeconds(ghostLifetime);
-
-    if (activeGhost != null)
+    private IEnumerator SpawnStaticGhostAndRewind()
     {
-        // Zapisz pozycję startową gracza
+        abilityInUse = true;
+        canUseStaticGhost = false;
+        staticGhostActive = true;
+
+        if (positionHistory.Count < 2)
+        {
+            staticGhostActive = false;
+            abilityInUse = false;
+            yield break;
+        }
+
+        GameObject ghost = Instantiate(staticGhostPrefab, transform.position, Quaternion.identity);
+        ghost.tag = "StaticGhost";
+
+        Vector3 rewindPosition = positionHistory[0];
         Vector3 startPos = transform.position;
 
-        // Teleportacja gracza do ducha
-        transform.position = activeGhost.transform.position;
+        transform.position = rewindPosition;
 
-        //Tworzymy smuga wizualną (TrailRenderer)
-        GameObject trail = new GameObject("TeleportTrail");
+        GameObject trail = new GameObject("RewindTrail");
         trail.transform.position = startPos;
 
         TrailRenderer tr = trail.AddComponent<TrailRenderer>();
-        tr.time = 0.3f; // jak długo smuga się pojawia
+        tr.time = 0.3f;
         tr.startWidth = 0.2f;
         tr.endWidth = 0f;
         tr.material = new Material(Shader.Find("Sprites/Default"));
-        tr.startColor = Color.cyan;
+        tr.startColor = Color.red;
         tr.endColor = Color.clear;
 
-        // Animacja smug
-        float duration = 0.1f;
+        float duration = 0.3f;
         float t = 0f;
         while (t < duration)
         {
@@ -266,80 +326,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Destroy(trail);
-        Destroy(activeGhost);
-    }
 
-    ghostActive = false;
-    abilityInUse = false;
+        yield return new WaitForSeconds(staticGhostLifetime);
+        if (ghost != null) Destroy(ghost);
 
-    // Cooldown Q
-    yield return new WaitForSeconds(ghostCooldown);
-    canUseGhost = true;
-}
-
-
-
-    // Duch cofający (F)
-    private IEnumerator SpawnStaticGhostAndRewind()
-{
-    abilityInUse = true;
-    canUseStaticGhost = false;
-    staticGhostActive = true;
-
-    if (positionHistory.Count < 2)
-    {
         staticGhostActive = false;
         abilityInUse = false;
-        yield break;
+
+        yield return new WaitForSeconds(staticGhostCooldown);
+        canUseStaticGhost = true;
     }
-
-    // Stawiamy ducha w obecnej pozycji
-    GameObject ghost = Instantiate(staticGhostPrefab, transform.position, Quaternion.identity);
-    ghost.tag = "StaticGhost";
-
-    // Cofamy gracza do pozycji sprzed ~3 sekund
-    Vector3 rewindPosition = positionHistory[0];
-    
-    // Zapisujemy startową pozycję gracza
-    Vector3 startPos = transform.position;
-
-    transform.position = rewindPosition;
-
-    // Tworzymy smuga wizualną (TrailRenderer)
-    GameObject trail = new GameObject("RewindTrail");
-    trail.transform.position = startPos;
-
-    TrailRenderer tr = trail.AddComponent<TrailRenderer>();
-    tr.time = 0.3f; // jak długo smuga się pojawia
-    tr.startWidth = 0.2f;
-    tr.endWidth = 0f;
-    tr.material = new Material(Shader.Find("Sprites/Default"));
-    tr.startColor = Color.red;
-    tr.endColor = Color.clear;
-
-    // Animacja smug
-    float duration = 0.3f;
-    float t = 0f;
-    while (t < duration)
-    {
-        t += Time.deltaTime;
-        tr.transform.position = Vector3.Lerp(startPos, transform.position, t / duration);
-        yield return null;
-    }
-
-    Destroy(trail);
-
-    //  Poczekaj określony czas i usuń ducha
-    yield return new WaitForSeconds(staticGhostLifetime);
-    if (ghost != null) Destroy(ghost);
-
-    staticGhostActive = false;
-    abilityInUse = false;
-
-    // ⏳ Cooldown F
-    yield return new WaitForSeconds(staticGhostCooldown);
-    canUseStaticGhost = true;
-}
 
     private void OnDrawGizmosSelected()
     {
