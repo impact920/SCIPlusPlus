@@ -45,8 +45,9 @@ GameObject:
   - component: {fileID: 3836043767752872505}
   - component: {fileID: 119755286848022281}
   - component: {fileID: 5984550969727202852}
+  - component: {fileID: 7608973549410117254}
   m_Layer: 7
-  m_Name: Worm
+  m_Name: Worm (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 3043493773705134313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.50768995, y: -1.2430501, z: -0.102504134}
+  m_LocalPosition: {x: 2.73, y: -18.699, z: -0.102504134}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -243,6 +244,27 @@ MonoBehaviour:
     m_Bits: 64
   wallDetection: {fileID: 8385314710847290612}
   wallDetectionDistance: 0.5
+--- !u!114 &7608973549410117254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043493773705134313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba302e9d6f0594356a7404ec302656fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  damage: 15
+  maxHealth: 50
+  currentHealth: 0
+  flashCount: 3
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  animator: {fileID: 258838932410717616}
+  deathAnimationTrigger: Death
+  deathAnimationDuration: 1
+  IsDead: 0
 --- !u!1 &4609245829765601771
 GameObject:
   m_ObjectHideFlags: 0

@@ -141,12 +141,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
+{
+    if (!isDashing)
     {
-        if (!isDashing)
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+    }
+
+    // 🔧 [ANTI-STEP FIX] — delikatne unoszenie gracza na mikroszczelinach między chunkami
+    if (isGrounded)
+    {
+        // Raycast lekko w dół, aby wykryć "prog" lub niewielką szczelinę
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.3f, groundLayer);
+
+        if (hit.collider != null && hit.normal.y < 0.99f && hit.distance < 0.1f)
         {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+            // Delikatnie unosimy gracza, by nie blokował się na mikroszczelinie
+            rb.position += Vector2.up * 0.05f;
         }
     }
+}
+
 
     private void Jump()
     {
