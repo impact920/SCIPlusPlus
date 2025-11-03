@@ -9,18 +9,15 @@ public class PlayerGhost : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public Transform groundCheck;
 
-    public System.Func<float> followInput;
-    public System.Func<bool> jumpInput;
-
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool isDashing = false;
+    private float moveInput;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Stwórz groundCheck jeśli nie istnieje
         if (groundCheck == null)
         {
             GameObject gc = new GameObject("GhostGroundCheck");
@@ -36,22 +33,23 @@ public class PlayerGhost : MonoBehaviour
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         }
-
-        if (jumpInput != null && jumpInput.Invoke() && isGrounded)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        }
     }
 
     private void FixedUpdate()
     {
         if (isDashing) return;
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+    }
 
-        if (followInput != null)
-        {
-            float move = followInput.Invoke();
-            rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
-        }
+    public void SetMoveInput(float input)
+    {
+        moveInput = input;
+    }
+
+    // Wywoływane natychmiast gdy gracz wykona skok
+    public void TriggerJump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
     public void StartDash(float direction, float dashForce, float dashDuration)

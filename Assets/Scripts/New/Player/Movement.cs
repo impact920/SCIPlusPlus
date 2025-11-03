@@ -138,29 +138,21 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+
+        // Obracanie gracza (i w efekcie ducha synchronizujemy w corrutine)
+        if (moveInput != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
+        }
     }
 
     private void FixedUpdate()
-{
-    if (!isDashing)
     {
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-    }
-
-    // 🔧 [ANTI-STEP FIX] — delikatne unoszenie gracza na mikroszczelinach między chunkami
-    if (isGrounded)
-    {
-        // Raycast lekko w dół, aby wykryć "prog" lub niewielką szczelinę
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.3f, groundLayer);
-
-        if (hit.collider != null && hit.normal.y < 0.99f && hit.distance < 0.1f)
+        if (!isDashing)
         {
-            // Delikatnie unosimy gracza, by nie blokował się na mikroszczelinie
-            rb.position += Vector2.up * 0.05f;
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
     }
-}
-
 
     private void Jump()
     {
@@ -170,6 +162,16 @@ public class PlayerMovement : MonoBehaviour
         jumpPerformed = true;
         jumpHoldTimer = 0f;
         jumpButtonHeld = true;
+
+        // --- NAPRAWIONE: natychmiast informujemy ducha, że gracz skoczył ---
+        if (activeGhost != null)
+        {
+            PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
+            if (ghostScript != null)
+            {
+                ghostScript.TriggerJump();
+            }
+        }
     }
 
     private IEnumerator Dash()
@@ -182,6 +184,16 @@ public class PlayerMovement : MonoBehaviour
         float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
         rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
 
+        // jeśli duch aktywny to wyślij mu polecenie dashu
+        if (activeGhost != null)
+        {
+            PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
+            if (ghostScript != null)
+            {
+                ghostScript.StartDash(dashDirection, dashForce * ghostDashMultiplier, dashDuration);
+            }
+        }
+
         yield return new WaitForSeconds(dashDuration);
 
         rb.gravityScale = originalGravity;
@@ -191,7 +203,6 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    // ✅ Poprawiony Duch teleportacyjny (Q) — bliżej gracza
     private IEnumerator SpawnGhost()
     {
         abilityInUse = true;
@@ -199,95 +210,27 @@ public class PlayerMovement : MonoBehaviour
         ghostActive = true;
 
         float direction = Mathf.Sign(transform.localScale.x);
-        float spawnDistance = 0.6f; // 👈 teraz duch pojawia się tuż obok gracza
+        float spawnDistance = 0.6f;
 
-        // 🔍 Raycast aby sprawdzić, czy przed graczem jest ściana
-        Vector2 origin = transform.position;
-        RaycastHit2D hitFront = Physics2D.Raycast(origin, Vector2.right * direction, spawnDistance, groundLayer);
-
-        Vector3 spawnPosition;
-
-        if (hitFront.collider != null)
-        {
-            // 🔄 Ściana z przodu – spawn z tyłu gracza
-            spawnPosition = transform.position - new Vector3(direction * spawnDistance, 0f, 0f);
-        }
-        else
-        {
-            // ✅ Brak przeszkody – spawn z przodu gracza
-            spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
-        }
-
-        // 🧱 Jeśli spawn w kolizji, przerzuć stronę
-        Collider2D overlap = Physics2D.OverlapCircle(spawnPosition, 0.25f, groundLayer);
-        if (overlap != null)
-        {
-            spawnPosition = transform.position - new Vector3(direction * spawnDistance, 0f, 0f);
-        }
-
-        // Tworzymy ducha
+        Vector3 spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
         activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
         activeGhost.transform.localScale = new Vector3(direction, 1f, 1f);
 
-        // Fade-in efekt
-        SpriteRenderer sr = activeGhost.GetComponent<SpriteRenderer>();
-        if (sr != null)
-        {
-            Color c = sr.color;
-            c.a = 0f;
-            sr.color = c;
-
-            float fadeDuration = 0.3f;
-            float timer = 0f;
-
-            while (timer < fadeDuration)
-            {
-                timer += Time.deltaTime;
-                c.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-                sr.color = c;
-                yield return null;
-            }
-        }
-
-        // Parametry ducha
         PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
-        ghostScript.followInput = () => moveInput;
-        ghostScript.jumpInput = () => Input.GetButtonDown("Jump");
-        ghostScript.jumpForce = jumpForce * ghostJumpMultiplier;
         ghostScript.moveSpeed = moveSpeed * ghostMoveSpeedMultiplier;
+        ghostScript.jumpForce = jumpForce * ghostJumpMultiplier;
         ghostScript.groundLayer = groundLayer;
         ghostScript.groundCheckRadius = groundCheckRadius;
 
-        // Czekamy określony czas
+        // Synchronizacja ruchów ducha z graczem (obrót i move input + dash)
+        StartCoroutine(SyncGhostWithPlayer(ghostScript));
+
         yield return new WaitForSeconds(ghostLifetime);
 
         if (activeGhost != null)
         {
             Vector3 startPos = transform.position;
             transform.position = activeGhost.transform.position;
-
-            // Efekt smugi
-            GameObject trail = new GameObject("TeleportTrail");
-            trail.transform.position = startPos;
-
-            TrailRenderer tr = trail.AddComponent<TrailRenderer>();
-            tr.time = 0.3f;
-            tr.startWidth = 0.2f;
-            tr.endWidth = 0f;
-            tr.material = new Material(Shader.Find("Sprites/Default"));
-            tr.startColor = Color.cyan;
-            tr.endColor = Color.clear;
-
-            float duration = 0.1f;
-            float t = 0f;
-            while (t < duration)
-            {
-                t += Time.deltaTime;
-                tr.transform.position = Vector3.Lerp(startPos, transform.position, t / duration);
-                yield return null;
-            }
-
-            Destroy(trail);
             Destroy(activeGhost);
         }
 
@@ -296,6 +239,35 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(ghostCooldown);
         canUseGhost = true;
+    }
+
+    private IEnumerator SyncGhostWithPlayer(PlayerGhost ghost)
+    {
+        bool lastFacingRight = transform.localScale.x > 0;
+
+        while (ghost != null)
+        {
+            // Obrót ducha w kierunku gracza
+            bool facingRight = transform.localScale.x > 0;
+            if (facingRight != lastFacingRight)
+            {
+                ghost.transform.localScale = new Vector3(transform.localScale.x, 1f, 1f);
+                lastFacingRight = facingRight;
+            }
+
+            // Poruszanie
+            ghost.SetMoveInput(moveInput);
+
+            // Dash: jeśli gracz naciśnie E to już w Dash() wysyłamy polecenie, 
+            // tutaj zostawiamy dodatkowe zabezpieczenie (na wypadek innego systemu)
+            if (Input.GetKeyDown(KeyCode.E) && canDash)
+            {
+                float direction = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
+                ghost.StartDash(direction, dashForce * ghostDashMultiplier, dashDuration);
+            }
+
+            yield return null;
+        }
     }
 
     private IEnumerator SpawnStaticGhostAndRewind()
@@ -318,28 +290,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 startPos = transform.position;
 
         transform.position = rewindPosition;
-
-        GameObject trail = new GameObject("RewindTrail");
-        trail.transform.position = startPos;
-
-        TrailRenderer tr = trail.AddComponent<TrailRenderer>();
-        tr.time = 0.3f;
-        tr.startWidth = 0.2f;
-        tr.endWidth = 0f;
-        tr.material = new Material(Shader.Find("Sprites/Default"));
-        tr.startColor = Color.red;
-        tr.endColor = Color.clear;
-
-        float duration = 0.3f;
-        float t = 0f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            tr.transform.position = Vector3.Lerp(startPos, transform.position, t / duration);
-            yield return null;
-        }
-
-        Destroy(trail);
 
         yield return new WaitForSeconds(staticGhostLifetime);
         if (ghost != null) Destroy(ghost);

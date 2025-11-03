@@ -16,7 +16,6 @@ public class ObjectStreamerFixed : MonoBehaviour
     private class StreamObject
     {
         public GameObject obj;
-        public Vector3 position;
         public bool active;
     }
 
@@ -46,7 +45,6 @@ public class ObjectStreamerFixed : MonoBehaviour
             streamList.Add(new StreamObject
             {
                 obj = go,
-                position = go.transform.position,
                 active = go.activeSelf
             });
         }
@@ -60,7 +58,9 @@ public class ObjectStreamerFixed : MonoBehaviour
 
         foreach (var item in streamList)
         {
-            float distSqr = ((Vector2)item.position - playerPos).sqrMagnitude;
+            if (item.obj == null) continue;
+
+            float distSqr = ((Vector2)item.obj.transform.position - playerPos).sqrMagnitude;
             bool shouldBeActive = distSqr < activationDistanceSqr;
 
             if (shouldBeActive != item.active)

@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 17.94, y: -5, z: 1.0265671}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2224026936973154334}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
   player: {fileID: 0}
   chaseRange: 8
-  attackRange: 1
+  attackRange: 0.91
   speed: 2
   attackCooldown: 1
 --- !u!50 &8814196038353768622
@@ -228,6 +228,7 @@ MonoBehaviour:
   animator: {fileID: 2394714278143854579}
   deathAnimationTrigger: Death
   deathAnimationDuration: 1
+  IsDead: 0
 --- !u!1 &8808039979834842266
 GameObject:
   m_ObjectHideFlags: 0
