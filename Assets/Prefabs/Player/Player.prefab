@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 277147516836401136}
   - component: {fileID: 6704850045426644427}
   - component: {fileID: 7779204696099102261}
+  - component: {fileID: 8091229979557327628}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -258,3 +259,15 @@ MonoBehaviour:
   attackDamage: 20
   knockbackForce: 5
   Reach: 2.31
+--- !u!114 &8091229979557327628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548456904118342776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f971e0f29b34b2db36deae315f9467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
