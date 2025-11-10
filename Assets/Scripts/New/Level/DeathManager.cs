@@ -24,18 +24,18 @@ public class DeathManager : MonoBehaviour
         deathMenuUI.SetActive(false);
 
         if (playerHealth != null)
-            playerHealth.Revive();
+            playerHealth.Revive(); // to już samo przenosi gracza do checkpointa
     }
 
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LoadingScreen.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Main_Menu");
+        LoadingScreen.LoadScene("Main_Menu");
     }
 }

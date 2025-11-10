@@ -151,12 +151,20 @@ public class PlayerHealth : MonoBehaviour
 
     public void Revive()
 {
+    Debug.Log("REVIVE: wywołano odrodzenie gracza");
+
     currentHealth = maxHealth;
     isDead = false;
 
-    // Odrodzenie przy ostatnim checkpointcie
     if (playerRespawn != null)
+    {
+        Debug.Log("REVIVE: playerRespawn znaleziony, odradzam gracza");
         playerRespawn.Respawn();
+    }
+    else
+    {
+        Debug.LogError("REVIVE: Brak referencji do PlayerRespawn!");
+    }
 }
 
 

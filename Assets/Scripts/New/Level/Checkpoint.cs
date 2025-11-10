@@ -8,6 +8,18 @@ public class Checkpoint : MonoBehaviour
 
         PlayerRespawn respawn = collision.GetComponent<PlayerRespawn>();
         if (respawn != null)
-            respawn.UpdateCheckpoint(transform.position);
+        {
+            Vector3 newPoint = transform.position;
+            respawn.UpdateCheckpoint(newPoint);
+
+            // 💾 Zapisujemy w PlayerPrefs
+            PlayerPrefs.SetFloat("CheckpointX", newPoint.x);
+            PlayerPrefs.SetFloat("CheckpointY", newPoint.y);
+            PlayerPrefs.SetFloat("CheckpointZ", newPoint.z);
+            PlayerPrefs.SetInt("HasCheckpoint", 1);
+            PlayerPrefs.Save();
+
+            Debug.Log($"Zapisano checkpoint w pamięci: {newPoint}");
+        }
     }
 }

@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level"); // nazwa sceny z rozgrywką
+        LoadingScreen.LoadScene("Level"); // nazwa sceny z rozgrywką
     }
 
     public void QuitGame()
