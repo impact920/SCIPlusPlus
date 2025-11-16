@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 574a50004155c9c43a46926512c15b25
+guid: e37e57dfc1fa5ef4db17c0c3a36d8ad5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7149141589100114302
-    second: player-mask_walk-Sheet_0
+      213: -1478240946441422087
+    second: player_atack3_(miejsce)-Sheet_0
   - first:
-      213: -4284425451992313713
-    second: player-mask_walk-Sheet_1
+      213: -8935957221437445738
+    second: player_atack3_(miejsce)-Sheet_1
   - first:
-      213: 6534201652917520352
-    second: player-mask_walk-Sheet_2
+      213: 4039498118106091217
+    second: player_atack3_(miejsce)-Sheet_2
   - first:
-      213: -1744424002209672705
-    second: player-mask_walk-Sheet_3
+      213: -9021815915621480843
+    second: player_atack3_(miejsce)-Sheet_3
   - first:
-      213: 7694123679981619550
-    second: player-mask_walk-Sheet_4
-  - first:
-      213: 2936415112458646472
-    second: player-mask_walk-Sheet_5
+      213: 2149163853668904827
+    second: player_atack3_(miejsce)-Sheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,34 +112,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-mask_walk-Sheet_0
+      name: player_atack3_(miejsce)-Sheet_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 5
         y: 0
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e71b843c56ad63360800000000000000
-      internalID: 7149141589100114302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-mask_walk-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 0
-        width: 15
+        width: 22
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,19 +127,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f801b5350c9aa84c0800000000000000
-      internalID: -4284425451992313713
+      spriteID: 9fafbe6f0bb3c7be0800000000000000
+      internalID: -1478240946441422087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_walk-Sheet_2
+      name: player_atack3_(miejsce)-Sheet_1
       rect:
         serializedVersion: 2
-        x: 72
+        x: 39
         y: 0
-        width: 13
+        width: 24
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -174,19 +149,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e74bec98c52eaa50800000000000000
-      internalID: 6534201652917520352
+      spriteID: 6996228704a1df380800000000000000
+      internalID: -8935957221437445738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_walk-Sheet_3
+      name: player_atack3_(miejsce)-Sheet_2
       rect:
         serializedVersion: 2
-        x: 104
+        x: 71
         y: 0
-        width: 13
+        width: 25
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,19 +171,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff190a2cc9f8ac7e0800000000000000
-      internalID: -1744424002209672705
+      spriteID: 1de8290e22e2f0830800000000000000
+      internalID: 4039498118106091217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_walk-Sheet_4
+      name: player_atack3_(miejsce)-Sheet_3
       rect:
         serializedVersion: 2
-        x: 134
+        x: 101
         y: 0
-        width: 15
+        width: 25
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e59c933c8b407ca60800000000000000
-      internalID: 7694123679981619550
+      spriteID: 5768a6079321cc280800000000000000
+      internalID: -9021815915621480843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_walk-Sheet_5
+      name: player_atack3_(miejsce)-Sheet_4
       rect:
         serializedVersion: 2
-        x: 168
+        x: 133
         y: 0
-        width: 13
-        height: 24
+        width: 25
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c3bf2bacfd30c820800000000000000
-      internalID: 2936415112458646472
+      spriteID: b7f6b0e532d53dd10800000000000000
+      internalID: 2149163853668904827
       vertices: []
       indices: 
       edges: []
@@ -260,12 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player-mask_walk-Sheet_0: 7149141589100114302
-      player-mask_walk-Sheet_1: -4284425451992313713
-      player-mask_walk-Sheet_2: 6534201652917520352
-      player-mask_walk-Sheet_3: -1744424002209672705
-      player-mask_walk-Sheet_4: 7694123679981619550
-      player-mask_walk-Sheet_5: 2936415112458646472
+      player_atack3_(miejsce)-Sheet_0: -1478240946441422087
+      player_atack3_(miejsce)-Sheet_1: -8935957221437445738
+      player_atack3_(miejsce)-Sheet_2: 4039498118106091217
+      player_atack3_(miejsce)-Sheet_3: -9021815915621480843
+      player_atack3_(miejsce)-Sheet_4: 2149163853668904827
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: 6cc85ee2bdf05cb4290e0b95ec9c6121
+guid: c0d03ac7b324a594989928e5178ba5a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -97343345367945214
-    second: player-mask_dash-Sheet_0
+      213: -3914295456057846109
+    second: player_sword_off2-Sheet_0
   - first:
-      213: 269695692034510577
-    second: player-mask_dash-Sheet_1
+      213: -3903424280759269622
+    second: player_sword_off2-Sheet_1
   - first:
-      213: 315768455698590422
-    second: player-mask_dash-Sheet_2
+      213: -5223748845840584800
+    second: player_sword_off2-Sheet_2
   - first:
-      213: -6114684397223112618
-    second: player-mask_dash-Sheet_3
+      213: -9128991577238270939
+    second: player_sword_off2-Sheet_3
   - first:
-      213: 1240580907226201788
-    second: player-mask_dash-Sheet_4
+      213: 3814158610941782063
+    second: player_sword_off2-Sheet_4
   - first:
-      213: 1743875811122614168
-    second: player-mask_dash-Sheet_5
+      213: 4455274278258972641
+    second: player_sword_off2-Sheet_5
   - first:
-      213: 3067195030556797393
-    second: player-mask_dash-Sheet_6
-  - first:
-      213: 7537356118760937548
-    second: player-mask_dash-Sheet_7
+      213: -8944142778759564979
+    second: player_sword_off2-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,12 +118,56 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-mask_dash-Sheet_0
+      name: player_sword_off2-Sheet_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 5
         y: 0
-        width: 13
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a61fb38501ada9c0800000000000000
+      internalID: -3914295456057846109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_sword_off2-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0785b14c4044d9c0800000000000000
+      internalID: -3903424280759269622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_sword_off2-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 24
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 200781e3eba26aef0800000000000000
-      internalID: -97343345367945214
+      spriteID: 0afa0dfe9148187b0800000000000000
+      internalID: -5223748845840584800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_dash-Sheet_1
+      name: player_sword_off2-Sheet_3
       rect:
         serializedVersion: 2
-        x: 42
-        y: 3
-        width: 10
-        height: 20
+        x: 103
+        y: 0
+        width: 18
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,64 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fe8b219dc62eb300800000000000000
-      internalID: 269695692034510577
+      spriteID: 52c0e29278e4f4180800000000000000
+      internalID: -9128991577238270939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_dash-Sheet_2
+      name: player_sword_off2-Sheet_4
       rect:
         serializedVersion: 2
-        x: 75
-        y: 7
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6da2039ccb5d16400800000000000000
-      internalID: 315768455698590422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-mask_dash-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 7
-        width: 17
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 65094ed00f6442ba0800000000000000
-      internalID: -6114684397223112618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-mask_dash-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 6
+        x: 135
+        y: 0
         width: 16
-        height: 9
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cbe795223cd673110800000000000000
-      internalID: 1240580907226201788
+      spriteID: f28ae226c0d9ee430800000000000000
+      internalID: 3814158610941782063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_dash-Sheet_5
+      name: player_sword_off2-Sheet_5
       rect:
         serializedVersion: 2
-        x: 171
-        y: 7
-        width: 9
-        height: 9
+        x: 167
+        y: 0
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,39 +243,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89f0c5e8fcd733810800000000000000
-      internalID: 1743875811122614168
+      spriteID: 1e79f8cd95054dd30800000000000000
+      internalID: 4455274278258972641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-mask_dash-Sheet_6
+      name: player_sword_off2-Sheet_6
       rect:
         serializedVersion: 2
-        x: 202
-        y: 3
-        width: 10
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d96e2d21add09a20800000000000000
-      internalID: 3067195030556797393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-mask_dash-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 232
+        x: 199
         y: 0
         width: 13
         height: 24
@@ -290,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c48dc5494711a9860800000000000000
-      internalID: 7537356118760937548
+      spriteID: d4139a3e78500e380800000000000000
+      internalID: -8944142778759564979
       vertices: []
       indices: 
       edges: []
@@ -310,14 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player-mask_dash-Sheet_0: -97343345367945214
-      player-mask_dash-Sheet_1: 269695692034510577
-      player-mask_dash-Sheet_2: 315768455698590422
-      player-mask_dash-Sheet_3: -6114684397223112618
-      player-mask_dash-Sheet_4: 1240580907226201788
-      player-mask_dash-Sheet_5: 1743875811122614168
-      player-mask_dash-Sheet_6: 3067195030556797393
-      player-mask_dash-Sheet_7: 7537356118760937548
+      player_sword_off2-Sheet_0: -3914295456057846109
+      player_sword_off2-Sheet_1: -3903424280759269622
+      player_sword_off2-Sheet_2: -5223748845840584800
+      player_sword_off2-Sheet_3: -9128991577238270939
+      player_sword_off2-Sheet_4: 3814158610941782063
+      player_sword_off2-Sheet_5: 4455274278258972641
+      player_sword_off2-Sheet_6: -8944142778759564979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

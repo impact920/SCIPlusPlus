@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 520aec1abd9d06d4da16a2eb3956eaec
+guid: 822bc20055797294e86b5572651bb4a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7939197079161234552
-    second: player_walk-Sheet_0
+      213: -6449900233240358152
+    second: player_dash-Sheet_0
   - first:
-      213: 4759368979565057057
-    second: player_walk-Sheet_1
+      213: -6927008547920690918
+    second: player_dash-Sheet_1
   - first:
-      213: 2627101981033025385
-    second: player_walk-Sheet_2
-  - first:
-      213: -5017712988063361957
-    second: player_walk-Sheet_3
-  - first:
-      213: 7764196897212826444
-    second: player_walk-Sheet_4
-  - first:
-      213: 2234606475637491290
-    second: player_walk-Sheet_5
+      213: -6199502748792001829
+    second: player_dash-Sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,10 +106,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_walk-Sheet_0
+      name: player_dash-Sheet_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 6
         y: 0
         width: 13
         height: 24
@@ -130,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87469390ea1bd2e60800000000000000
-      internalID: 7939197079161234552
+      spriteID: 8f2dff039e95d76a0800000000000000
+      internalID: -6449900233240358152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_walk-Sheet_1
+      name: player_dash-Sheet_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 35
         y: 0
-        width: 15
-        height: 23
+        width: 17
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1241df5eedcac0240800000000000000
-      internalID: 4759368979565057057
+      spriteID: a11c7113d625edf90800000000000000
+      internalID: -6927008547920690918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_walk-Sheet_2
+      name: player_dash-Sheet_2
       rect:
         serializedVersion: 2
-        x: 73
+        x: 64
         y: 0
-        width: 12
-        height: 24
+        width: 20
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,74 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96fc2303557557420800000000000000
-      internalID: 2627101981033025385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_walk-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 0
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b549e915f908d5ab0800000000000000
-      internalID: -5017712988063361957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_walk-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 0
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c438f8801f7ffbb60800000000000000
-      internalID: 7764196897212826444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_walk-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 0
-        width: 12
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a56092900cae20f10800000000000000
-      internalID: 2234606475637491290
+      spriteID: bdae13aa811f6f9a0800000000000000
+      internalID: -6199502748792001829
       vertices: []
       indices: 
       edges: []
@@ -260,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_walk-Sheet_0: 7939197079161234552
-      player_walk-Sheet_1: 4759368979565057057
-      player_walk-Sheet_2: 2627101981033025385
-      player_walk-Sheet_3: -5017712988063361957
-      player_walk-Sheet_4: 7764196897212826444
-      player_walk-Sheet_5: 2234606475637491290
+      player_dash-Sheet_0: -6449900233240358152
+      player_dash-Sheet_1: -6927008547920690918
+      player_dash-Sheet_2: -6199502748792001829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
