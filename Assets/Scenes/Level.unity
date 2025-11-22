@@ -7031,7 +7031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2975165471304397228, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: m_Size.y
-      value: 0.719635
+      value: 0.65594465
       objectReference: {fileID: 0}
     - target: {fileID: 2975165471304397228, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: m_Offset.x
@@ -7039,12 +7039,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2975165471304397228, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: m_Offset.y
-      value: -0.1401825
+      value: -0.16453466
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975165471304397228, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975165471304397228, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3531786726242518364, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 4967610203664224606, guid: 70ca37a3451ea7948a27b11f4969941f, type: 3}
+      objectReference: {fileID: 7764196897212826444, guid: 1aede178335d85541978438d5c868836, type: 3}
     - target: {fileID: 5548456904118342776, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7092,7 +7100,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5548456904118342776, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1734813206}
   m_SourcePrefab: {fileID: 100100000, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
 --- !u!1 &278073138
 GameObject:
@@ -13060,6 +13071,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1368972511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5548456904118342776, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+  m_PrefabInstance: {fileID: 169373429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1412764376
 GameObject:
   m_ObjectHideFlags: 0
@@ -13185,7 +13201,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.4047618
+  orthographic size: 2.8690476
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -13465,6 +13481,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.15686275
       objectReference: {fileID: 0}
+    - target: {fileID: 7193981369093273506, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7381743651650216147, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -13521,12 +13541,34 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7779204696099102261, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
   m_PrefabInstance: {fileID: 169373429}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1368972511}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d798afc852ac4c059c01235162f1cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+--- !u!95 &1734813206
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368972511}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e68025baddbce4dad97d143904e150b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1897498505
 GameObject:
   m_ObjectHideFlags: 0
@@ -16105,16 +16147,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -5, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -2, y: -3, z: 0}
     second:
       serializedVersion: 2
@@ -17139,8 +17171,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 47a3937584ae34a19a90de19c5a6232c, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3b3528328e7584237ac4b8f0c95eb906, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 488e49808f56b4d37b6ce1c6a2e39b73, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7e8c92513b6a94021affc5d2c6c50352, type: 2}
   - m_RefCount: 2
@@ -17190,8 +17222,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 278
     m_Data: {fileID: 1146777498, guid: 18e492b192d1b486da383c5ff16a13b0, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -6995928611821478906, guid: 7a4bb6c8045354bc19c03afde2429e59, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1362793002539099086, guid: 7a4bb6c8045354bc19c03afde2429e59, type: 3}
   - m_RefCount: 1
@@ -17255,7 +17287,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 2056615007, guid: 2bd61f50b2fba443ead4361dc3a8a74e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 45
+  - m_RefCount: 44
     m_Data:
       e00: 1
       e01: 0
@@ -17292,7 +17324,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 323
+  - m_RefCount: 322
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1

@@ -66,9 +66,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool abilityInUse = false;
 
+    private Animator anim;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -144,6 +149,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
         }
+
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
+        anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+        anim.SetBool("IsGrounded", isGrounded);
+
     }
 
     private void FixedUpdate()
@@ -178,6 +188,8 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        anim.SetTrigger("Dash");
+
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
 
@@ -205,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator SpawnGhost()
     {
+        anim.SetBool("GhostMode", true);
         abilityInUse = true;
         canUseGhost = false;
         ghostActive = true;
@@ -236,6 +249,7 @@ public class PlayerMovement : MonoBehaviour
 
         ghostActive = false;
         abilityInUse = false;
+        anim.SetBool("SkillMode", false);
 
         yield return new WaitForSeconds(ghostCooldown);
         canUseGhost = true;
@@ -275,6 +289,7 @@ public class PlayerMovement : MonoBehaviour
         abilityInUse = true;
         canUseStaticGhost = false;
         staticGhostActive = true;
+        anim.SetBool("SkillMode", true);
 
         if (positionHistory.Count < 2)
         {
@@ -296,6 +311,8 @@ public class PlayerMovement : MonoBehaviour
 
         staticGhostActive = false;
         abilityInUse = false;
+        anim.SetBool("SkillMode", false);
+
 
         yield return new WaitForSeconds(staticGhostCooldown);
         canUseStaticGhost = true;
