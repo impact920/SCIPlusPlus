@@ -120,7 +120,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -140,9 +140,9 @@ TextureImporter:
       name: player_walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 32
         y: 0
-        width: 38
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -162,9 +162,9 @@ TextureImporter:
       name: player_walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 64
         y: 0
-        width: 38
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -184,9 +184,9 @@ TextureImporter:
       name: player_walk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 114
+        x: 96
         y: 0
-        width: 38
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -206,9 +206,9 @@ TextureImporter:
       name: player_walk-Sheet_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 128
         y: 0
-        width: 38
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -220,6 +220,28 @@ TextureImporter:
       bones: []
       spriteID: c438f8801f7ffbb60800000000000000
       internalID: 7764196897212826444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_walk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8424cebceab2c4db46bf992426192d
+      internalID: 1380774396
       vertices: []
       indices: 
       edges: []
@@ -238,13 +260,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":38.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       player_walk-Sheet_0: 7939197079161234552
       player_walk-Sheet_1: 4759368979565057057
       player_walk-Sheet_2: 2627101981033025385
       player_walk-Sheet_3: -5017712988063361957
       player_walk-Sheet_4: 7764196897212826444
+      player_walk-Sheet_5: 1380774396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
