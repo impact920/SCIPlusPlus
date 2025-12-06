@@ -66,21 +66,33 @@ public class PlayerMovement : MonoBehaviour
 
     private bool abilityInUse = false;
 
+    // --- ANIMATOR ---
     private Animator anim;
+
+    // ============================
+    //       ATTACK SYSTEM
+    // ============================
+    [Header("Attack Combo")]
+    public float comboResetTime = 0.8f;
+    private int comboStep = 0;
+    private float comboTimer = 0f;
+    private bool isAttacking = false;
+
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
     }
+
+
 
     private void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        // Rejestrowanie pozycji (dla cofania)
+        // Rejestrowanie pozycji dla cofania
         recordTimer += Time.deltaTime;
         if (recordTimer >= positionRecordInterval)
         {
@@ -93,14 +105,17 @@ public class PlayerMovement : MonoBehaviour
         wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
+        // reset jump
         if (!wasGrounded && isGrounded)
             jumpPerformed = false;
 
+        // coyote time
         if (isGrounded)
             coyoteTimeCounter = coyoteTime;
         else
             coyoteTimeCounter -= Time.deltaTime;
 
+        // jump buffer
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
@@ -124,37 +139,66 @@ public class PlayerMovement : MonoBehaviour
             jumpHoldTimer += Time.deltaTime;
         }
 
+        // DASH
         if (Input.GetKeyDown(KeyCode.E) && canDash)
         {
             StartCoroutine(Dash());
         }
 
+        // GHOST TELEPORT Q
         if (Input.GetKeyDown(KeyCode.Q) && canUseGhost && !abilityInUse)
         {
             StartCoroutine(SpawnGhost());
         }
 
+        // STATIC GHOST F
         if (Input.GetKeyDown(KeyCode.F) && canUseStaticGhost && !abilityInUse)
         {
             StartCoroutine(SpawnStaticGhostAndRewind());
         }
 
+        // Zmienna wysokość skoku
         if (rb.linearVelocity.y > 0 && !jumpButtonHeld && jumpHoldTimer < minHoldTime)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
-        // Obracanie gracza (i w efekcie ducha synchronizujemy w corrutine)
+        // Obracanie gracza
         if (moveInput != 0)
-        {
             transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
+
+        // ======================================
+        //              ANIMATOR
+        // ======================================
+        anim.SetBool("IsGrounded", isGrounded);
+        anim.SetBool("IsMoving", Mathf.Abs(moveInput) > 0.1f);
+        anim.SetBool("IsJumping", rb.linearVelocity.y > 0.1f && !isGrounded);
+        anim.SetBool("IsFalling", rb.linearVelocity.y < -0.1f && !isGrounded);
+        anim.SetBool("IsDashing", isDashing);
+
+        // ============================
+        //       ATTACK COMBO
+        // ============================
+        if (Input.GetMouseButtonDown(0) && !isAttacking && !isDashing && !abilityInUse)
+        {
+            StartAttackCombo();
         }
 
-        anim.SetFloat("Speed", Mathf.Abs(moveInput));
-        anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
-        anim.SetBool("IsGrounded", isGrounded);
+        if (isAttacking)
+        {
+            comboTimer += Time.deltaTime;
+            if (comboTimer >= comboResetTime)
+            {
+                comboStep = 0;
+                isAttacking = false;
+                comboTimer = 0f;
 
+                anim.SetTrigger("Sheathe");  // ⬅ animacja chowania miecza
+            }
+        }
     }
+
+
 
     private void FixedUpdate()
     {
@@ -163,6 +207,8 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
     }
+
+
 
     private void Jump()
     {
@@ -173,16 +219,15 @@ public class PlayerMovement : MonoBehaviour
         jumpHoldTimer = 0f;
         jumpButtonHeld = true;
 
-        // --- NAPRAWIONE: natychmiast informujemy ducha, że gracz skoczył ---
         if (activeGhost != null)
         {
             PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
             if (ghostScript != null)
-            {
                 ghostScript.TriggerJump();
-            }
         }
     }
+
+
 
     private IEnumerator Dash()
     {
@@ -196,7 +241,6 @@ public class PlayerMovement : MonoBehaviour
         float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
         rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
 
-        // jeśli duch aktywny to wyślij mu polecenie dashu
         if (activeGhost != null)
         {
             PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
@@ -215,9 +259,66 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
+
+
+    // ===========================
+//      ATTACK COMBO
+// ===========================
+private void StartAttackCombo()
+{
+    isAttacking = true;
+    comboTimer = 0f;
+
+    comboStep++;
+
+    if (comboStep > 3)
+        comboStep = 1;
+
+    // 🔥 wyłącz ruch w czasie ataku
+    rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+
+    switch (comboStep)
+    {
+        case 1:
+            anim.SetTrigger("Attack1");
+            break;
+
+        case 2:
+            anim.SetTrigger("Attack2");
+            break;
+
+        case 3:
+            anim.SetTrigger("Attack3");
+            break;
+    }
+}
+
+// wywoływane z Animation Event (koniec animacji)
+public void OnAttackEnd()
+{
+    if (comboTimer > 0 && comboTimer < comboResetTime)
+    {
+        // czekamy na kolejny klik
+        isAttacking = false;
+    }
+    else
+    {
+        // reset komba
+        comboStep = 0;
+        isAttacking = false;
+        anim.SetTrigger("Sheathe");
+    }
+}
+
+
+
+
+    // ===================================================
+    //            GHOST TELEPORT (Q)
+    // ===================================================
     private IEnumerator SpawnGhost()
     {
-        anim.SetBool("GhostMode", true);
+        anim.SetBool("SkillMode", true);
         abilityInUse = true;
         canUseGhost = false;
         ghostActive = true;
@@ -235,25 +336,25 @@ public class PlayerMovement : MonoBehaviour
         ghostScript.groundLayer = groundLayer;
         ghostScript.groundCheckRadius = groundCheckRadius;
 
-        // Synchronizacja ruchów ducha z graczem (obrót i move input + dash)
         StartCoroutine(SyncGhostWithPlayer(ghostScript));
 
         yield return new WaitForSeconds(ghostLifetime);
 
         if (activeGhost != null)
         {
-            Vector3 startPos = transform.position;
             transform.position = activeGhost.transform.position;
             Destroy(activeGhost);
         }
 
         ghostActive = false;
         abilityInUse = false;
+
         anim.SetBool("SkillMode", false);
 
         yield return new WaitForSeconds(ghostCooldown);
         canUseGhost = true;
     }
+
 
     private IEnumerator SyncGhostWithPlayer(PlayerGhost ghost)
     {
@@ -261,7 +362,6 @@ public class PlayerMovement : MonoBehaviour
 
         while (ghost != null)
         {
-            // Obrót ducha w kierunku gracza
             bool facingRight = transform.localScale.x > 0;
             if (facingRight != lastFacingRight)
             {
@@ -269,11 +369,8 @@ public class PlayerMovement : MonoBehaviour
                 lastFacingRight = facingRight;
             }
 
-            // Poruszanie
             ghost.SetMoveInput(moveInput);
 
-            // Dash: jeśli gracz naciśnie E to już w Dash() wysyłamy polecenie, 
-            // tutaj zostawiamy dodatkowe zabezpieczenie (na wypadek innego systemu)
             if (Input.GetKeyDown(KeyCode.E) && canDash)
             {
                 float direction = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
@@ -284,17 +381,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
+    // ===================================================
+    //             STATIC GHOST (F) REWIND
+    // ===================================================
     private IEnumerator SpawnStaticGhostAndRewind()
     {
         abilityInUse = true;
         canUseStaticGhost = false;
         staticGhostActive = true;
+
         anim.SetBool("SkillMode", true);
 
         if (positionHistory.Count < 2)
         {
             staticGhostActive = false;
             abilityInUse = false;
+            anim.SetBool("SkillMode", false);
             yield break;
         }
 
@@ -302,7 +406,6 @@ public class PlayerMovement : MonoBehaviour
         ghost.tag = "StaticGhost";
 
         Vector3 rewindPosition = positionHistory[0];
-        Vector3 startPos = transform.position;
 
         transform.position = rewindPosition;
 
@@ -311,12 +414,15 @@ public class PlayerMovement : MonoBehaviour
 
         staticGhostActive = false;
         abilityInUse = false;
-        anim.SetBool("SkillMode", false);
 
+        anim.SetBool("SkillMode", false);
 
         yield return new WaitForSeconds(staticGhostCooldown);
         canUseStaticGhost = true;
     }
+
+
+
 
     private void OnDrawGizmosSelected()
     {
