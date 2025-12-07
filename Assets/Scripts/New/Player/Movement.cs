@@ -78,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
     private float comboTimer = 0f;
     private bool isAttacking = false;
 
+    [Header("Attack Movement Modifier")]
+[Range(0f, 1f)]
+public float attackMoveSpeedMultiplier = 0.5f;
+
+
 
 
     private void Start()
@@ -180,9 +185,10 @@ public class PlayerMovement : MonoBehaviour
         //       ATTACK COMBO
         // ============================
         if (Input.GetMouseButtonDown(0) && !isAttacking && !isDashing && !abilityInUse)
-        {
-            StartAttackCombo();
-        }
+{
+    StartRandomAttack();
+}
+
 
         if (isAttacking)
         {
@@ -193,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
                 isAttacking = false;
                 comboTimer = 0f;
 
-                anim.SetTrigger("Sheathe");  // ⬅ animacja chowania miecza
+                PlayRandomSheathe();
             }
         }
     }
@@ -204,7 +210,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDashing)
         {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+            float currentSpeed = moveSpeed;
+
+if (isAttacking)
+    currentSpeed *= attackMoveSpeedMultiplier;
+
+rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
+
         }
     }
 
@@ -261,23 +273,31 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    // ===========================
-//      ATTACK COMBO
-// ===========================
-private void StartAttackCombo()
+   // ============================
+//      RANDOM ATTACK
+// ============================
+
+
+// ============================
+//      RANDOM ATTACK
+// ============================
+
+private void StartRandomAttack()
 {
+
+    anim.ResetTrigger("Attack1");
+anim.ResetTrigger("Attack2");
+anim.ResetTrigger("Attack3");
+
+    if (isAttacking) return;
+
     isAttacking = true;
-    comboTimer = 0f;
 
-    comboStep++;
+    // NIE BLOKUJEMY RUCHU!
 
-    if (comboStep > 3)
-        comboStep = 1;
+    int randomAttack = Random.Range(1, 4); // 1–3
 
-    // 🔥 wyłącz ruch w czasie ataku
-    rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-
-    switch (comboStep)
+    switch (randomAttack)
     {
         case 1:
             anim.SetTrigger("Attack1");
@@ -293,20 +313,28 @@ private void StartAttackCombo()
     }
 }
 
-// wywoływane z Animation Event (koniec animacji)
+// Wywoływane z Animation Event (koniec animacji)
 public void OnAttackEnd()
 {
-    if (comboTimer > 0 && comboTimer < comboResetTime)
+    isAttacking = false;
+    PlayRandomSheathe();
+}
+
+
+
+private void PlayRandomSheathe()
+{
+    int randomSheathe = Random.Range(1, 3); // 1 lub 2
+
+    switch (randomSheathe)
     {
-        // czekamy na kolejny klik
-        isAttacking = false;
-    }
-    else
-    {
-        // reset komba
-        comboStep = 0;
-        isAttacking = false;
-        anim.SetTrigger("Sheathe");
+        case 1:
+            anim.SetTrigger("Sheathe1");
+            break;
+
+        case 2:
+            anim.SetTrigger("Sheathe2");
+            break;
     }
 }
 
