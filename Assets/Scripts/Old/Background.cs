@@ -1,33 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Background : MonoBehaviour
+public class BackgroundLayer : MonoBehaviour
 {
-    private float startPos, length;
-    public GameObject cam;
-    public float parallaxEffect;
+    [Header("Camera")]
+    public Transform cam;
+
+    [Header("Parallax")]
+    [Range(0f, 1f)]
+    public float parallaxEffect = 0.5f;
+
+    [Header("Teleport settings")]
+    public float tileDistance = 20f; // stała odległość między tłami
+    public int tileCount = 3;        // ilość kafli
+
+    private Vector3 lastCamPos;
 
     void Start()
     {
-        startPos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        lastCamPos = cam.position;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        float distance = cam.transform.position.x * parallaxEffect;
-        float movement = cam.transform.position.x * (1 - parallaxEffect);
+        HandleParallax();
+        HandleTileTeleport();
+        lastCamPos = cam.position;
+    }
 
-        transform.position = new Vector2(startPos + distance, transform.position.y);
+    private void HandleParallax()
+    {
+        float deltaX = cam.position.x - lastCamPos.x;
+        transform.position += new Vector3(deltaX * parallaxEffect, 0f, 0f);
+    }
 
-        if(movement > startPos + length)
+    private void HandleTileTeleport()
+    {
+        foreach (Transform tile in transform)
         {
-            startPos += length;
-        }
-        else if (movement < startPos - length)
-        {
-         startPos -= length;
+            float camDistance = cam.position.x - tile.position.x;
+
+            if (camDistance > tileDistance)
+            {
+                tile.position += Vector3.right * tileDistance * tileCount;
+            }
+            else if (camDistance < -tileDistance)
+            {
+                tile.position -= Vector3.right * tileDistance * tileCount;
+            }
         }
     }
 }
