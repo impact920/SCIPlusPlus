@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 9f4b31e4b7a88b34fad9eac562ae4b0c
+guid: 92288dc800aa0ac46ac2bf6dfa707419
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8995536130136778957
-    second: hevyatack-Sheet_0
+      213: 374920687454491053
+    second: atack1-Sheet_0
   - first:
-      213: 7332924249858826691
-    second: hevyatack-Sheet_1
+      213: -8285376817830983763
+    second: atack1-Sheet_1
   - first:
-      213: 7703773564013458340
-    second: hevyatack-Sheet_2
+      213: 4823679717925456551
+    second: atack1-Sheet_2
   - first:
-      213: 8581144679231123070
-    second: hevyatack-Sheet_3
+      213: -7450553447143022642
+    second: atack1-Sheet_3
   - first:
-      213: 6460339371099257715
-    second: hevyatack-Sheet_4
+      213: -7569334037468861866
+    second: atack1-Sheet_4
   - first:
-      213: 5583513921855024653
-    second: hevyatack-Sheet_5
+      213: -5758975977122442539
+    second: atack1-Sheet_5
   - first:
-      213: -4349628997555769699
-    second: hevyatack-Sheet_6
+      213: -8841585286533780093
+    second: atack1-Sheet_6
   - first:
-      213: -4602696993822588338
-    second: hevyatack-Sheet_7
+      213: 8335588587428797549
+    second: atack1-Sheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hevyatack-Sheet_0
+      name: atack1-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,16 +134,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dc8aef0337096dc70800000000000000
-      internalID: 8995536130136778957
+      spriteID: 21269d1130008f24094d45b9955383ef
+      internalID: 374920687454491053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hevyatack-Sheet_1
+      name: atack1-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -156,16 +156,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3c1eea5f0c7c3c560800000000000000
-      internalID: 7332924249858826691
+      spriteID: 3800ea88a12be0140b2be602fa47c96b
+      internalID: -8285376817830983763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hevyatack-Sheet_2
+      name: atack1-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -178,16 +178,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4a331197d3d49ea60800000000000000
-      internalID: 7703773564013458340
+      spriteID: 29535b2be6efb7149af590c83b5dca60
+      internalID: 4823679717925456551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hevyatack-Sheet_3
+      name: atack1-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,16 +200,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e7eedc3fe99561770800000000000000
-      internalID: 8581144679231123070
+      spriteID: b125b3e68d943fe478903e7da591c250
+      internalID: -7450553447143022642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hevyatack-Sheet_4
+      name: atack1-Sheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -222,16 +222,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 37b77defd6cb7a950800000000000000
-      internalID: 6460339371099257715
+      spriteID: 530c5443070be2343bf2605eefdfee2d
+      internalID: -7569334037468861866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hevyatack-Sheet_5
+      name: atack1-Sheet_5
       rect:
         serializedVersion: 2
         x: 320
@@ -244,16 +244,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d0eed964450ac7d40800000000000000
-      internalID: 5583513921855024653
+      spriteID: cc15ba26f53c161428e9a9170e8ef72a
+      internalID: -5758975977122442539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hevyatack-Sheet_6
+      name: atack1-Sheet_6
       rect:
         serializedVersion: 2
         x: 384
@@ -266,10 +266,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d9e23f7d87303a3c0800000000000000
-      internalID: -4349628997555769699
+      spriteID: ef1e166a87ac6094b89d7e4977e3ea70
+      internalID: -8841585286533780093
       vertices: []
       indices: 
       edges: []
@@ -278,7 +278,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3ba09f79a7c54a74aac35b2d1728bac5
+    spriteID: 58389290dc383e74b803c39a92b05881
     internalID: 0
     vertices: []
     indices: 
@@ -290,13 +290,13 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      hevyatack-Sheet_0: 8995536130136778957
-      hevyatack-Sheet_1: 7332924249858826691
-      hevyatack-Sheet_2: 7703773564013458340
-      hevyatack-Sheet_3: 8581144679231123070
-      hevyatack-Sheet_4: 6460339371099257715
-      hevyatack-Sheet_5: 5583513921855024653
-      hevyatack-Sheet_6: -4349628997555769699
+      atack1-Sheet_0: 374920687454491053
+      atack1-Sheet_1: -8285376817830983763
+      atack1-Sheet_2: 4823679717925456551
+      atack1-Sheet_3: -7450553447143022642
+      atack1-Sheet_4: -7569334037468861866
+      atack1-Sheet_5: -5758975977122442539
+      atack1-Sheet_6: -8841585286533780093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
