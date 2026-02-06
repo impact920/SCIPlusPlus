@@ -28,13 +28,13 @@ AnimationClip:
       value: {fileID: -8972065356704195469, guid: fb008d3fa260d60499071b912858704c, type: 3}
     - time: 0.25
       value: {fileID: 8686019500533469301, guid: fb008d3fa260d60499071b912858704c, type: 3}
-    - time: 0.33333334
+    - time: 0.35
       value: {fileID: -658779386415668141, guid: fb008d3fa260d60499071b912858704c, type: 3}
-    - time: 0.41666666
+    - time: 0.43333334
       value: {fileID: 3849105095810612957, guid: fb008d3fa260d60499071b912858704c, type: 3}
-    - time: 0.5
+    - time: 0.51666665
       value: {fileID: -3318951910602005401, guid: fb008d3fa260d60499071b912858704c, type: 3}
-    - time: 0.5833333
+    - time: 0.6
       value: {fileID: -8613931197494880512, guid: fb008d3fa260d60499071b912858704c, type: 3}
     attribute: m_Sprite
     path: 
@@ -71,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.7
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,7 +91,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5833333
+  - time: 0.7
     functionName: OnAttackEnd
     data: 
     objectReferenceParameter: {fileID: 0}
