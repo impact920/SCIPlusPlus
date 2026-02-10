@@ -3,11 +3,11 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 2f;             // Prędkość poruszania się wroga
+    public float moveSpeed = 2f;             
     private bool movingRight = true;         // Kierunek ruchu
 
     [Header("Ground Detection")]
-    public Transform groundDetection;        // Punkt wykrywający grunt
+    public Transform groundDetection;        
     public float detectionDistance = 2f;     // Długość raycastu
     public LayerMask groundLayer;            // Warstwa ziemi
 
@@ -26,28 +26,28 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
-        // --- Podstawowy ruch ---
+        // Podstawowy ruch 
         rb.linearVelocity = new Vector2(moveSpeed * (movingRight ? 1 : -1), rb.linearVelocity.y);
 
-        // --- Sprawdzanie gruntu ---
+        // Sprawdzanie ziemi
         wasGrounded = isGrounded;
         isGrounded = Physics2D.Raycast(groundDetection.position, Vector2.down, detectionDistance, groundLayer);
 
-        // --- Sprawdzanie przepaści ---
+        // Sprawdzanie przepaści 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, detectionDistance, groundLayer);
         if (groundInfo.collider == false)
         {
             Flip();
         }
 
-        // --- Sprawdzanie ścian ---
+        // Sprawdzanie ścian 
         RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, movingRight ? Vector2.right : Vector2.left, wallDetectionDistance, groundLayer);
         if (wallInfo.collider == true)
         {
             Flip();
         }
 
-        // --- [ANTI-STEP FIX jak u gracza] ---
+        // ANTI-STEP FIX jak u gracza
         // Jeśli wróg jest na ziemi i porusza się, sprawdzamy mikroszczeliny pod nogami
         if (isGrounded)
         {
@@ -69,7 +69,7 @@ public class EnemyPatrol : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    // Opcjonalny podgląd w edytorze
+    // Podgląd w edytorze
     void OnDrawGizmosSelected()
     {
         if (groundDetection != null)

@@ -9,7 +9,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // 💾 Odczytaj checkpoint z pamięci
+        // Odczytaj checkpoint z pamięci
         if (PlayerPrefs.GetInt("HasCheckpoint", 0) == 1)
         {
             float x = PlayerPrefs.GetFloat("CheckpointX");

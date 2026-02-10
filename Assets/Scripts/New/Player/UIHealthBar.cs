@@ -3,13 +3,12 @@ using UnityEngine.UI;
 
 public class UIHealthBar : MonoBehaviour
 {
-    [Header("Referencje")]
-    public PlayerHealth playerHealth; // odnośnik do gracza
-    public Image fillImage;            // zielony prostokąt paska
+    [Header("References")]
+    public PlayerHealth playerHealth; // Odnośnik do gracza
+    public Image fillImage;            // Zielony prostokąt paska
 
-    [Header("Ustawienia animacji")]
-    public float smoothSpeed = 5f;     // szybkość płynnej animacji
-
+    [Header("Smoothness")]
+    public float smoothSpeed = 5f;     
     private float maxWidth;
     private float targetWidth;
     private float currentWidth;
@@ -20,7 +19,7 @@ public class UIHealthBar : MonoBehaviour
         currentWidth = maxWidth;
         targetWidth = maxWidth;
 
-        // od razu ustaw pełny pasek po krótkim czasie (dla pewności, że gracz jest zainicjalizowany)
+        // Ustaw pełny pasek po krótkim czasie (dla pewności, że gracz jest zainicjalizowany)
         Invoke(nameof(ForceFullHealthBar), 0.05f);
     }
 
@@ -32,7 +31,7 @@ public class UIHealthBar : MonoBehaviour
         fillAmount = Mathf.Clamp01(fillAmount);
         targetWidth = maxWidth * fillAmount;
 
-        // płynne przesuwanie
+        // Płynne przesuwanie
         currentWidth = Mathf.Lerp(currentWidth, targetWidth, Time.deltaTime * smoothSpeed);
         fillImage.rectTransform.sizeDelta = new Vector2(currentWidth, fillImage.rectTransform.sizeDelta.y);
     }

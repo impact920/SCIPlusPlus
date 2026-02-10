@@ -8320,8 +8320,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: attackBufferTime
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: groundCheckRadius
       value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: attackMoveSpeedMultiplier
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 7779204696099102261, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: Reach

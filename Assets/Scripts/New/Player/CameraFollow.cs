@@ -3,24 +3,23 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [Header("Target Settings")]
-    public Transform target; // The player character
+    public Transform target; // Gracz
 
     [Header("Camera Offset")]
-    public Vector2 offset = new Vector2(2f, 1f); // Offset relative to the player
+    public Vector2 offset = new Vector2(2f, 1f); // Offset kamery
 
     [Header("Smoothness")]
-    public float smoothSpeed = 0.125f; // How quickly the camera follows
+    public float smoothSpeed = 0.125f; // Szybkosc
 
     [Header("Falling Settings")]
-    public float fallingYOffset = -2f; // Additional offset when falling
-    public float fallThreshold = -1f; // Threshold for detecting falling (velocity.y)
+    public float fallingYOffset = -2f; // Dodatkowe przesuniecie podczas opadania
+    public float fallThreshold = -1f; // Kiedy to sie zalacza
 
     private Vector3 velocity = Vector3.zero;
     private Rigidbody2D targetRigidbody;
 
     void Start()
     {
-        // Attempt to get the Rigidbody2D from the target
         if (target != null)
         {
             targetRigidbody = target.GetComponent<Rigidbody2D>();
@@ -35,11 +34,11 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null) return;
 
-        // Determine the desired position of the camera based on the target's facing direction
-        float direction = Mathf.Sign(target.localScale.x); // Determines if the player is facing left or right
+        // Okreslenie żzadanej pozycji kamery na podstawie kierunku, w którym skierowany jest gracz
+        float direction = Mathf.Sign(target.localScale.x); // Okreslenie czy gracz patrzy w lewo czy w prawo
         float yOffset = offset.y;
 
-        // Check if the player is falling
+        // Sprawdzanie czy gracz spada
         if (targetRigidbody != null && targetRigidbody.linearVelocity.y < fallThreshold)
         {
             yOffset += fallingYOffset;
@@ -51,7 +50,7 @@ public class CameraFollow : MonoBehaviour
             transform.position.z
         );
 
-        // Smoothly transition to the desired position
+        // Plynne przejscie do pozadanej pozycji
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
     }
 }

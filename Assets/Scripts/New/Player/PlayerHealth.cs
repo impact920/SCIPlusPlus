@@ -4,19 +4,21 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Ustawienia zdrowia")]
+    [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
 
-    [Header("Ochrona po obrażeniach")]
+    [Header("Invincibility")]
     public float invincibilityDuration = 1.5f;
     public int flashCount = 5;
     public Color flashColor = new Color(1, 0, 0, 0.5f);
 
-    [Header("Efekty i dźwięki")]
+    [Header("Sounds and Effects")]
     public GameObject deathEffect;
     public AudioClip hitSound;
     public AudioClip deathSound;
+
+    [Header("Attack")]
     public int attackDamage = 20;
     public float knockbackForce = 5f;
     public float Reach = 5f;
@@ -28,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     private bool isDead = false;
     private Rigidbody2D rb;
 
-    // Nowe pola dla systemu checkpointów i Death Menu
+    // Pola dla systemu checkpointów i Death Menu
     private DeathManager deathManager;
     private PlayerRespawn playerRespawn;
 
@@ -146,29 +148,26 @@ public class PlayerHealth : MonoBehaviour
         if (deathManager != null)
             deathManager.ShowDeathMenu();
         else
-            SceneManager.LoadScene("Main_Menu"); // awaryjnie
+            SceneManager.LoadScene("Main_Menu"); // Awaryjnie
     }
 
     public void Revive()
-{
-    Debug.Log("REVIVE: wywołano odrodzenie gracza");
-
-    currentHealth = maxHealth;
-    isDead = false;
-
-    if (playerRespawn != null)
     {
-        Debug.Log("REVIVE: playerRespawn znaleziony, odradzam gracza");
-        playerRespawn.Respawn();
+        Debug.Log("REVIVE: wywołano odrodzenie gracza");
+
+        currentHealth = maxHealth;
+        isDead = false;
+
+        if (playerRespawn != null)
+        {
+            Debug.Log("REVIVE: playerRespawn znaleziony, odradzam gracza");
+            playerRespawn.Respawn();
+        }
+        else
+        {
+            Debug.LogError("REVIVE: Brak referencji do PlayerRespawn!");
+        }
     }
-    else
-    {
-        Debug.LogError("REVIVE: Brak referencji do PlayerRespawn!");
-    }
-}
-
-
-
 
     private IEnumerator InvincibilityCoroutine()
     {

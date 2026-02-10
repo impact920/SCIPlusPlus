@@ -3,16 +3,18 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Header("Health and Damage")]
     public int damage = 10;
     public int maxHealth = 50;
     public int currentHealth;
 
+    [Header("Flash")]
     public int flashCount = 3;
     public Color flashColor = Color.red;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
-    [Header("Animacje")]
+    [Header("Animations")]
     public Animator animator;
     public string deathAnimationTrigger = "Death";
     public float deathAnimationDuration = 1.0f;

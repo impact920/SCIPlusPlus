@@ -19,14 +19,14 @@ public class PauseManager : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f; // zatrzymuje gre
+        Time.timeScale = 0f; // Zatrzymuje gre
         isPaused = true;
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Wznawia gre
         isPaused = false;
     }
 

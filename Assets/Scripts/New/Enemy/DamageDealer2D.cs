@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class DamageDealer2D : MonoBehaviour
 {
-    [Header("Ustawienia obrażeń")]
+    [Header("Damage")]
     public int damage = 10;
-    public float damageInterval = 1f; // co ile sekund zadaje obrażenia
+    public float damageInterval = 1f; // Co ile sekund zadaje obrażenia
 
     private bool playerInside = false;
     private PlayerHealth playerHealth;

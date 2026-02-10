@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Ruch")]
+    [Header("Movement")]
     public float moveSpeed = 8f;
     public float jumpForce = 12f;
 
-    [Header("Skok (zmienna wysokość)")]
+    [Header("Jump")]
     public float lowJumpMultiplier = 2f;
     public float minHoldTime = 0.15f;
 
@@ -25,11 +25,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpBufferTime = 0.15f;
     private float jumpBufferCounter;
 
-    [Header("Kontrola gruntu")]
+    [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-
     private Rigidbody2D rb;
     private float moveInput;
     private bool isGrounded;
@@ -37,12 +36,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private bool canDash = true;
     private bool jumpPerformed;
-
     private bool jumpButtonHeld;
     private float jumpHoldTimer;
 
-    // Duch teleportacyjny (Q)
-    [Header("Duch Teleportacyjny (Q)")]
+    [Header("Teleport Ghost (Q)")]
     public GameObject ghostPrefab;
     public float ghostMoveSpeedMultiplier = 1.5f;
     public float ghostJumpMultiplier = 1.5f;
@@ -53,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canUseGhost = true;
     private GameObject activeGhost;
 
-    // Duch cofający (F)
-    [Header("Duch Cofający (F)")]
+    [Header("Revind Ghost (F)")]
     public GameObject staticGhostPrefab;
     public float staticGhostLifetime = 5f;
     public float staticGhostCooldown = 6f;
@@ -63,26 +59,21 @@ public class PlayerMovement : MonoBehaviour
     private float recordTimer;
     private bool canUseStaticGhost = true;
     private bool staticGhostActive;
-
     private bool abilityInUse = false;
-
     // --- ANIMATOR ---
     private Animator anim;
 
-    // ============================
-    //       ATTACK SYSTEM
-    // ============================
-    [Header("Attack Combo")]
-    public float comboResetTime = 0.8f;
-    private int comboStep = 0;
-    private float comboTimer = 0f;
+    [Header("Attack")]
+
     private bool isAttacking = false;
 
     [Header("Attack Movement Modifier")]
-[Range(0f, 1f)]
-public float attackMoveSpeedMultiplier = 0.5f;
+    [Range(0f, 1f)]
+    public float attackMoveSpeedMultiplier = 0.5f;
 
-
+    [Header("Attack Buffer")]
+public float attackBufferTime = 0.2f;
+private float attackBufferCounter = 0f;
 
 
     private void Start()
@@ -90,8 +81,6 @@ public float attackMoveSpeedMultiplier = 0.5f;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-
-
 
     private void Update()
     {
@@ -172,39 +161,31 @@ public float attackMoveSpeedMultiplier = 0.5f;
         if (moveInput != 0)
             transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
 
-        // ======================================
-        //              ANIMATOR
-        // ======================================
+
+        // Animator
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("IsMoving", Mathf.Abs(moveInput) > 0.1f);
         anim.SetBool("IsJumping", rb.linearVelocity.y > 0.1f && !isGrounded);
         anim.SetBool("IsFalling", rb.linearVelocity.y < -0.1f && !isGrounded);
         anim.SetBool("IsDashing", isDashing);
 
-        // ============================
-        //       ATTACK COMBO
-        // ============================
-        if (Input.GetMouseButtonDown(0) && !isAttacking && !isDashing && !abilityInUse)
+        // Atak
+        if (Input.GetMouseButtonDown(0))
 {
-    StartRandomAttack();
+    attackBufferCounter = attackBufferTime;
 }
 
+// zmniejszanie bufora
+attackBufferCounter -= Time.deltaTime;
 
-        if (isAttacking)
-        {
-            comboTimer += Time.deltaTime;
-            if (comboTimer >= comboResetTime)
-            {
-                comboStep = 0;
-                isAttacking = false;
-                comboTimer = 0f;
+// jeśli można atakować i jest klik w buforze
+if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
+{
+    StartRandomAttack();
+    attackBufferCounter = 0f;
+}
 
-                PlayRandomSheathe();
-            }
-        }
     }
-
-
 
     private void FixedUpdate()
     {
@@ -212,15 +193,12 @@ public float attackMoveSpeedMultiplier = 0.5f;
         {
             float currentSpeed = moveSpeed;
 
-if (isAttacking)
-    currentSpeed *= attackMoveSpeedMultiplier;
-
-rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
-
+            if (isAttacking)
+                currentSpeed *= attackMoveSpeedMultiplier;
+                rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
+            
         }
     }
-
-
 
     private void Jump()
     {
@@ -238,8 +216,6 @@ rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
                 ghostScript.TriggerJump();
         }
     }
-
-
 
     private IEnumerator Dash()
     {
@@ -271,79 +247,44 @@ rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
         canDash = true;
     }
 
-
-
-   // ============================
-//      RANDOM ATTACK
-// ============================
-
-
-// ============================
-//      RANDOM ATTACK
-// ============================
-
-private void StartRandomAttack()
-{
-
-    anim.ResetTrigger("Attack1");
-anim.ResetTrigger("Attack2");
-anim.ResetTrigger("Attack3");
-
-    if (isAttacking) return;
-
-    isAttacking = true;
-
-    // NIE BLOKUJEMY RUCHU!
-
-    int randomAttack = Random.Range(1, 4); // 1–3
-
-    switch (randomAttack)
+    private void StartRandomAttack()
     {
-        case 1:
+
+        anim.ResetTrigger("Attack1");
+        anim.ResetTrigger("Attack2");
+        anim.ResetTrigger("Attack3");
+
+        if (isAttacking) return;
+
+        isAttacking = true;
+
+        int randomAttack = Random.Range(1, 3); // 1–3
+
+        switch (randomAttack)
+        {
+            case 1:
             anim.SetTrigger("Attack1");
             break;
 
-        case 2:
+            case 2:
             anim.SetTrigger("Attack2");
             break;
 
-        case 3:
+            case 3:
             anim.SetTrigger("Attack3");
             break;
+        }
     }
-}
 
-// Wywoływane z Animation Event (koniec animacji)
-public void OnAttackEnd()
-{
-    isAttacking = false;
-    PlayRandomSheathe();
-}
-
-
-
-private void PlayRandomSheathe()
-{
-    int randomSheathe = Random.Range(1, 3); // 1 lub 2
-
-    switch (randomSheathe)
-    {
-        case 1:
-            anim.SetTrigger("Sheathe1");
-            break;
-
-        case 2:
-            anim.SetTrigger("Sheathe2");
-            break;
+    public void OnAttackEnd()
+    {   
+        isAttacking = false;
     }
-}
 
 
 
+    
 
-    // ===================================================
-    //            GHOST TELEPORT (Q)
-    // ===================================================
     private IEnumerator SpawnGhost()
     {
         anim.SetBool("SkillMode", true);
@@ -383,7 +324,6 @@ private void PlayRandomSheathe()
         canUseGhost = true;
     }
 
-
     private IEnumerator SyncGhostWithPlayer(PlayerGhost ghost)
     {
         bool lastFacingRight = transform.localScale.x > 0;
@@ -409,11 +349,6 @@ private void PlayRandomSheathe()
         }
     }
 
-
-
-    // ===================================================
-    //             STATIC GHOST (F) REWIND
-    // ===================================================
     private IEnumerator SpawnStaticGhostAndRewind()
     {
         abilityInUse = true;
@@ -448,9 +383,6 @@ private void PlayRandomSheathe()
         yield return new WaitForSeconds(staticGhostCooldown);
         canUseStaticGhost = true;
     }
-
-
-
 
     private void OnDrawGizmosSelected()
     {
