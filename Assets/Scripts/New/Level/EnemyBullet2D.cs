@@ -7,16 +7,20 @@ public class EnemyBullet2D : MonoBehaviour
     public float speed = 10f;
     public float lifeTime = 3f;
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    // Metoda do inicjalizacji pocisku
+    public void Init(float bulletSpeed, Vector2 direction)
     {
-        rb.linearVelocity = transform.right * speed;
+        speed = bulletSpeed;
+        rb.linearVelocity = direction * speed;
+
+        // Zniszcz pocisk po określonym czasie
         Destroy(gameObject, lifeTime);
     }
 

@@ -21103,6 +21103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_TNT_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5670616129713528841, guid: 167dd06a79b194bb5a67576565bf193d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21173,9 +21177,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1377310658679399349, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.78
+      objectReference: {fileID: 0}
     - target: {fileID: 1901056265121499410, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
       propertyPath: m_Name
       value: Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613173046158196105, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613173046158196105, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7395195200345160964, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21216,6 +21232,10 @@ PrefabInstance:
     - target: {fileID: 7395195200345160964, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706371991633047444, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
+      propertyPath: shootRight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

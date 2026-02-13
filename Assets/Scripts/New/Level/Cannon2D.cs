@@ -26,17 +26,18 @@ public class Cannon2D : MonoBehaviour
 
     void Shoot()
     {
+        // Tworzymy pocisk
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-        // Ustaw kierunek
-        float direction = shootRight ? 1f : -1f;
-        bullet.transform.right = new Vector2(direction, 0f);
+        // Ustawiamy kierunek
+        Vector2 direction = shootRight ? Vector2.right : Vector2.left;
+        bullet.transform.right = direction;
 
-        // Przekazanie prędkości do pocisku
+        // Inicjalizujemy pocisk
         EnemyBullet2D bulletScript = bullet.GetComponent<EnemyBullet2D>();
         if (bulletScript != null)
         {
-            bulletScript.speed = bulletSpeed;
+            bulletScript.Init(bulletSpeed, direction);
         }
     }
 }
