@@ -20548,7 +20548,7 @@ Tilemap:
       - {fileID: -4704261264892754323, guid: 58764036cba17413d8ed7ed3e059c6a2, type: 3}
       - {fileID: -324634693526516157, guid: 58764036cba17413d8ed7ed3e059c6a2, type: 3}
       - {fileID: 7039333144802297169, guid: 58764036cba17413d8ed7ed3e059c6a2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -21184,6 +21184,14 @@ PrefabInstance:
     - target: {fileID: 1901056265121499410, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
       propertyPath: m_Name
       value: Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370035090987431384, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464868184929090899, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3613173046158196105, guid: 96bdc66ff0315431cb78602fe5c7062b, type: 3}
       propertyPath: m_LocalPosition.x
