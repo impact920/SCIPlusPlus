@@ -51,60 +51,55 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         if (isDead) return;
-
-        HandleFlip();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Attack();
-        }
     }
 
-    void HandleFlip()
+    
+
+    public void DealDamage()
+{
+
+    CameraShake.Instance?.ShakeFromDamage(attackDamage);
+
+
+    float direction = Mathf.Sign(transform.localScale.x);
+    Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
+    Vector2 capsuleSize = new Vector2(Reach, 2f);
+
+    Collider2D[] hitEnemies = Physics2D.OverlapCapsuleAll(
+        capsuleCenter,
+        capsuleSize,
+        CapsuleDirection2D.Horizontal,
+        0f
+    );
+
+    foreach (var enemyCollider in hitEnemies)
     {
-        if (rb.linearVelocity.x > 0.1f)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (rb.linearVelocity.x < -0.1f)
-            transform.localScale = new Vector3(-1, 1, 1);
-    }
-
-    void Attack()
-    {
-        float direction = Mathf.Sign(transform.localScale.x);
-        Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
-        Vector2 capsuleSize = new Vector2(Reach, 2f);
-
-        Collider2D[] hitEnemies = Physics2D.OverlapCapsuleAll(
-            capsuleCenter,
-            capsuleSize,
-            CapsuleDirection2D.Horizontal,
-            0f
-        );
-
-        foreach (var enemyCollider in hitEnemies)
+        EnemyHealth enemy = enemyCollider.GetComponent<EnemyHealth>();
+        if (enemy != null)
         {
-            EnemyHealth enemy = enemyCollider.GetComponent<EnemyHealth>();
-            if (enemy != null)
+            Vector2 toEnemy = enemy.transform.position - transform.position;
+
+            if (Mathf.Sign(toEnemy.x) == direction)
             {
-                Vector2 toEnemy = enemy.transform.position - transform.position;
-                if (Mathf.Sign(toEnemy.x) == direction)
-                {
-                    enemy.TakeDamage(attackDamage);
-                    enemy.StartCoroutine(enemy.FlashCoroutine());
+                enemy.TakeDamage(attackDamage);
 
-                    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
-                    if (enemyRb != null)
-                    {
-                        Vector2 knockbackDir = toEnemy.normalized;
-                        enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
-                    }
+                Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+                if (enemyRb != null)
+                {
+                    Vector2 knockbackDir = toEnemy.normalized;
+                    enemyRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
                 }
             }
         }
     }
+}
+
 
     public void TakeDamage(int damage)
     {
+        CameraShake.Instance?.ShakeFromDamage(damage);
+
+
         if (isDead || isInvincible) return;
 
         currentHealth -= damage;

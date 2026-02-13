@@ -15987,6 +15987,7 @@ GameObject:
   - component: {fileID: 1412764378}
   - component: {fileID: 1412764377}
   - component: {fileID: 1412764382}
+  - component: {fileID: 1412764383}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -16098,7 +16099,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.3186812
+  orthographic size: 2.9780219
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -16153,6 +16154,24 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &1412764383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412764376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab785b597b754f14ab1e7c3c4fa0387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  minDamage: 5
+  maxDamage: 50
+  minStrength: 0.05
+  maxStrength: 0.2
+  minDuration: 0.05
+  maxDuration: 0.1
 --- !u!1 &1413261736
 GameObject:
   m_ObjectHideFlags: 0

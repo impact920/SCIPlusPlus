@@ -75,6 +75,9 @@ public class PlayerMovement : MonoBehaviour
 public float attackBufferTime = 0.2f;
 private float attackBufferCounter = 0f;
 
+private float attackFacingDirection;
+
+
 
     private void Start()
     {
@@ -158,8 +161,15 @@ private float attackBufferCounter = 0f;
         }
 
         // Obracanie gracza
-        if (moveInput != 0)
-            transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
+        if (moveInput != 0 && !isAttacking)
+{
+    transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
+}
+else if (isAttacking)
+{
+    transform.localScale = new Vector3(attackFacingDirection, 1f, 1f);
+}
+
 
 
         // Animator
@@ -257,6 +267,8 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         if (isAttacking) return;
 
         isAttacking = true;
+        attackFacingDirection = Mathf.Sign(transform.localScale.x);
+
 
         int randomAttack = Random.Range(1, 3); // 1–3
 
