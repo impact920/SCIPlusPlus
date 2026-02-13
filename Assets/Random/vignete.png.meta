@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 95e2bd9313c304376a393acdb11b0741
+guid: 9684d8ad154d544e0833af51baff05a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6847895482398672277
-    second: sunset2 _0
+      213: -1752870720371139992
+    second: vignete_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sunset2 _0
+      name: vignete_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 120
+        width: 3840
+        height: 2160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5950067d8ac980f50800000000000000
-      internalID: 6847895482398672277
+      spriteID: 86a581fed5d8ca7e0800000000000000
+      internalID: -1752870720371139992
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sunset2 _0: 6847895482398672277
+      vignete_0: -1752870720371139992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -448,7 +448,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
-  m_Intensity: 0.47
+  m_Intensity: 0.75
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 13a50a2d
@@ -10122,6 +10122,81 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.38654327, y: 0.21424377}
   m_EdgeRadius: 0
+--- !u!1 &947377712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 947377713}
+  - component: {fileID: 947377715}
+  - component: {fileID: 947377714}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &947377713
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947377712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 19.7, y: 11.12, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 898585815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &947377714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947377712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1752870720371139992, guid: 9684d8ad154d544e0833af51baff05a0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &947377715
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947377712}
+  m_CullTransparentMesh: 1
 --- !u!1 &964208215
 GameObject:
   m_ObjectHideFlags: 0
@@ -10445,7 +10520,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
-  m_Intensity: 0.67
+  m_Intensity: 0.95
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -17783,6 +17858,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 935048464531953186, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1468164199}
+    - targetCorrespondingSourceObject: {fileID: 935048464531953186, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 947377713}
     - targetCorrespondingSourceObject: {fileID: 3920243526875764230, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1192760110}
@@ -17932,9 +18010,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLightByHealth
   playerHealth: {fileID: 1734813200}
   playerLight: {fileID: 138585984}
+  redVignette: {fileID: 947377714}
   minLightIntensity: 0
-  maxLightIntensity: 0.47
+  maxLightIntensity: 0.75
   smoothSpeed: 5
+  minHPThreshold: 10
+  lowHpThreshold: 0.3
+  pulseSpeed: 5
+  pulseStrength: 0.01
+  maxVignetteAlpha: 0.6
+  vignetteSmooth: 5
 --- !u!114 &1734813213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17949,9 +18034,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLightByHealth
   playerHealth: {fileID: 1734813200}
   playerLight: {fileID: 1011058120}
+  redVignette: {fileID: 0}
   minLightIntensity: 0.01
-  maxLightIntensity: 0.67
+  maxLightIntensity: 0.95
   smoothSpeed: 5
+  minHPThreshold: 10
+  lowHpThreshold: 0.3
+  pulseSpeed: 5
+  pulseStrength: 0.02
+  maxVignetteAlpha: 0.6
+  vignetteSmooth: 5
 --- !u!1 &1856186802
 GameObject:
   m_ObjectHideFlags: 0
