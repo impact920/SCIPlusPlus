@@ -13,6 +13,12 @@ public class EnemyHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
+    [Header("Drops")]
+public GameObject coinPrefab;
+public int minCoins = 1;
+public int maxCoins = 5;
+
+
     [Header("Animations")]
     public Animator animator;
     public string deathAnimationTrigger = "Death";
@@ -80,9 +86,32 @@ public class EnemyHealth : MonoBehaviour
         {
             animator.SetTrigger(deathAnimationTrigger);
         }
+        DropCoins();
 
         StartCoroutine(DestroyAfterAnimation());
     }
+
+    void DropCoins()
+{
+    if (coinPrefab == null) return;
+
+    int coinsToDrop = Random.Range(minCoins, maxCoins + 1);
+
+    for (int i = 0; i < coinsToDrop; i++)
+    {
+        Vector3 spawnPos = transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0.2f, 0.5f), 0);
+        GameObject coin = Instantiate(coinPrefab, spawnPos, Quaternion.identity);
+
+        Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            float forceX = Random.Range(-1f, 1f);
+            float forceY = Random.Range(2f, 4f);
+            rb.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
+        }
+    }
+}
+
 
     private IEnumerator DestroyAfterAnimation()
     {
