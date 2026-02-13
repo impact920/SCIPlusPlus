@@ -190,14 +190,6 @@ public class PlayerHealth : MonoBehaviour
         isInvincible = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
-        {
-            TakeDamage(enemyHealth.damage);
-        }
-    }
 
     void OnDrawGizmosSelected()
     {

@@ -3,8 +3,7 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [Header("Health and Damage")]
-    public int damage = 10;
+    [Header("Health")]
     public int maxHealth = 50;
     public int currentHealth;
 
@@ -66,7 +65,6 @@ public class EnemyHealth : MonoBehaviour
         if (IsDead) return;
         IsDead = true;
 
-        // Zatrzymanie fizyki i kolizji
         if (rb2D != null)
         {
             rb2D.linearVelocity = Vector2.zero;
@@ -78,13 +76,11 @@ public class EnemyHealth : MonoBehaviour
         if (col2D != null)
             col2D.enabled = false;
 
-        // Animacja śmierci
         if (animator != null && !string.IsNullOrEmpty(deathAnimationTrigger))
         {
             animator.SetTrigger(deathAnimationTrigger);
         }
 
-        // Zniszczenie po czasie trwania animacji
         StartCoroutine(DestroyAfterAnimation());
     }
 
