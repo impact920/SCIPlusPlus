@@ -257,6 +257,12 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         canDash = true;
     }
 
+    public bool IsDashing()
+{
+    return isDashing;
+}
+
+
     private void StartRandomAttack()
     {
 

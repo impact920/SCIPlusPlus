@@ -34,6 +34,9 @@ public class PlayerHealth : MonoBehaviour
     private DeathManager deathManager;
     private PlayerRespawn playerRespawn;
 
+    private PlayerMovement playerMovement;
+
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -46,6 +49,9 @@ public class PlayerHealth : MonoBehaviour
 
         deathManager = FindObjectOfType<DeathManager>();
         playerRespawn = GetComponent<PlayerRespawn>();
+
+        playerMovement = GetComponent<PlayerMovement>(); // dodaj to
+
     }
 
     void Update()
@@ -96,23 +102,26 @@ public class PlayerHealth : MonoBehaviour
 
 
     public void TakeDamage(int damage)
-    {
-        CameraShake.Instance?.ShakeFromDamage(damage);
+{
+    // jeśli gracz jest martwy, ma invincibility lub dashuje → ignoruj
+    if (isDead || isInvincible || (playerMovement != null && playerMovement.IsDashing()))
+        return;
 
+    currentHealth -= damage;
+    currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        if (isDead || isInvincible) return;
+    if (audioSource && hitSound)
+        audioSource.PlayOneShot(hitSound);
 
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    if (CameraShake.Instance != null)
+        CameraShake.Instance.ShakeFromDamage(damage);
 
-        if (audioSource && hitSound)
-            audioSource.PlayOneShot(hitSound);
+    if (currentHealth <= 0)
+        Die();
+    else
+        StartCoroutine(InvincibilityCoroutine());
+}
 
-        if (currentHealth <= 0)
-            Die();
-        else
-            StartCoroutine(InvincibilityCoroutine());
-    }
 
     public void Heal(int amount)
     {
