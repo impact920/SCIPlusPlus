@@ -88,6 +88,18 @@ public int maxCoins = 5;
         }
         DropCoins();
 
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+
+        foreach (MonoBehaviour script in scripts)
+        {
+            script.enabled = false;
+        }
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         StartCoroutine(DestroyAfterAnimation());
     }
 

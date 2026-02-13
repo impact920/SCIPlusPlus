@@ -21,6 +21,6 @@ public class CurrencyManager : MonoBehaviour
 
     void UpdateUI()
     {
-        currencyText.text = "Coins: " + currency;
+        currencyText.text = "" + currency;
     }
 }
