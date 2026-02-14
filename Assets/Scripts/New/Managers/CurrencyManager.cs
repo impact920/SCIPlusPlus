@@ -5,7 +5,7 @@ public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager instance;
 
-    public int currency = 0;
+    public int currency;
     public TMP_Text currencyText;
 
     private const string CURRENCY_KEY = "PLAYER_CURRENCY";
@@ -25,23 +25,22 @@ public class CurrencyManager : MonoBehaviour
     }
 
     public void AddCurrency(int amount)
-{
-    currency += amount;
-    PlayerPrefs.SetInt("Currency", currency);
+    {
+        currency += amount;
 
-    UpdateUI();
+        SaveCurrency(); // 🔹 TERAZ zapisuje poprawnie
+        UpdateUI();
 
-    // odśwież sklep jeśli jest otwarty
-    ShopUIManager shop = FindObjectOfType<ShopUIManager>();
-    if (shop != null && shop.gameObject.activeInHierarchy)
-        shop.UpdateUI();
-}
-
+        // odśwież sklep jeśli jest otwarty
+        ShopUIManager shop = FindObjectOfType<ShopUIManager>();
+        if (shop != null && shop.gameObject.activeInHierarchy)
+            shop.UpdateUI();
+    }
 
     void UpdateUI()
     {
         if (currencyText != null)
-            currencyText.text = "" + currency;
+            currencyText.text = currency.ToString();
     }
 
     // ZAPIS

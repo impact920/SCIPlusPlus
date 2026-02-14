@@ -21,18 +21,27 @@ public class PauseManager : MonoBehaviour
     }
 
     public void PauseGame()
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f; // Zatrzymuje grę
-        isPaused = true;
-    }
+{
+    pauseMenu.SetActive(true);
+    Time.timeScale = 0f;
+    isPaused = true;
 
-    public void ResumeGame()
-    {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f; // Wznawia grę
-        isPaused = false;
-    }
+    // pokaż kursor
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
+}
+
+public void ResumeGame()
+{
+    pauseMenu.SetActive(false);
+    Time.timeScale = 1f;
+    isPaused = false;
+
+    // schowaj kursor
+    Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+}
+
 
     public void GoToMainMenu()
     {
