@@ -1,26 +1,54 @@
 using UnityEngine;
-using TMPro; // konieczne dla TextMeshPro
+using TMPro;
 
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager instance;
-    public int currency = 0;          // aktualna waluta
-    public TMP_Text currencyText;     // TextMeshPro UI
+
+    public int currency = 0;
+    public TMP_Text currencyText;
+
+    private const string CURRENCY_KEY = "PLAYER_CURRENCY";
 
     private void Awake()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        LoadCurrency();
+        UpdateUI();
     }
 
     public void AddCurrency(int amount)
     {
         currency += amount;
+        currency = Mathf.Max(0, currency); // żeby nie było ujemnych
+
+        SaveCurrency();
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        currencyText.text = "" + currency;
+        if (currencyText != null)
+            currencyText.text = "" + currency;
+    }
+
+    // ZAPIS
+    void SaveCurrency()
+    {
+        PlayerPrefs.SetInt(CURRENCY_KEY, currency);
+        PlayerPrefs.Save();
+    }
+
+    // ODCZYT
+    void LoadCurrency()
+    {
+        currency = PlayerPrefs.GetInt(CURRENCY_KEY, 0);
     }
 }
