@@ -25,13 +25,18 @@ public class CurrencyManager : MonoBehaviour
     }
 
     public void AddCurrency(int amount)
-    {
-        currency += amount;
-        currency = Mathf.Max(0, currency); // żeby nie było ujemnych
+{
+    currency += amount;
+    PlayerPrefs.SetInt("Currency", currency);
 
-        SaveCurrency();
-        UpdateUI();
-    }
+    UpdateUI();
+
+    // odśwież sklep jeśli jest otwarty
+    ShopUIManager shop = FindObjectOfType<ShopUIManager>();
+    if (shop != null && shop.gameObject.activeInHierarchy)
+        shop.UpdateUI();
+}
+
 
     void UpdateUI()
     {

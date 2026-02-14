@@ -9,6 +9,10 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
+        // jeśli jakieś UI blokuje grę (np. sklep) nie reaguj na ESC
+        if (GameState.UIBlocking)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused) ResumeGame();
@@ -19,14 +23,14 @@ public class PauseManager : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f; // Zatrzymuje gre
+        Time.timeScale = 0f; // Zatrzymuje grę
         isPaused = true;
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1f; // Wznawia gre
+        Time.timeScale = 1f; // Wznawia grę
         isPaused = false;
     }
 

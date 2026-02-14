@@ -3,14 +3,13 @@ using UnityEngine;
 public class ShopZone : MonoBehaviour
 {
     public GameObject shopUI;
-    public KeyCode interactKey = KeyCode.X;
-
+    public KeyCode interactKey = KeyCode.E;
     private bool playerInside = false;
     private bool shopOpen = false;
 
     void Update()
     {
-        // jeśli gracz w strefie LUB sklep już otwarty
+        // jeśli gracz w strefie LUB sklep jest otwarty
         if ((playerInside || shopOpen) && Input.GetKeyDown(interactKey))
         {
             ToggleShop();
@@ -18,35 +17,26 @@ public class ShopZone : MonoBehaviour
     }
 
     void ToggleShop()
-{
-    shopOpen = !shopOpen;
-    shopUI.SetActive(shopOpen);
-
-    // pauza / wznowienie gry
-    Time.timeScale = shopOpen ? 0f : 1f;
-
-    // OBSŁUGA KURSORA
-    Cursor.lockState = shopOpen ? CursorLockMode.None : CursorLockMode.Locked;
-    Cursor.visible = shopOpen;
-}
-
-
-    public void CloseShop()
     {
-        shopOpen = false;
-        shopUI.SetActive(false);
-        Time.timeScale = 1f;
+        shopOpen = !shopOpen;
+        shopUI.SetActive(shopOpen);
+        Time.timeScale = shopOpen ? 0f : 1f;
+
+        // Blokada pauzy pod ESC
+        GameState.UIBlocking = shopOpen;
+
+        // kursor
+        Cursor.lockState = shopOpen ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = shopOpen;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-            playerInside = true;
+        if (other.CompareTag("Player")) playerInside = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-            playerInside = false;
+        if (other.CompareTag("Player")) playerInside = false;
     }
 }
