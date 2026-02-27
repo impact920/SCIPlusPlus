@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;                // 👈 ważne! dodaj to dla TextMeshPro
+using TMPro;                // ważne! dodaj to dla TextMeshPro
 using System.Collections;
 
 public class LoadingScreen : MonoBehaviour
 {
     public static string sceneToLoad;   // scena, którą chcemy załadować
     public Slider progressBar;          // opcjonalny pasek postępu (może być null)
-    public TMP_Text progressText;       // 👈 TextMeshPro zamiast zwykłego Text
+    public TMP_Text progressText;       // TextMeshPro zamiast zwykłego Text
 
     void Start()
     {

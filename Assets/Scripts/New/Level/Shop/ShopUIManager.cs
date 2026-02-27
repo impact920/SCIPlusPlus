@@ -31,7 +31,7 @@ public class ShopUIManager : MonoBehaviour
         UpdateUI();
     }
 
-    // 🔹 Funkcja do aktualizacji wszystkich przycisków
+    // Funkcja do aktualizacji wszystkich przycisków
     public void UpdateUI()
     {
         // Heal
@@ -63,7 +63,7 @@ public class ShopUIManager : MonoBehaviour
         healthButton.interactable = hpLevel < 10 && CurrencyManager.instance.currency >= hpCost;
     }
 
-    // 🔹 Kupowanie
+    // Kupowanie
     public void BuyHeal()
 {
     int cost = baseHealCost;

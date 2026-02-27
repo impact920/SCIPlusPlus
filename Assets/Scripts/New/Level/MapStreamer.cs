@@ -35,7 +35,7 @@ public class AutoTilemapChunkerFinal : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.LogWarning("⚠️ Brak przypisanego gracza — Tilemap będzie zawsze aktywna.");
+            Debug.LogWarning(" Brak przypisanego gracza — Tilemap będzie zawsze aktywna.");
         }
         else
         {
@@ -47,7 +47,7 @@ public class AutoTilemapChunkerFinal : MonoBehaviour
         originalTilemap = GetComponent<Tilemap>();
         if (originalTilemap == null)
         {
-            Debug.LogError("❌ Brak komponentu Tilemap na tym obiekcie!");
+            Debug.LogError("Brak komponentu Tilemap na tym obiekcie!");
             return;
         }
 
