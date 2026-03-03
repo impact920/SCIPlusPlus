@@ -15544,11 +15544,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4730934698734628528, guid: 4ee069bc84e874e6ba8ed18b3542e7ce, type: 3}
       propertyPath: maxCoins
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4730934698734628528, guid: 4ee069bc84e874e6ba8ed18b3542e7ce, type: 3}
       propertyPath: minCoins
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4730934698734628528, guid: 4ee069bc84e874e6ba8ed18b3542e7ce, type: 3}
       propertyPath: coinPrefab
@@ -23523,7 +23523,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.68359375
+  orthographic size: 1.9179688
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -23567,7 +23567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
   m_ComponentVersion: 1
-  m_AssetsPPU: 192
+  m_AssetsPPU: 256
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
   m_CropFrame: 0
