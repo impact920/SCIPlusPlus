@@ -68,6 +68,7 @@ public int maxCoins = 5;
 
     void Die()
     {
+
         if (IsDead) return;
         IsDead = true;
 
@@ -92,7 +93,8 @@ public int maxCoins = 5;
 
         foreach (MonoBehaviour script in scripts)
         {
-            script.enabled = false;
+            if (script != this)
+                script.enabled = false;
         }
 
         foreach (Transform child in transform)
@@ -100,7 +102,6 @@ public int maxCoins = 5;
             Destroy(child.gameObject);
         }
 
-        StartCoroutine(DestroyAfterAnimation());
     }
 
     void DropCoins()
@@ -125,9 +126,8 @@ public int maxCoins = 5;
 }
 
 
-    private IEnumerator DestroyAfterAnimation()
+     public void OnDeathAnimationEnd()
     {
-        yield return new WaitForSeconds(deathAnimationDuration);
         Destroy(gameObject);
     }
 }
