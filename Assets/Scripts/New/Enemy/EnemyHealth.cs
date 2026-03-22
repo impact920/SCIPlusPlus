@@ -77,7 +77,7 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
         // Zatrzymanie fizyki
         if (rb2D != null)
         {
-            rb2D.velocity = Vector2.zero;
+            rb2D.linearVelocity = Vector2.zero;
             rb2D.angularVelocity = 0f;
             rb2D.gravityScale = 0f;
             rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
