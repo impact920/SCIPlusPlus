@@ -49,10 +49,11 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
     currentHealth -= amount;
     currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
+    StartCoroutine(FlashCoroutine());
+
     if (currentHealth <= 0)
         Die();
-    else
-        StartCoroutine(FlashCoroutine());
+    
 }
 
     public IEnumerator FlashCoroutine()
