@@ -25293,6 +25293,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517838786}
   m_CullTransparentMesh: 1
+--- !u!114 &1540128025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7193981369093273506, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+  m_PrefabInstance: {fileID: 1702626298}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1548691478
 GameObject:
   m_ObjectHideFlags: 0
@@ -26134,6 +26145,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead
       objectReference: {fileID: 0}
+    - target: {fileID: 1093723486964949436, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1069089311, guid: 18e492b192d1b486da383c5ff16a13b0, type: 3}
+    - target: {fileID: 1404417330783444496, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 1540128025}
     - target: {fileID: 1404417330783444496, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: playerHealth
       value: 
@@ -26172,6 +26191,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976511124894028079, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976511124894028079, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976511124894028079, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2967807644686790018, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
@@ -26230,6 +26257,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1069089311, guid: 18e492b192d1b486da383c5ff16a13b0, type: 3}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8396226
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Color.g
+      value: 0.74074584
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Color.r
+      value: 0.33664113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542489736137713534, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4802757535959476714, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -26286,6 +26345,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1058646233}
+    - target: {fileID: 6283370770772271542, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1069089311, guid: 18e492b192d1b486da383c5ff16a13b0, type: 3}
     - target: {fileID: 6915165139412967106, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -26293,6 +26356,10 @@ PrefabInstance:
     - target: {fileID: 6976792160470724408, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193981369093273506, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381743651650216147, guid: c7b1cef60f3cb4680961e7cba616d636, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
