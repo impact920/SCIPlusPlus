@@ -251,12 +251,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
+        y: 1017
         width: 1024
         height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 5, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -272,10 +272,10 @@ TextureImporter:
       name: New Piskel (19)_4
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1017
         y: 1024
-        width: 1024
-        height: 1024
+        width: 1031
+        height: 1018
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: New Piskel (19)_5
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 2064
         y: 1024
-        width: 1024
-        height: 1024
+        width: 1008
+        height: 1014
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

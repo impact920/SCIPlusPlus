@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6796491516530459010}
   - component: {fileID: 3618322873614164167}
   - component: {fileID: -225823173848346951}
+  - component: {fileID: -7199434037693217838}
+  - component: {fileID: 2650263411413661799}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7858366978689604574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.67, y: 4.65486, z: 0}
+  m_LocalPosition: {x: -4.47425, y: -2.00709, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,3 +183,48 @@ MonoBehaviour:
   damage: 10
   speed: 10
   lifeTime: 3
+--- !u!114 &-7199434037693217838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858366978689604574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba302e9d6f0594356a7404ec302656fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 1
+  currentHealth: 0
+  canTakeDamage: 1
+  flashCount: 3
+  flashColor: {r: 0.40049842, g: 0.6577513, b: 0.6792453, a: 1}
+  coinPrefab: {fileID: 0}
+  minCoins: 1
+  maxCoins: 5
+  animator: {fileID: 2650263411413661799}
+  deathAnimationTrigger: Death
+  IsDead: 0
+--- !u!95 &2650263411413661799
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858366978689604574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 642a439d54bce43349ac71e88c850409, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
