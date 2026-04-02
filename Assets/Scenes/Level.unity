@@ -12304,6 +12304,11 @@ Transform:
   - {fileID: 1237249470}
   m_Father: {fileID: 989794209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &426719278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6290776271764892480, guid: 396d3f011c7c14e0ead1be3d5dd320de, type: 3}
+  m_PrefabInstance: {fileID: 4531491307275526916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &428459355
 GameObject:
   m_ObjectHideFlags: 0
@@ -12651,6 +12656,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6268803605687382002, guid: 396d3f011c7c14e0ead1be3d5dd320de, type: 3}
   m_PrefabInstance: {fileID: 4531491307275526916}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &517924238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426719278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0dd0479b08041d392bf37aa04f787c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealingItem2D
+  infiniteHealing: 1
+  healAmount: 2
+  healInterval: 0.2
+  pickupEffect: {fileID: 0}
+  pickupSound: {fileID: 0}
 --- !u!1 &540126652
 GameObject:
   m_ObjectHideFlags: 0
@@ -28129,7 +28151,7 @@ Tilemap:
       - {fileID: -4704261264892754323, guid: 58764036cba17413d8ed7ed3e059c6a2, type: 3}
       - {fileID: -324634693526516157, guid: 58764036cba17413d8ed7ed3e059c6a2, type: 3}
       - {fileID: 7039333144802297169, guid: 58764036cba17413d8ed7ed3e059c6a2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -29103,7 +29125,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6290776271764892480, guid: 396d3f011c7c14e0ead1be3d5dd320de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 517924238}
   m_SourcePrefab: {fileID: 100100000, guid: 396d3f011c7c14e0ead1be3d5dd320de, type: 3}
 --- !u!1001 &5629995829966849376
 PrefabInstance:
