@@ -1,0 +1,1776 @@
+fileFormatVersion: 2
+guid: 43b8e0dd734cd4f9eb061505dbbe78ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4031705019735684399
+    second: Underworld_Tilemap_decor_0
+  - first:
+      213: 8049640189010974031
+    second: Underworld_Tilemap_decor_1
+  - first:
+      213: 258437133715218598
+    second: Underworld_Tilemap_decor_2
+  - first:
+      213: -6795955847273027257
+    second: Underworld_Tilemap_decor_3
+  - first:
+      213: 6349310242918268795
+    second: Underworld_Tilemap_decor_4
+  - first:
+      213: 4044211617766567636
+    second: Underworld_Tilemap_decor_5
+  - first:
+      213: -7589150101978147131
+    second: Underworld_Tilemap_decor_6
+  - first:
+      213: 3944044865554853227
+    second: Underworld_Tilemap_decor_7
+  - first:
+      213: -7486639535567017304
+    second: Underworld_Tilemap_decor_8
+  - first:
+      213: 2868718623980509752
+    second: Underworld_Tilemap_decor_9
+  - first:
+      213: -3564236912537805785
+    second: Underworld_Tilemap_decor_10
+  - first:
+      213: 6254055557311695980
+    second: Underworld_Tilemap_decor_11
+  - first:
+      213: 8636527245228680352
+    second: Underworld_Tilemap_decor_12
+  - first:
+      213: -1506267836909979625
+    second: Underworld_Tilemap_decor_13
+  - first:
+      213: -167809576940556915
+    second: Underworld_Tilemap_decor_14
+  - first:
+      213: -5930925365938918687
+    second: Underworld_Tilemap_decor_15
+  - first:
+      213: -2011415466374007844
+    second: Underworld_Tilemap_decor_16
+  - first:
+      213: 75777315545446598
+    second: Underworld_Tilemap_decor_17
+  - first:
+      213: 2586114092381051937
+    second: Underworld_Tilemap_decor_18
+  - first:
+      213: 173539202327174842
+    second: Underworld_Tilemap_decor_19
+  - first:
+      213: -5309268218562229000
+    second: Underworld_Tilemap_decor_20
+  - first:
+      213: 2427129651253129716
+    second: Underworld_Tilemap_decor_21
+  - first:
+      213: 6098257768169822638
+    second: Underworld_Tilemap_decor_22
+  - first:
+      213: -3987882973227326527
+    second: Underworld_Tilemap_decor_23
+  - first:
+      213: 1414659032601919590
+    second: Underworld_Tilemap_decor_24
+  - first:
+      213: 6509044512975543352
+    second: Underworld_Tilemap_decor_25
+  - first:
+      213: -635043591729041585
+    second: Underworld_Tilemap_decor_26
+  - first:
+      213: -1595638414631750087
+    second: Underworld_Tilemap_decor_27
+  - first:
+      213: -535311023255809604
+    second: Underworld_Tilemap_decor_28
+  - first:
+      213: 6038077202080774379
+    second: Underworld_Tilemap_decor_29
+  - first:
+      213: -1207151853863441416
+    second: Underworld_Tilemap_decor_30
+  - first:
+      213: -4426758515923298508
+    second: Underworld_Tilemap_decor_31
+  - first:
+      213: 3697162612202383054
+    second: Underworld_Tilemap_decor_32
+  - first:
+      213: -2820965651341183175
+    second: Underworld_Tilemap_decor_33
+  - first:
+      213: -2037404724602071863
+    second: Underworld_Tilemap_decor_34
+  - first:
+      213: -5941265232728732081
+    second: Underworld_Tilemap_decor_35
+  - first:
+      213: 1763969291101874777
+    second: Underworld_Tilemap_decor_36
+  - first:
+      213: -3296152591960533586
+    second: Underworld_Tilemap_decor_37
+  - first:
+      213: -336792864981901613
+    second: Underworld_Tilemap_decor_38
+  - first:
+      213: -420687898630620968
+    second: Underworld_Tilemap_decor_39
+  - first:
+      213: 6467753959791443626
+    second: Underworld_Tilemap_decor_40
+  - first:
+      213: 3882722852253639863
+    second: Underworld_Tilemap_decor_41
+  - first:
+      213: -5449070327605416456
+    second: Underworld_Tilemap_decor_42
+  - first:
+      213: 2563322801264546182
+    second: Underworld_Tilemap_decor_43
+  - first:
+      213: -433376301089052351
+    second: Underworld_Tilemap_decor_44
+  - first:
+      213: -236090514635911512
+    second: Underworld_Tilemap_decor_45
+  - first:
+      213: -1391096924220688945
+    second: Underworld_Tilemap_decor_46
+  - first:
+      213: -6411284955211621710
+    second: Underworld_Tilemap_decor_47
+  - first:
+      213: 6632777177332017784
+    second: Underworld_Tilemap_decor_48
+  - first:
+      213: -8858977454499311843
+    second: Underworld_Tilemap_decor_49
+  - first:
+      213: -8581936518144824243
+    second: Underworld_Tilemap_decor_50
+  - first:
+      213: 7504277617837777868
+    second: Underworld_Tilemap_decor_51
+  - first:
+      213: 8534311454563952167
+    second: Underworld_Tilemap_decor_52
+  - first:
+      213: -4910417790277763607
+    second: Underworld_Tilemap_decor_53
+  - first:
+      213: 3663892394766938498
+    second: Underworld_Tilemap_decor_54
+  - first:
+      213: 8134159033946479520
+    second: Underworld_Tilemap_decor_55
+  - first:
+      213: -2387881255937565349
+    second: Underworld_Tilemap_decor_56
+  - first:
+      213: 4357331361341818292
+    second: Underworld_Tilemap_decor_57
+  - first:
+      213: 8130953064766637719
+    second: Underworld_Tilemap_decor_58
+  - first:
+      213: 1563869092577521488
+    second: Underworld_Tilemap_decor_59
+  - first:
+      213: -3309493379179350615
+    second: Underworld_Tilemap_decor_60
+  - first:
+      213: 4171713021550572686
+    second: Underworld_Tilemap_decor_61
+  - first:
+      213: 4944075737247335308
+    second: Underworld_Tilemap_decor_62
+  - first:
+      213: 6455305823263886202
+    second: Underworld_Tilemap_decor_63
+  - first:
+      213: -5445411998515045863
+    second: Underworld_Tilemap_decor_64
+  - first:
+      213: 8820828860243746750
+    second: Underworld_Tilemap_decor_65
+  - first:
+      213: 6149584076294647099
+    second: Underworld_Tilemap_decor_66
+  - first:
+      213: -8455723397070108374
+    second: Underworld_Tilemap_decor_67
+  - first:
+      213: -6855244012768351889
+    second: Underworld_Tilemap_decor_68
+  - first:
+      213: 7074368610762263959
+    second: Underworld_Tilemap_decor_69
+  - first:
+      213: 7987368017085235830
+    second: Underworld_Tilemap_decor_70
+  - first:
+      213: 8538142775771788349
+    second: Underworld_Tilemap_decor_71
+  - first:
+      213: 5674492643515452083
+    second: Underworld_Tilemap_decor_72
+  - first:
+      213: 1388210704084354445
+    second: Underworld_Tilemap_decor_73
+  - first:
+      213: 4023746131452043316
+    second: Underworld_Tilemap_decor_74
+  - first:
+      213: 4825090343113107102
+    second: Underworld_Tilemap_decor_75
+  - first:
+      213: 8026326541149183770
+    second: Underworld_Tilemap_decor_76
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dace7b35a18c08c0800000000000000
+      internalID: -4031705019735684399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4515b36a1116bf60800000000000000
+      internalID: 8049640189010974031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0addf2437269300800000000000000
+      internalID: 258437133715218598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7496d06d92aefa1a0800000000000000
+      internalID: -6795955847273027257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f74ed96084d1850800000000000000
+      internalID: 6349310242918268795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4deeb790a0def1830800000000000000
+      internalID: 4044211617766567636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c61978f03ceda690800000000000000
+      internalID: -7589150101978147131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6da995a8ef0cb630800000000000000
+      internalID: 3944044865554853227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aae121220d1a1890800000000000000
+      internalID: -7486639535567017304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ad7eea36cbfc720800000000000000
+      internalID: 2868718623980509752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c59d48969498ec0800000000000000
+      internalID: -3564236912537805785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c0f1bd46edac650800000000000000
+      internalID: 6254055557311695980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a4a6d075cb1bd770800000000000000
+      internalID: 8636527245228680352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71872640269a81be0800000000000000
+      internalID: -1506267836909979625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dac803412dbadf0800000000000000
+      internalID: -167809576940556915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea6bd59dce11bda0800000000000000
+      internalID: -5930925365938918687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3fc0f4a440614e0800000000000000
+      internalID: -2011415466374007844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c87e1721173d0100800000000000000
+      internalID: 75777315545446598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_18
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c1101b019b3e320800000000000000
+      internalID: 2586114092381051937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abed05d2cf8886200800000000000000
+      internalID: 173539202327174842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fcc3575fa0b156b0800000000000000
+      internalID: -5309268218562229000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1b2ceee85eea120800000000000000
+      internalID: 2427129651253129716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea95784512d51a450800000000000000
+      internalID: 6098257768169822638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c3e4f6809138a8c0800000000000000
+      internalID: -3987882973227326527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660098c15e0e1a310800000000000000
+      internalID: 1414659032601919590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83cdc178f75c45a50800000000000000
+      internalID: 6509044512975543352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f2a1ac73fdf27f0800000000000000
+      internalID: -635043591729041585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93638e1e0572bd9e0800000000000000
+      internalID: -1595638414631750087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb19c76e5713298f0800000000000000
+      internalID: -535311023255809604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8b864693f8bc350800000000000000
+      internalID: 6038077202080774379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fbe380e8c55f3fe0800000000000000
+      internalID: -1207151853863441416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 437d4ff659ef092c0800000000000000
+      internalID: -4426758515923298508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6ad21bec5fe4330800000000000000
+      internalID: 3697162612202383054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937fa3cafaae9d8d0800000000000000
+      internalID: -2820965651341183175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c41466923fa9b3e0800000000000000
+      internalID: -2037404724602071863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e43debfb26c8da0800000000000000
+      internalID: -5941265232728732081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_36
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a23de69b0ea7810800000000000000
+      internalID: 1763969291101874777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea595be6ea6b142d0800000000000000
+      internalID: -3296152591960533586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3de1ed77ca8735bf0800000000000000
+      internalID: -336792864981901613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8f0d8c59a692af0800000000000000
+      internalID: -420687898630620968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaebef375f312c950800000000000000
+      internalID: 6467753959791443626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4aed1dcd332e530800000000000000
+      internalID: 3882722852253639863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_42
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd25fe48630164b0800000000000000
+      internalID: -5449070327605416456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6815806b180c29320800000000000000
+      internalID: 2563322801264546182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149a38fdc865cf9f0800000000000000
+      internalID: -433376301089052351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_45
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae89448dec39bcf0800000000000000
+      internalID: -236090514635911512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc5ffafb7b4d1bce0800000000000000
+      internalID: -1391096924220688945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_47
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba1eca3d4a8607a0800000000000000
+      internalID: -6411284955211621710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_48
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a613963bb5c0c50800000000000000
+      internalID: 6632777177332017784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_49
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fcf5721f69e0580800000000000000
+      internalID: -8858977454499311843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c660fa436d6e880800000000000000
+      internalID: -8581936518144824243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_51
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3a22bebbc842860800000000000000
+      internalID: 7504277617837777868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_52
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726e4db1d07ff6670800000000000000
+      internalID: 8534311454563952167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_53
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed3cb74901badbb0800000000000000
+      internalID: -4910417790277763607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_54
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281b65d88b2c8d230800000000000000
+      internalID: 3663892394766938498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab1ae47b8652e070800000000000000
+      internalID: 8134159033946479520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_56
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d170636aa8cded0800000000000000
+      internalID: -2387881255937565349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5c27979c9587c30800000000000000
+      internalID: 4357331361341818292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_58
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7960ac69bb2f6d070800000000000000
+      internalID: 8130953064766637719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_59
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05fab4a67aaf3b510800000000000000
+      internalID: 1563869092577521488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_60
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5f18b5e415212d0800000000000000
+      internalID: -3309493379179350615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Underworld_Tilemap_decor_61
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e84b462f3e6e4e930800000000000000
+      internalID: 4171713021550572686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b5bbd16d5e33a41b387c109f9a4cf5ee
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Underworld_Tilemap_decor_0: -4031705019735684399
+      Underworld_Tilemap_decor_1: 8049640189010974031
+      Underworld_Tilemap_decor_10: -3564236912537805785
+      Underworld_Tilemap_decor_11: 6254055557311695980
+      Underworld_Tilemap_decor_12: 8636527245228680352
+      Underworld_Tilemap_decor_13: -1506267836909979625
+      Underworld_Tilemap_decor_14: -167809576940556915
+      Underworld_Tilemap_decor_15: -5930925365938918687
+      Underworld_Tilemap_decor_16: -2011415466374007844
+      Underworld_Tilemap_decor_17: 75777315545446598
+      Underworld_Tilemap_decor_18: 2586114092381051937
+      Underworld_Tilemap_decor_19: 173539202327174842
+      Underworld_Tilemap_decor_2: 258437133715218598
+      Underworld_Tilemap_decor_20: -5309268218562229000
+      Underworld_Tilemap_decor_21: 2427129651253129716
+      Underworld_Tilemap_decor_22: 6098257768169822638
+      Underworld_Tilemap_decor_23: -3987882973227326527
+      Underworld_Tilemap_decor_24: 1414659032601919590
+      Underworld_Tilemap_decor_25: 6509044512975543352
+      Underworld_Tilemap_decor_26: -635043591729041585
+      Underworld_Tilemap_decor_27: -1595638414631750087
+      Underworld_Tilemap_decor_28: -535311023255809604
+      Underworld_Tilemap_decor_29: 6038077202080774379
+      Underworld_Tilemap_decor_3: -6795955847273027257
+      Underworld_Tilemap_decor_30: -1207151853863441416
+      Underworld_Tilemap_decor_31: -4426758515923298508
+      Underworld_Tilemap_decor_32: 3697162612202383054
+      Underworld_Tilemap_decor_33: -2820965651341183175
+      Underworld_Tilemap_decor_34: -2037404724602071863
+      Underworld_Tilemap_decor_35: -5941265232728732081
+      Underworld_Tilemap_decor_36: 1763969291101874777
+      Underworld_Tilemap_decor_37: -3296152591960533586
+      Underworld_Tilemap_decor_38: -336792864981901613
+      Underworld_Tilemap_decor_39: -420687898630620968
+      Underworld_Tilemap_decor_4: 6349310242918268795
+      Underworld_Tilemap_decor_40: 6467753959791443626
+      Underworld_Tilemap_decor_41: 3882722852253639863
+      Underworld_Tilemap_decor_42: -5449070327605416456
+      Underworld_Tilemap_decor_43: 2563322801264546182
+      Underworld_Tilemap_decor_44: -433376301089052351
+      Underworld_Tilemap_decor_45: -236090514635911512
+      Underworld_Tilemap_decor_46: -1391096924220688945
+      Underworld_Tilemap_decor_47: -6411284955211621710
+      Underworld_Tilemap_decor_48: 6632777177332017784
+      Underworld_Tilemap_decor_49: -8858977454499311843
+      Underworld_Tilemap_decor_5: 4044211617766567636
+      Underworld_Tilemap_decor_50: -8581936518144824243
+      Underworld_Tilemap_decor_51: 7504277617837777868
+      Underworld_Tilemap_decor_52: 8534311454563952167
+      Underworld_Tilemap_decor_53: -4910417790277763607
+      Underworld_Tilemap_decor_54: 3663892394766938498
+      Underworld_Tilemap_decor_55: 8134159033946479520
+      Underworld_Tilemap_decor_56: -2387881255937565349
+      Underworld_Tilemap_decor_57: 4357331361341818292
+      Underworld_Tilemap_decor_58: 8130953064766637719
+      Underworld_Tilemap_decor_59: 1563869092577521488
+      Underworld_Tilemap_decor_6: -7589150101978147131
+      Underworld_Tilemap_decor_60: -3309493379179350615
+      Underworld_Tilemap_decor_61: 4171713021550572686
+      Underworld_Tilemap_decor_7: 3944044865554853227
+      Underworld_Tilemap_decor_8: -7486639535567017304
+      Underworld_Tilemap_decor_9: 2868718623980509752
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
