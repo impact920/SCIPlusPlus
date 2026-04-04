@@ -1,0 +1,336 @@
+fileFormatVersion: 2
+guid: 694fdab145bd1d949abe043d3ee9bee1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5497264737876455210
+    second: you_died-sheet_0
+  - first:
+      213: 1574352373103528316
+    second: you_died-sheet_1
+  - first:
+      213: -6007791096634444981
+    second: you_died-sheet_2
+  - first:
+      213: 383189984728899616
+    second: you_died-sheet_3
+  - first:
+      213: 6410305044613347864
+    second: you_died-sheet_4
+  - first:
+      213: 2072684879526513473
+    second: you_died-sheet_5
+  - first:
+      213: 8298758487474331132
+    second: you_died-sheet_6
+  - first:
+      213: 3245797940988236842
+    second: you_died-sheet_7
+  - first:
+      213: 2980863751922467009
+    second: you_died-sheet_8
+  - first:
+      213: -2210485886365304810
+    second: you_died-sheet_9
+  - first:
+      213: -1761363713572544889
+    second: you_died-sheet_10
+  - first:
+      213: -1262475676683036333
+    second: you_died-sheet_11
+  - first:
+      213: -6904916359227269121
+    second: you_died-sheet_12
+  - first:
+      213: -4213586148970712226
+    second: you_died-sheet_13
+  - first:
+      213: -2619153102092035456
+    second: you_died-sheet_14
+  - first:
+      213: 3168135461525935101
+    second: you_died-sheet_15
+  - first:
+      213: -1540708825309672243
+    second: you_died-sheet_16
+  - first:
+      213: -917107684166248653
+    second: you_died-sheet_17
+  - first:
+      213: 6665309568199699257
+    second: you_died-sheet_18
+  - first:
+      213: 5537640980730353101
+    second: you_died-sheet_19
+  - first:
+      213: -930863665120002921
+    second: you_died-sheet_20
+  - first:
+      213: 2585760531091154808
+    second: you_died-sheet_21
+  - first:
+      213: -4617452308461468759
+    second: you_died-sheet_22
+  - first:
+      213: -7868174955217187012
+    second: you_died-sheet_23
+  - first:
+      213: 5978700731826284184
+    second: you_died-sheet_24
+  - first:
+      213: 3110503399462685653
+    second: you_died-sheet_25
+  - first:
+      213: 5364769376680683268
+    second: you_died-sheet_26
+  - first:
+      213: 8363847780819254699
+    second: you_died-sheet_27
+  - first:
+      213: 7182504188121062176
+    second: you_died-sheet_28
+  - first:
+      213: 8440804713068286578
+    second: you_died-sheet_29
+  - first:
+      213: -3490748115106552797
+    second: you_died-sheet_30
+  - first:
+      213: -7990591231081790807
+    second: you_died-sheet_31
+  - first:
+      213: 62812812616747481
+    second: you_died-sheet_32
+  - first:
+      213: 3645727556814334003
+    second: you_died-sheet_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: you_died-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0d79eb8dac5b3b0800000000000000
+      internalID: -5497264737876455210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: you_died-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 0
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c79012e542939d510800000000000000
+      internalID: 1574352373103528316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: you_died-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43795804d900aca0800000000000000
+      internalID: -6007791096634444981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: you_died-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020e049c24d515500800000000000000
+      internalID: 383189984728899616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: you_died-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 0
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ab21e897af5f850800000000000000
+      internalID: 6410305044613347864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 90b259fc04d55344b87715c2c276f6ab
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":53.0,"y":31.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      you_died-sheet_0: -5497264737876455210
+      you_died-sheet_1: 1574352373103528316
+      you_died-sheet_2: -6007791096634444981
+      you_died-sheet_3: 383189984728899616
+      you_died-sheet_4: 6410305044613347864
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
