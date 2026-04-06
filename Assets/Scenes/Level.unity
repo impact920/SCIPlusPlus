@@ -545,7 +545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -438.7339, y: -54.039425}
+  m_AnchoredPosition: {x: -424, y: -17}
   m_SizeDelta: {x: 245.7534, y: 147.668}
   m_Pivot: {x: 0.5, y: 0.49999994}
 --- !u!114 &107388569
@@ -23742,11 +23742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111902089238651839, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 357.94684
+      value: 369
       objectReference: {fileID: 0}
     - target: {fileID: 111902089238651839, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.379866
+      value: 82
       objectReference: {fileID: 0}
     - target: {fileID: 694104470359863334, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23848,6 +23848,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2530950913988336096, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929604378589151087, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
+      propertyPath: m_Name
+      value: Main Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 2967807644686790018, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -23922,16 +23930,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830944188312733914, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 356.63303
+      value: 367.6862
       objectReference: {fileID: 0}
     - target: {fileID: 5830944188312733914, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -229.10269
+      value: -123.722824
       objectReference: {fileID: 0}
     - target: {fileID: 6039583072585384214, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1058646233}
+    - target: {fileID: 6441070873875840130, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
+      propertyPath: m_Name
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 6650014955271574849, guid: 609b46b59514244a78bedcb0af21227f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -24481,7 +24493,7 @@ GameObject:
   - component: {fileID: 1830200306}
   - component: {fileID: 1830200305}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24503,7 +24515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 357.7416, y: -122.58753}
+  m_AnchoredPosition: {x: 368.79477, y: -17.20766}
   m_SizeDelta: {x: 230.0067, y: 114.4508}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830200305

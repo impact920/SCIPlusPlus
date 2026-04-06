@@ -50,5 +50,8 @@ TagManager:
   - name: Foreground
     uniqueID: 3234762205
     locked: 0
+  - name: Mushrooms
+    uniqueID: 42697089
+    locked: 0
   m_RenderingLayers:
   - Default
