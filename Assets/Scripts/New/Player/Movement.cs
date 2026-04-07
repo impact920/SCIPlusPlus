@@ -77,12 +77,13 @@ private float attackBufferCounter = 0f;
 
 private float attackFacingDirection;
 
-
+private SpriteRenderer sr;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -155,19 +156,22 @@ private float attackFacingDirection;
         }
 
         // Zmienna wysokość skoku
-        if (rb.linearVelocity.y > 0 && !jumpButtonHeld && jumpHoldTimer < minHoldTime)
+        if (rb.velocity.y > 0 && !jumpButtonHeld && jumpHoldTimer < minHoldTime)
         {
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
         // Obracanie gracza
-        if (moveInput != 0 && !isAttacking)
+        if (!isAttacking)
 {
-    transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
+    if (moveInput != 0)
+    {
+        sr.flipX = moveInput < 0;
+    }
 }
-else if (isAttacking)
+else
 {
-    transform.localScale = new Vector3(attackFacingDirection, 1f, 1f);
+    sr.flipX = attackFacingDirection < 0;
 }
 
 
@@ -175,8 +179,8 @@ else if (isAttacking)
         // Animator
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("IsMoving", Mathf.Abs(moveInput) > 0.1f);
-        anim.SetBool("IsJumping", rb.linearVelocity.y > 0.1f && !isGrounded);
-        anim.SetBool("IsFalling", rb.linearVelocity.y < -0.1f && !isGrounded);
+        anim.SetBool("IsJumping", rb.velocity.y > 0.1f && !isGrounded);
+        anim.SetBool("IsFalling", rb.velocity.y < -0.1f && !isGrounded);
         anim.SetBool("IsDashing", isDashing);
 
         // Atak
@@ -205,14 +209,14 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
 
             if (isAttacking)
                 currentSpeed *= attackMoveSpeedMultiplier;
-                rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
+                rb.velocity = new Vector2(moveInput * currentSpeed, rb.velocity.y);
             
         }
     }
 
     private void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         coyoteTimeCounter = 0f;
         jumpBufferCounter = 0f;
         jumpPerformed = true;
@@ -237,7 +241,7 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         rb.gravityScale = 0f;
 
         float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
-        rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
+        rb.velocity = new Vector2(dashDirection * dashForce, 0f);
 
         if (activeGhost != null)
         {
@@ -273,8 +277,7 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         if (isAttacking) return;
 
         isAttacking = true;
-        attackFacingDirection = Mathf.Sign(transform.localScale.x);
-
+        attackFacingDirection = sr.flipX ? -1f : 1f;
 
         int randomAttack = Random.Range(1, 3); // 1–3
 

@@ -36,10 +36,24 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    [Header("Currency Loss On Death")]
+[Range(0f, 100f)] public float minCurrencyLossPercent = 10f;
+[Range(0f, 100f)] public float maxCurrencyLossPercent = 20f;
+
 
     void Start()
     {
+
+        if (PlayerPrefs.HasKey("PlayerHealth"))
+        {   
+        currentHealth = PlayerPrefs.GetInt("PlayerHealth");
+        }
+        else
+        {
         currentHealth = maxHealth;
+        PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+        }
+
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -63,11 +77,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage()
 {
-
     CameraShake.Instance?.ShakeFromDamage(attackDamage);
 
+    float direction = spriteRenderer.flipX ? -1f : 1f;
 
-    float direction = Mathf.Sign(transform.localScale.x);
     Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
     Vector2 capsuleSize = new Vector2(Reach, 2f);
 
@@ -119,7 +132,11 @@ public class PlayerHealth : MonoBehaviour
     if (currentHealth <= 0)
         Die();
     else
-        StartCoroutine(InvincibilityCoroutine());
+{
+    StartCoroutine(InvincibilityCoroutine());
+}
+
+PlayerPrefs.SetInt("PlayerHealth", currentHealth);
 }
 
 
@@ -129,22 +146,24 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        PlayerPrefs.SetInt("PlayerHealth", currentHealth);
     }
 
     void Die()
-    {
-        if (isDead) return;
-        isDead = true;
+{
+    if (isDead) return;
+    isDead = true;
 
-        if (deathEffect)
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+    LoseCurrencyOnDeath(); // DODAJ TUTAJ
 
-        if (audioSource && deathSound)
-            audioSource.PlayOneShot(deathSound);
+    if (deathEffect)
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
 
-        // Po krótkiej chwili pokaż Death Menu
-        StartCoroutine(ShowDeathMenuAfterDelay(1f));
-    }
+    if (audioSource && deathSound)
+        audioSource.PlayOneShot(deathSound);
+
+    StartCoroutine(ShowDeathMenuAfterDelay(1f));
+}
 
     IEnumerator ShowDeathMenuAfterDelay(float delay)
     {
@@ -153,6 +172,7 @@ public class PlayerHealth : MonoBehaviour
             deathManager.ShowDeathMenu();
         else
             SceneManager.LoadScene("Main_Menu"); // Awaryjnie
+            PlayerPrefs.SetInt("PlayerHealth", maxHealth);
     }
 
     public void Revive()
@@ -171,6 +191,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.LogError("REVIVE: Brak referencji do PlayerRespawn!");
         }
+        PlayerPrefs.SetInt("PlayerHealth", currentHealth);
     }
 
     private IEnumerator InvincibilityCoroutine()
@@ -192,11 +213,29 @@ public class PlayerHealth : MonoBehaviour
 
 
     void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        float direction = Mathf.Sign(transform.localScale.x);
-        Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
-        Vector2 capsuleSize = new Vector2(Reach, 2f);
-        Gizmos.DrawWireCube(capsuleCenter, capsuleSize);
-    }
+{
+    Gizmos.color = Color.yellow;
+
+    float direction = transform.localScale.x >= 0 ? 1f : -1f;
+
+    Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
+    Vector2 capsuleSize = new Vector2(Reach, 2f);
+
+    Gizmos.DrawWireCube(capsuleCenter, capsuleSize);
+}
+
+void LoseCurrencyOnDeath()
+{
+    if (CurrencyManager.instance == null) return;
+
+    float percent = Random.Range(minCurrencyLossPercent, maxCurrencyLossPercent);
+    int currentMoney = CurrencyManager.instance.currency;
+
+    int amountToLose = Mathf.RoundToInt(currentMoney * (percent / 100f));
+
+    CurrencyManager.instance.AddCurrency(-amountToLose);
+
+    Debug.Log($"Stracono {amountToLose} waluty ({percent}%)");
+}
+
 }

@@ -8,29 +8,35 @@ public class DamageDealer2D : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private float nextDamageTime = 0f;
+    private bool playerInside = false;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        if (playerHealth == null)
-            playerHealth = other.GetComponent<PlayerHealth>();
-
-        if (playerHealth == null) return;
-
-        // ⏱️ Sprawdzamy czy minął cooldown
-        if (Time.time >= nextDamageTime)
+        playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
         {
-            playerHealth.TakeDamage(damage);
-            nextDamageTime = Time.time + damageInterval;
+            playerInside = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        playerInside = false;
+        playerHealth = null;
+    }
+
+    private void Update()
+    {
+        if (!playerInside || playerHealth == null) return;
+
+        if (Time.time >= nextDamageTime)
         {
-            playerHealth = null;
+            playerHealth.TakeDamage(damage);
+            nextDamageTime = Time.time + damageInterval;
         }
     }
 }
