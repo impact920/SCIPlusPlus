@@ -44,7 +44,7 @@ public class EnemyHiding : MonoBehaviour
 
         if (!isAwake)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             animator.SetBool("isWalking", false);
             return;
         }
@@ -76,7 +76,7 @@ public class EnemyHiding : MonoBehaviour
     // -------------------------
     void HandleMovement()
     {
-        rb.velocity = new Vector2(moveSpeed * (movingRight ? 1 : -1), rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveSpeed * (movingRight ? 1 : -1), rb.linearVelocity.y);
 
         animator.SetBool("isWalking", true);
 
@@ -118,7 +118,7 @@ public class EnemyHiding : MonoBehaviour
 {
     animator.SetTrigger("Explode");
 
-    rb.velocity = Vector2.zero;
+    rb.linearVelocity = Vector2.zero;
 
     // wyłączamy collider od razu
     GetComponent<Collider2D>().enabled = false;

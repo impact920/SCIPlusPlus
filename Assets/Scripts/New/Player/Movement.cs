@@ -156,9 +156,9 @@ private SpriteRenderer sr;
         }
 
         // Zmienna wysokość skoku
-        if (rb.velocity.y > 0 && !jumpButtonHeld && jumpHoldTimer < minHoldTime)
+        if (rb.linearVelocity.y > 0 && !jumpButtonHeld && jumpHoldTimer < minHoldTime)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
         // Obracanie gracza
@@ -179,8 +179,8 @@ else
         // Animator
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("IsMoving", Mathf.Abs(moveInput) > 0.1f);
-        anim.SetBool("IsJumping", rb.velocity.y > 0.1f && !isGrounded);
-        anim.SetBool("IsFalling", rb.velocity.y < -0.1f && !isGrounded);
+        anim.SetBool("IsJumping", rb.linearVelocity.y > 0.1f && !isGrounded);
+        anim.SetBool("IsFalling", rb.linearVelocity.y < -0.1f && !isGrounded);
         anim.SetBool("IsDashing", isDashing);
 
         // Atak
@@ -209,14 +209,14 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
 
             if (isAttacking)
                 currentSpeed *= attackMoveSpeedMultiplier;
-                rb.velocity = new Vector2(moveInput * currentSpeed, rb.velocity.y);
+                rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
             
         }
     }
 
     private void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         coyoteTimeCounter = 0f;
         jumpBufferCounter = 0f;
         jumpPerformed = true;
@@ -241,7 +241,7 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         rb.gravityScale = 0f;
 
         float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
-        rb.velocity = new Vector2(dashDirection * dashForce, 0f);
+        rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
 
         if (activeGhost != null)
         {
