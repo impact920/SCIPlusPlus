@@ -82,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
     float direction = spriteRenderer.flipX ? -1f : 1f;
 
     Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
-    Vector2 capsuleSize = new Vector2(Reach, 2f);
+    Vector2 capsuleSize = new Vector2(Reach, 1f);
 
     Collider2D[] hitEnemies = Physics2D.OverlapCapsuleAll(
         capsuleCenter,
@@ -219,7 +219,7 @@ PlayerPrefs.SetInt("PlayerHealth", currentHealth);
     float direction = transform.localScale.x >= 0 ? 1f : -1f;
 
     Vector2 capsuleCenter = (Vector2)transform.position + new Vector2(direction * (Reach / 2), 0f);
-    Vector2 capsuleSize = new Vector2(Reach, 2f);
+    Vector2 capsuleSize = new Vector2(Reach, 1f);
 
     Gizmos.DrawWireCube(capsuleCenter, capsuleSize);
 }

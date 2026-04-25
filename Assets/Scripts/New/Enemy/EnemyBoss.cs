@@ -10,22 +10,22 @@ public class EnemyBoss : MonoBehaviour
     public float attackCooldown = 1f;
     public float directionDeadZone = 0.2f;
 
+    [Header("Summon Trigger Range")]
+    public float summonRange = 4f; // 🔥 NOWE: kiedy boss przywołuje
+
     [Header("Movement Scaling")]
     public float minMoveSpeed = 2f;
     public float maxMoveSpeed = 5f;
 
-    [Header("Summon Enemies")]
+    [Header("Enemies")]
     public GameObject[] easyEnemies;
     public GameObject[] mediumEnemies;
     public GameObject[] hardEnemies;
 
-    [Header("Spawn Settings")]
-    public float spawnRadius = 6f;
-    public float groundCheckDistance = 15f;
-    public float maxGroundHeightDifference = 2f;
-
-    public LayerMask groundLayer;
-    public LayerMask obstacleLayer;
+    [Header("Spawn Points (STRICT by difficulty)")]
+    public Transform[] easySpawnPoints;
+    public Transform[] mediumSpawnPoints;
+    public Transform[] hardSpawnPoints;
 
     [Header("Summon Scaling")]
     public float maxSummonCooldown = 5f;
@@ -39,7 +39,6 @@ public class EnemyBoss : MonoBehaviour
     private EnemyHealth enemyHealth;
 
     private int facingDirection = 1;
-
     private bool isAwake = false;
 
     void Start()
@@ -51,28 +50,21 @@ public class EnemyBoss : MonoBehaviour
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-if (!isAwake)
-{
-    if (distanceToPlayer <= chaseRange)
-    {
-        isAwake = true;
-        anim.SetTrigger("WakeUp");
-    }
-    else
-    {
-        return;
-    }
-}
-        
-        if (enemyHealth == null || enemyHealth.IsDead)
+        if (player == null || enemyHealth == null || enemyHealth.IsDead)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
-        if (player == null) return;
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (!isAwake)
+        {
+            if (distanceToPlayer <= chaseRange)
+                isAwake = true;
+            else
+                return;
+        }
 
         float healthPercent = (float)enemyHealth.currentHealth / enemyHealth.maxHealth;
 
@@ -82,20 +74,16 @@ if (!isAwake)
         float distanceX = player.position.x - transform.position.x;
         float absDistanceX = Mathf.Abs(distanceX);
 
-        if (attackTimer > 0)
-            attackTimer -= Time.deltaTime;
+        if (attackTimer > 0) attackTimer -= Time.deltaTime;
+        if (summonTimer > 0) summonTimer -= Time.deltaTime;
 
-        if (summonTimer > 0)
-            summonTimer -= Time.deltaTime;
-
-        // kierunek patrzenia
         if (Mathf.Abs(distanceX) > directionDeadZone)
-        {
             facingDirection = distanceX > 0 ? 1 : -1;
-        }
 
-        // SUMMON
-        if (summonTimer <= 0f && absDistanceX <= chaseRange)
+        // =========================
+        // SUMMON (NOW RANGE-BASED)
+        // =========================
+        if (summonTimer <= 0f && distanceToPlayer <= summonRange)
         {
             rb.linearVelocity = Vector2.zero;
             anim.SetTrigger("Summon");
@@ -103,15 +91,12 @@ if (!isAwake)
             return;
         }
 
-        // ATAK
+        // ATTACK
         if (absDistanceX <= attackRange && attackTimer <= 0f)
         {
             rb.linearVelocity = Vector2.zero;
 
-            if (Random.Range(0, 2) == 0)
-                anim.SetTrigger("Attack1");
-            else
-                anim.SetTrigger("Attack2");
+            anim.SetTrigger(Random.Range(0, 2) == 0 ? "Attack1" : "Attack2");
 
             attackTimer = attackCooldown;
         }
@@ -120,66 +105,43 @@ if (!isAwake)
             float move = facingDirection * currentMoveSpeed;
             rb.linearVelocity = new Vector2(move, rb.linearVelocity.y);
 
-            // OBRÓT
             Vector3 scale = transform.localScale;
             scale.x = facingDirection > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
             transform.localScale = scale;
-
         }
         else
         {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
-    // ANIMATION EVENT (SUMMON)
+    // =========================
+    // SPAWN SYSTEM
+    // =========================
     public void SpawnEnemies()
-{
-    if (enemyHealth == null) return;
-
-    int spawnCount = Random.Range(2, 6);
-
-    float healthPercent = (float)enemyHealth.currentHealth / enemyHealth.maxHealth;
-
-    for (int i = 0; i < spawnCount; i++)
     {
-        Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
+        if (enemyHealth == null) return;
 
-        Vector2 origin = (Vector2)transform.position + randomOffset + Vector2.up * 5f;
+        int spawnCount = Random.Range(2, 6);
+        float healthPercent = (float)enemyHealth.currentHealth / enemyHealth.maxHealth;
 
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 20f, groundLayer);
-
-        Debug.DrawRay(origin, Vector2.down * 20f, Color.red, 1f);
-
-        if (hit.collider == null)
-            continue;
-
-        // anti-stuck (przeszkody)
-        Collider2D obstacle = Physics2D.OverlapCircle(hit.point + Vector2.up * 0.5f, 0.4f, obstacleLayer);
-
-        if (obstacle != null)
-            continue;
-
-        GameObject prefab = GetEnemyByDifficulty(healthPercent);
-
-        Vector3 spawnPos = hit.point;
-        spawnPos.y += 0.2f;
-
-        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
-
-        //  KLUCZOWA NAPRAWA: przypisanie gracza
-        EnemyChasing aic = enemy.GetComponent<EnemyChasing>();
-        if (aic != null)
+        for (int i = 0; i < spawnCount; i++)
         {
-            aic.player = player;
-        }
-        EnemyFlying aif = enemy.GetComponent<EnemyFlying>();
-        if (aif != null)
-        {
-            aif.player = player;
+            GameObject prefab = GetEnemyByDifficulty(healthPercent);
+            Transform spawnPoint = GetSpawnPointForEnemy(prefab);
+
+            if (prefab == null || spawnPoint == null)
+                continue;
+
+            GameObject enemy = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+
+            EnemyChasing aic = enemy.GetComponent<EnemyChasing>();
+            if (aic != null) aic.player = player;
+
+            EnemyFlying aif = enemy.GetComponent<EnemyFlying>();
+            if (aif != null) aif.player = player;
         }
     }
-}
 
     GameObject GetEnemyByDifficulty(float hpPercent)
     {
@@ -201,5 +163,52 @@ if (!isAwake)
                 ? mediumEnemies[Random.Range(0, mediumEnemies.Length)]
                 : hardEnemies[Random.Range(0, hardEnemies.Length)];
         }
+    }
+
+    Transform GetSpawnPointForEnemy(GameObject enemyPrefab)
+    {
+        if (IsInArray(enemyPrefab, easyEnemies))
+            return GetRandomPoint(easySpawnPoints);
+
+        if (IsInArray(enemyPrefab, mediumEnemies))
+            return GetRandomPoint(mediumSpawnPoints);
+
+        if (IsInArray(enemyPrefab, hardEnemies))
+            return GetRandomPoint(hardSpawnPoints);
+
+        return null;
+    }
+
+    bool IsInArray(GameObject obj, GameObject[] array)
+    {
+        foreach (var item in array)
+        {
+            if (item == obj)
+                return true;
+        }
+        return false;
+    }
+
+    Transform GetRandomPoint(Transform[] points)
+    {
+        if (points == null || points.Length == 0)
+            return null;
+
+        return points[Random.Range(0, points.Length)];
+    }
+
+    // =========================
+    // GIZMOS (EDITOR VISUAL)
+    // =========================
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, summonRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
