@@ -112,23 +112,27 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
     }
 
     void DropCoins()
-    {
-        if (coinPrefab == null) return;
+{
+    if (coinPrefab == null) return;
 
-        int coinsToDrop = Random.Range(minCoins, maxCoins + 1);
-        for (int i = 0; i < coinsToDrop; i++)
+    int coinsToDrop = Random.Range(minCoins, maxCoins + 1);
+
+    for (int i = 0; i < coinsToDrop; i++)
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        Vector3 spawnPos = col.bounds.center;
+        
+        GameObject coin = Instantiate(coinPrefab, spawnPos, Quaternion.identity);
+
+        Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            Vector3 spawnPos = transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.1f, 0.3f), 0);
-            GameObject coin = Instantiate(coinPrefab, spawnPos, Quaternion.identity);
-            Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                float forceX = Random.Range(-1f, 1f);
-                float forceY = Random.Range(2f, 4f);
-                rb.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
-            }
+            float forceX = Random.Range(-1f, 1f);
+            float forceY = Random.Range(2f, 4f);
+            rb.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
         }
     }
+}
 
     // Ta metoda powinna być wywołana z eventu animacji "Death" na końcu animacji
     public void OnDeathAnimationEnd()

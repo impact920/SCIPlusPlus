@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7011002414366944144}
   - component: {fileID: 1651622363670863374}
   - component: {fileID: 58770827897983904}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ghost_Moving
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

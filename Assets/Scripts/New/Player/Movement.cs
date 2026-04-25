@@ -240,25 +240,33 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
     float originalGravity = rb.gravityScale;
     rb.gravityScale = 0f;
 
-    float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
-
+    float dashDirection = moveInput != 0 ? moveInput : (sr.flipX ? -1f : 1f);
     float dashDistance = dashForce * dashDuration;
 
     //  SPRAWDZAMY CZY JEST ŚCIANA
-    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * dashDirection, dashDistance, groundLayer);
+RaycastHit2D hit1 = Physics2D.Raycast(transform.position, Vector2.right * dashDirection, dashDistance, groundLayer);
+RaycastHit2D hit2 = Physics2D.Raycast((Vector2)transform.position + Vector2.up * 0.1f, Vector2.right * dashDirection, dashDistance, groundLayer);
+RaycastHit2D hit3 = Physics2D.Raycast((Vector2)transform.position + Vector2.down * 0.1f, Vector2.right * dashDirection, dashDistance, groundLayer);
+    float safeDistance = Mathf.Infinity;
 
-    if (hit.collider != null)
-    {
-        // zatrzymaj się przed ścianą
-        float safeDistance = hit.distance - 0.1f;
-        rb.linearVelocity = new Vector2((safeDistance / dashDuration) * dashDirection, 0f);
-    }
-    else
-    {
-        // normalny dash
-        rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
-    }
+if (hit1.collider != null)
+    safeDistance = Mathf.Min(safeDistance, hit1.distance);
 
+if (hit2.collider != null)
+    safeDistance = Mathf.Min(safeDistance, hit2.distance);
+
+if (hit3.collider != null)
+    safeDistance = Mathf.Min(safeDistance, hit3.distance);
+
+if (safeDistance != Mathf.Infinity)
+{
+    safeDistance -= 0.1f;
+    rb.linearVelocity = new Vector2((safeDistance / dashDuration) * dashDirection, 0f);
+}
+else
+{
+    rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
+}
     yield return new WaitForSeconds(dashDuration);
 
     rb.gravityScale = originalGravity;
@@ -314,109 +322,66 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
     
 
     private IEnumerator SpawnGhost()
+{
+    anim.SetBool("SkillMode", true);
+    abilityInUse = true;
+    canUseGhost = false;
+    ghostActive = true;
+
+    // 🔹 spawn dokładnie na graczu
+    Vector3 spawnPosition = transform.position;
+
+    activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
+
+    PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
+    if (ghostScript != null)
     {
-        anim.SetBool("SkillMode", true);
-        abilityInUse = true;
-        canUseGhost = false;
-        ghostActive = true;
-
-float direction = sr.flipX ? -1f : 1f;
-float spawnDistance = 0.6f;
-
-// 🔹 sprawdź ścianę
-RaycastHit2D wallCheck = Physics2D.Raycast(transform.position, Vector2.right * direction, spawnDistance, groundLayer);
-
-// jeśli ściana → zmień stronę
-if (wallCheck.collider != null)
-{
-    direction *= -1f;
-}
-
-// 🔹 bazowa pozycja
-Vector3 spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
-
-// 🔹 znajdź ziemię pod ghostem
-RaycastHit2D groundHit = Physics2D.Raycast(spawnPosition + Vector3.up * 2f, Vector2.down, 5f, groundLayer);
-
-if (groundHit.collider != null)
-{
-    spawnPosition.y = groundHit.point.y + 0.5f; // lekko nad ziemią
-}
-else
-{
-    // fallback → spawn nad graczem
-    spawnPosition = transform.position + Vector3.up * 1f;
-}
-
-// 🔽 SPRAWDZENIE KOLIZJI (czy nie w ziemi)
-Collider2D hit = Physics2D.OverlapBox(spawnPosition, new Vector2(0.5f, 1f), 0f, groundLayer);
-
-if (hit != null)
-{
-    // jeśli miejsce zajęte → spróbuj wyżej
-    spawnPosition += Vector3.up * 1f;
-
-    hit = Physics2D.OverlapBox(spawnPosition, new Vector2(0.5f, 1f), 0f, groundLayer);
-
-    if (hit != null)
-    {
-        // jeśli dalej kolizja → spawn przy graczu (bezpieczny fallback)
-        spawnPosition = transform.position + Vector3.up * 1f;
-    }
-}
-
-activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
-        activeGhost.transform.localScale = new Vector3(direction, 1f, 1f);
-
-        PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
         ghostScript.moveSpeed = moveSpeed * ghostMoveSpeedMultiplier;
         ghostScript.jumpForce = jumpForce * ghostJumpMultiplier;
         ghostScript.groundLayer = groundLayer;
         ghostScript.groundCheckRadius = groundCheckRadius;
-
-        StartCoroutine(SyncGhostWithPlayer(ghostScript));
-
-        yield return new WaitForSeconds(ghostLifetime);
-
-        if (activeGhost != null)
-        {
-            transform.position = activeGhost.transform.position;
-            Destroy(activeGhost);
-        }
-
-        ghostActive = false;
-        abilityInUse = false;
-
-        anim.SetBool("SkillMode", false);
-
-        yield return new WaitForSeconds(ghostCooldown);
-        canUseGhost = true;
     }
+
+    StartCoroutine(SyncGhostWithPlayer(ghostScript));
+
+    yield return new WaitForSeconds(ghostLifetime);
+
+    if (activeGhost != null)
+    {
+        transform.position = activeGhost.transform.position;
+        Destroy(activeGhost);
+    }
+
+    ghostActive = false;
+    abilityInUse = false;
+
+    anim.SetBool("SkillMode", false);
+
+    yield return new WaitForSeconds(ghostCooldown);
+    canUseGhost = true;
+}
 
     private IEnumerator SyncGhostWithPlayer(PlayerGhost ghost)
+{
+    while (ghost != null)
     {
-        bool lastFacingRight = transform.localScale.x > 0;
+        // 🔹 ruch
+        ghost.SetMoveInput(moveInput);
 
-        while (ghost != null)
+        // 🔹 FLIP zawsze identyczny jak gracz
+        float direction = sr.flipX ? -1f : 1f;
+        ghost.transform.localScale = new Vector3(direction, 1f, 1f);
+
+        // 🔹 dash u ducha
+        if (Input.GetKeyDown(KeyCode.E) && canDash)
         {
-            bool facingRight = transform.localScale.x > 0;
-            if (facingRight != lastFacingRight)
-            {
-                ghost.transform.localScale = new Vector3(transform.localScale.x, 1f, 1f);
-                lastFacingRight = facingRight;
-            }
-
-            ghost.SetMoveInput(moveInput);
-
-            if (Input.GetKeyDown(KeyCode.E) && canDash)
-            {
-                float direction = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
-                ghost.StartDash(direction, dashForce * ghostDashMultiplier, dashDuration);
-            }
-
-            yield return null;
+            float dashDir = moveInput != 0 ? moveInput : direction;
+            ghost.StartDash(dashDir, dashForce * ghostDashMultiplier, dashDuration);
         }
+
+        yield return null;
     }
+}
 
     private IEnumerator SpawnStaticGhostAndRewind()
     {
