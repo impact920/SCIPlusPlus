@@ -1,61 +1,34 @@
 fileFormatVersion: 2
-guid: d0443bda1d669784692afc949b3c3a7c
+guid: 27113391c7c7d437687eeecdf77c3583
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3515623118254065899
-    second: przyzywacz_death_0
+      213: 3496646588948758424
+    second: summon-Sheet_0
   - first:
-      213: -2302222340323542754
-    second: przyzywacz_death_1
+      213: -2951996547352912712
+    second: summon-Sheet_1
   - first:
-      213: 4811369135383388104
-    second: przyzywacz_death_2
+      213: 7276145680193093663
+    second: summon-Sheet_2
   - first:
-      213: 4802737151399745397
-    second: przyzywacz_death_3
+      213: 3218442081438414751
+    second: summon-Sheet_3
   - first:
-      213: 3655220904149615065
-    second: przyzywacz_death_4
+      213: 6690704561264783632
+    second: summon-Sheet_4
   - first:
-      213: -4329777951017114137
-    second: przyzywacz_death_5
+      213: -5114116671203178563
+    second: summon-Sheet_5
   - first:
-      213: 6015619920404108626
-    second: przyzywacz_death_6
+      213: -4529283556784189742
+    second: summon-Sheet_6
   - first:
-      213: -2301207512770367617
-    second: przyzywacz_death_7
+      213: -5631015850718902579
+    second: summon-Sheet_7
   - first:
-      213: 1198913129673791427
-    second: przyzywacz_death_8
-  - first:
-      213: 7142280225933316696
-    second: przyzywacz_death_9
-  - first:
-      213: 4485495774743222972
-    second: przyzywacz_death_10
-  - first:
-      213: -6685264263016773283
-    second: przyzywacz_death_11
-  - first:
-      213: -400078122516372301
-    second: przyzywacz_death_12
-  - first:
-      213: 4082683408717862610
-    second: przyzywacz_death_13
-  - first:
-      213: -5489698453394253694
-    second: przyzywacz_death_14
-  - first:
-      213: -9072180342937118385
-    second: przyzywacz_death_15
-  - first:
-      213: 6440357590071746299
-    second: przyzywacz_death_16
-  - first:
-      213: 6076136080096138214
-    second: przyzywacz_death_17
+      213: -1141425330894618231
+    second: summon-Sheet_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -151,7 +124,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: przyzywacz_death_0
+      name: summon-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -159,21 +132,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 64cb8337fca5f924fa56de259899fca8
-      internalID: -3515623118254065899
+      spriteID: 89f3f5feb85968030800000000000000
+      internalID: 3496646588948758424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_1
+      name: summon-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -181,21 +154,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 36559b684d6e7f846aefc9e631ac8e72
-      internalID: -2302222340323542754
+      spriteID: 8bc99d0d7c66807d0800000000000000
+      internalID: -2951996547352912712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_2
+      name: summon-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -203,21 +176,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0afae01bfa53da0469c28e6b58c35549
-      internalID: 4811369135383388104
+      spriteID: f1007e902ff0af460800000000000000
+      internalID: 7276145680193093663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_3
+      name: summon-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -225,21 +198,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7fa18f41ff4df3d4c82cb10fb8e9f00f
-      internalID: 4802737151399745397
+      spriteID: f973e4265043aac20800000000000000
+      internalID: 3218442081438414751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_4
+      name: summon-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -247,21 +220,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1518b9ba6ee193a4c8e722ec1f803bd5
-      internalID: 3655220904149615065
+      spriteID: 011f54f79582adc50800000000000000
+      internalID: 6690704561264783632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_5
+      name: summon-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
@@ -269,21 +242,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b16315c80d84c79469e67c8b0b682d86
-      internalID: -4329777951017114137
+      spriteID: db70809bbf10709b0800000000000000
+      internalID: -5114116671203178563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_6
+      name: summon-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
@@ -291,21 +264,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 24ea69e66f7257c45a6af8f91e857c11
-      internalID: 6015619920404108626
+      spriteID: 2de4cde2a90c421c0800000000000000
+      internalID: -4529283556784189742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_7
+      name: summon-Sheet_7
       rect:
         serializedVersion: 2
         x: 224
@@ -313,21 +286,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 72d61bb867498b64381fdd41bb127e7d
-      internalID: -2301207512770367617
+      spriteID: dc64e4d0bec9ad1b0800000000000000
+      internalID: -5631015850718902579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: przyzywacz_death_8
+      name: summon-Sheet_8
       rect:
         serializedVersion: 2
         x: 256
@@ -335,59 +308,15 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d13ebf6d96582ca489e08f7c366a39f7
-      internalID: 1198913129673791427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: przyzywacz_death_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e74fbc8578f60e14bb81e826a77c9225
-      internalID: 7142280225933316696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: przyzywacz_death_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 510a580c62cf48f4ebd218b1fa544deb
-      internalID: 4485495774743222972
+      spriteID: 981c46685b7d820f0800000000000000
+      internalID: -1141425330894618231
       vertices: []
       indices: 
       edges: []
@@ -396,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3c9e9156c10414d43b543451886acade
+    spriteID: da00959cbbe654b038da93cb22a1d307
     internalID: 0
     vertices: []
     indices: 
@@ -404,19 +333,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      przyzywacz_death_0: -3515623118254065899
-      przyzywacz_death_1: -2302222340323542754
-      przyzywacz_death_10: 4485495774743222972
-      przyzywacz_death_2: 4811369135383388104
-      przyzywacz_death_3: 4802737151399745397
-      przyzywacz_death_4: 3655220904149615065
-      przyzywacz_death_5: -4329777951017114137
-      przyzywacz_death_6: 6015619920404108626
-      przyzywacz_death_7: -2301207512770367617
-      przyzywacz_death_8: 1198913129673791427
-      przyzywacz_death_9: 7142280225933316696
+      summon-Sheet_0: 3496646588948758424
+      summon-Sheet_1: -2951996547352912712
+      summon-Sheet_2: 7276145680193093663
+      summon-Sheet_3: 3218442081438414751
+      summon-Sheet_4: 6690704561264783632
+      summon-Sheet_5: -5114116671203178563
+      summon-Sheet_6: -4529283556784189742
+      summon-Sheet_7: -5631015850718902579
+      summon-Sheet_8: -1141425330894618231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

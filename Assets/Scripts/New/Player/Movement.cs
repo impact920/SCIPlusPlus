@@ -231,35 +231,42 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         }
     }
 
-    private IEnumerator Dash()
+   private IEnumerator Dash()
+{
+    canDash = false;
+    isDashing = true;
+    anim.SetTrigger("Dash");
+
+    float originalGravity = rb.gravityScale;
+    rb.gravityScale = 0f;
+
+    float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
+
+    float dashDistance = dashForce * dashDuration;
+
+    //  SPRAWDZAMY CZY JEST ŚCIANA
+    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * dashDirection, dashDistance, groundLayer);
+
+    if (hit.collider != null)
     {
-        canDash = false;
-        isDashing = true;
-        anim.SetTrigger("Dash");
-
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-
-        float dashDirection = moveInput != 0 ? moveInput : Mathf.Sign(transform.localScale.x);
-        rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
-
-        if (activeGhost != null)
-        {
-            PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();
-            if (ghostScript != null)
-            {
-                ghostScript.StartDash(dashDirection, dashForce * ghostDashMultiplier, dashDuration);
-            }
-        }
-
-        yield return new WaitForSeconds(dashDuration);
-
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        // zatrzymaj się przed ścianą
+        float safeDistance = hit.distance - 0.1f;
+        rb.linearVelocity = new Vector2((safeDistance / dashDuration) * dashDirection, 0f);
     }
+    else
+    {
+        // normalny dash
+        rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
+    }
+
+    yield return new WaitForSeconds(dashDuration);
+
+    rb.gravityScale = originalGravity;
+    isDashing = false;
+
+    yield return new WaitForSeconds(dashCooldown);
+    canDash = true;
+}
 
     public bool IsDashing()
 {
@@ -313,11 +320,52 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
         canUseGhost = false;
         ghostActive = true;
 
-        float direction = Mathf.Sign(transform.localScale.x);
-        float spawnDistance = 0.6f;
+float direction = sr.flipX ? -1f : 1f;
+float spawnDistance = 0.6f;
 
-        Vector3 spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
-        activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
+// 🔹 sprawdź ścianę
+RaycastHit2D wallCheck = Physics2D.Raycast(transform.position, Vector2.right * direction, spawnDistance, groundLayer);
+
+// jeśli ściana → zmień stronę
+if (wallCheck.collider != null)
+{
+    direction *= -1f;
+}
+
+// 🔹 bazowa pozycja
+Vector3 spawnPosition = transform.position + new Vector3(direction * spawnDistance, 0f, 0f);
+
+// 🔹 znajdź ziemię pod ghostem
+RaycastHit2D groundHit = Physics2D.Raycast(spawnPosition + Vector3.up * 2f, Vector2.down, 5f, groundLayer);
+
+if (groundHit.collider != null)
+{
+    spawnPosition.y = groundHit.point.y + 0.5f; // lekko nad ziemią
+}
+else
+{
+    // fallback → spawn nad graczem
+    spawnPosition = transform.position + Vector3.up * 1f;
+}
+
+// 🔽 SPRAWDZENIE KOLIZJI (czy nie w ziemi)
+Collider2D hit = Physics2D.OverlapBox(spawnPosition, new Vector2(0.5f, 1f), 0f, groundLayer);
+
+if (hit != null)
+{
+    // jeśli miejsce zajęte → spróbuj wyżej
+    spawnPosition += Vector3.up * 1f;
+
+    hit = Physics2D.OverlapBox(spawnPosition, new Vector2(0.5f, 1f), 0f, groundLayer);
+
+    if (hit != null)
+    {
+        // jeśli dalej kolizja → spawn przy graczu (bezpieczny fallback)
+        spawnPosition = transform.position + Vector3.up * 1f;
+    }
+}
+
+activeGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
         activeGhost.transform.localScale = new Vector3(direction, 1f, 1f);
 
         PlayerGhost ghostScript = activeGhost.GetComponent<PlayerGhost>();

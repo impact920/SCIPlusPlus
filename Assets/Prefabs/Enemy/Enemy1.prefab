@@ -224,11 +224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b21cbc769ca4996a9e6778ec593237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
-  player: {fileID: 0}
+  player: {fileID: 712416881149970353, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
   chaseRange: 8
   attackRange: 0.89
-  speed: 2
+  moveSpeed: 2
   attackCooldown: 1
+  directionDeadZone: 0.2
 --- !u!50 &8814196038353768622
 Rigidbody2D:
   serializedVersion: 5

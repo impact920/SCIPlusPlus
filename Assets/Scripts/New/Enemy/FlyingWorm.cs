@@ -18,7 +18,6 @@ public class EnemyFlying : MonoBehaviour
     private SpriteRenderer sr;
 
     private float attackTimer = 0f;
-    private bool isDead = false;
     private EnemyHealth enemyHealth;
 
     void Start()

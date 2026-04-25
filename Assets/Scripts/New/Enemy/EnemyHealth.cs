@@ -141,4 +141,13 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
         // Drop coins natychmiast
         DropCoins();
     }
+
+    public float HealthPercent
+{
+    get
+    {
+        if (maxHealth == 0) return 0;
+        return (float)currentHealth / maxHealth;
+    }
+}
 }

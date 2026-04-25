@@ -28,7 +28,7 @@ public class CurrencyManager : MonoBehaviour
     {
         currency += amount;
 
-        SaveCurrency(); // 🔹 TERAZ zapisuje poprawnie
+        SaveCurrency(); // zapisuje poprawnie
         UpdateUI();
 
         // odśwież sklep jeśli jest otwarty

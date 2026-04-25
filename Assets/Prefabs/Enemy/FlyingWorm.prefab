@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4575f086e401544aa9ebe5d98d38c8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  player: {fileID: 0}
+  player: {fileID: 712416881149970353, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
   speed: 3
   minY: -10
   maxY: 2
