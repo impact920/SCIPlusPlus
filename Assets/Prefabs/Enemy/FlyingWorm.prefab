@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7046497882330448459}
   - component: {fileID: 6159442281028196198}
   - component: {fileID: 7479524767637127565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyingWorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 2592581376111558109}
   - component: {fileID: 8492563991690403220}
   - component: {fileID: 211161821850854875}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

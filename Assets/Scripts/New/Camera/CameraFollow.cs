@@ -3,42 +3,38 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [Header("Target Settings")]
-    public Transform target; // Gracz
+    public Transform target;
 
     [Header("Camera Offset")]
-    public Vector2 offset = new Vector2(2f, 1f); // Offset kamery
+    public Vector2 offset = new Vector2(2f, 1f);
 
     [Header("Smoothness")]
-    public float smoothSpeed = 0.125f; // Szybkosc
+    public float smoothSpeed = 0.125f;
 
     [Header("Falling Settings")]
-    public float fallingYOffset = -2f; // Dodatkowe przesuniecie podczas opadania
-    public float fallThreshold = -1f; // Kiedy to sie zalacza
+    public float fallingYOffset = -2f;
+    public float fallThreshold = -1f;
 
     private Vector3 velocity = Vector3.zero;
     private Rigidbody2D targetRigidbody;
+
+    private bool initialized = false;
 
     void Start()
     {
         if (target != null)
         {
             targetRigidbody = target.GetComponent<Rigidbody2D>();
-            if (targetRigidbody == null)
-            {
-                Debug.LogWarning("Target does not have a Rigidbody2D component. Falling detection will not work.");
-            }
         }
     }
 
     void FixedUpdate()
     {
-        if (target == null) return;
+        if (!initialized || target == null) return;
 
-        // Okreslenie żzadanej pozycji kamery na podstawie kierunku, w którym skierowany jest gracz
-        float direction = Mathf.Sign(target.localScale.x); // Okreslenie czy gracz patrzy w lewo czy w prawo
+        float direction = Mathf.Sign(target.localScale.x);
         float yOffset = offset.y;
 
-        // Sprawdzanie czy gracz spada
         if (targetRigidbody != null && targetRigidbody.linearVelocity.y < fallThreshold)
         {
             yOffset += fallingYOffset;
@@ -50,7 +46,29 @@ public class CameraFollow : MonoBehaviour
             transform.position.z
         );
 
-        // Plynne przejscie do pozadanej pozycji
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            desiredPosition,
+            ref velocity,
+            smoothSpeed
+        );
+    }
+
+    // 🔥 wywoływane po respawnie
+    public void SnapToTarget()
+    {
+        if (target == null) return;
+
+        float direction = Mathf.Sign(target.localScale.x);
+        float yOffset = offset.y;
+
+        transform.position = new Vector3(
+            target.position.x + offset.x * direction,
+            target.position.y + yOffset,
+            transform.position.z
+        );
+
+        velocity = Vector3.zero;
+        initialized = true;
     }
 }

@@ -7,9 +7,11 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Player"))
+            return;
 
         PlayerRespawn respawn = collision.GetComponent<PlayerRespawn>();
+
         if (respawn != null)
         {
             Vector3 newPoint = collision.transform.position;
@@ -24,8 +26,8 @@ public class Checkpoint : MonoBehaviour
             // Zapis sceny
             string currentScene = SceneManager.GetActiveScene().name;
             PlayerPrefs.SetString("CheckpointScene", currentScene);
-
             PlayerPrefs.SetInt("HasCheckpoint", 1);
+
             PlayerPrefs.Save();
 
             Debug.Log($"Zapisano checkpoint: {newPoint} w scenie: {currentScene}");
@@ -33,6 +35,7 @@ public class Checkpoint : MonoBehaviour
             if (!string.IsNullOrEmpty(sceneToLoad))
             {
                 PlayerPrefs.SetString("CheckpointScene", sceneToLoad);
+                Debug.Log($"Zaladuj checkpoint: {newPoint} w scenie: {sceneToLoad}");
                 SceneManager.LoadScene(sceneToLoad);
             }
         }

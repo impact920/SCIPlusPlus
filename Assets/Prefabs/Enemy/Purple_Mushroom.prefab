@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5666621753645528059}
   - component: {fileID: 2417360087553744804}
   - component: {fileID: 8158545169504061804}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5135420720006125078}
   - component: {fileID: 7949553361568648992}
   - component: {fileID: 938486994727947939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Purple_Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

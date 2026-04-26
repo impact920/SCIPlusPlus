@@ -5,7 +5,14 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        LoadingScreen.LoadScene("Level"); // nazwa sceny z rozgrywką
+        string sceneToLoad = "Level"; // domyślna scena
+
+        if (PlayerPrefs.HasKey("CheckpointScene"))
+        {
+            sceneToLoad = PlayerPrefs.GetString("CheckpointScene");
+        }
+
+        LoadingScreen.LoadScene(sceneToLoad);
     }
 
     public void QuitGame()

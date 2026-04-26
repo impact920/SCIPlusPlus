@@ -11,7 +11,7 @@ public class EnemyBoss : MonoBehaviour
     public float directionDeadZone = 0.2f;
 
     [Header("Summon Trigger Range")]
-    public float summonRange = 4f; // 🔥 NOWE: kiedy boss przywołuje
+    public float summonRange = 4f; // kiedy boss przywołuje
 
     [Header("Movement Scaling")]
     public float minMoveSpeed = 2f;

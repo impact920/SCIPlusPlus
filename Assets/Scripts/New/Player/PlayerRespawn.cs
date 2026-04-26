@@ -1,13 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerRespawn : MonoBehaviour
 {
     public Vector3 respawnPoint;
     private Rigidbody2D rb;
 
-    void Awake()
+    void Start()
     {
+        StartCoroutine(LoadCheckpoint());
+    }
+
+    IEnumerator LoadCheckpoint()
+    {
+        // 🔥 czekamy aż scena się ustabilizuje
+        yield return null;
+
         rb = GetComponent<Rigidbody2D>();
 
         if (PlayerPrefs.GetInt("HasCheckpoint", 0) == 1)
@@ -15,15 +24,13 @@ public class PlayerRespawn : MonoBehaviour
             string savedScene = PlayerPrefs.GetString("CheckpointScene");
             string currentScene = SceneManager.GetActiveScene().name;
 
-            // Jeśli jesteśmy w złej scenie → przeładuj właściwą
+            // jeśli zła scena → przeładuj
             if (currentScene != savedScene)
             {
-                Debug.Log($"Zmiana sceny z {currentScene} na {savedScene}");
                 SceneManager.LoadScene(savedScene);
-                return;
+                yield break;
             }
 
-            // Jeśli scena się zgadza → ustaw pozycję
             float x = PlayerPrefs.GetFloat("CheckpointX");
             float y = PlayerPrefs.GetFloat("CheckpointY");
             float z = PlayerPrefs.GetFloat("CheckpointZ");
@@ -31,19 +38,20 @@ public class PlayerRespawn : MonoBehaviour
             respawnPoint = new Vector3(x, y, z);
             transform.position = respawnPoint;
 
-            Debug.Log($"Wczytano checkpoint: {respawnPoint} w scenie: {savedScene}");
+            rb.linearVelocity = Vector2.zero;
         }
         else
         {
             respawnPoint = transform.position;
-            Debug.Log($"Brak checkpointu – start: {respawnPoint}");
         }
+
+        // 🔥 po ustawieniu gracza ustaw kamerę
+        FindFirstObjectByType<CameraFollow>()?.SnapToTarget();
     }
 
     public void UpdateCheckpoint(Vector3 newPoint)
     {
         respawnPoint = newPoint;
-        Debug.Log($"Checkpoint ustawiony na: {respawnPoint}");
     }
 
     public void Respawn()
@@ -52,7 +60,5 @@ public class PlayerRespawn : MonoBehaviour
 
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
-
-        Debug.Log($"Respawn w: {respawnPoint}");
     }
 }
