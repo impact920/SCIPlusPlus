@@ -241,33 +241,28 @@ if (attackBufferCounter > 0f && !isAttacking && !isDashing && !abilityInUse)
     rb.gravityScale = 0f;
 
     float dashDirection = moveInput != 0 ? moveInput : (sr.flipX ? -1f : 1f);
-    float dashDistance = dashForce * dashDuration;
+    float dashSpeed = dashForce;
 
-    //  SPRAWDZAMY CZY JEST ŚCIANA
-RaycastHit2D hit1 = Physics2D.Raycast(transform.position, Vector2.right * dashDirection, dashDistance, groundLayer);
-RaycastHit2D hit2 = Physics2D.Raycast((Vector2)transform.position + Vector2.up * 0.1f, Vector2.right * dashDirection, dashDistance, groundLayer);
-RaycastHit2D hit3 = Physics2D.Raycast((Vector2)transform.position + Vector2.down * 0.1f, Vector2.right * dashDirection, dashDistance, groundLayer);
-    float safeDistance = Mathf.Infinity;
+    float elapsed = 0f;
 
-if (hit1.collider != null)
-    safeDistance = Mathf.Min(safeDistance, hit1.distance);
+    while (elapsed < dashDuration)
+    {
+        float step = dashSpeed * Time.fixedDeltaTime;
+        Vector2 nextPos = rb.position + new Vector2(step * dashDirection, 0f);
 
-if (hit2.collider != null)
-    safeDistance = Mathf.Min(safeDistance, hit2.distance);
+        // 🔹 sprawdzamy czy pozycja NIE wchodzi w ścianę
+        Collider2D hit = Physics2D.OverlapCircle(nextPos, 0.2f, groundLayer);
 
-if (hit3.collider != null)
-    safeDistance = Mathf.Min(safeDistance, hit3.distance);
+        if (hit != null)
+        {
+            break; // trafiliśmy w ścianę → stop
+        }
 
-if (safeDistance != Mathf.Infinity)
-{
-    safeDistance -= 0.1f;
-    rb.linearVelocity = new Vector2((safeDistance / dashDuration) * dashDirection, 0f);
-}
-else
-{
-    rb.linearVelocity = new Vector2(dashDirection * dashForce, 0f);
-}
-    yield return new WaitForSeconds(dashDuration);
+        rb.MovePosition(nextPos);
+
+        elapsed += Time.fixedDeltaTime;
+        yield return new WaitForFixedUpdate();
+    }
 
     rb.gravityScale = originalGravity;
     isDashing = false;
