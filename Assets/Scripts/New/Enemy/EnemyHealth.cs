@@ -31,12 +31,21 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
     private Rigidbody2D rb2D;
     private Collider2D col2D;
 
+    [Header("Sounds")]
+public AudioClip deathSound;
+private AudioSource audioSource;
+
     void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         col2D = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
+if (audioSource == null)
+{
+    audioSource = gameObject.AddComponent<AudioSource>();
+}
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
@@ -72,6 +81,10 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
     void Die()
     {
         if (IsDead) return;
+        if (deathSound != null && audioSource != null)
+{
+    audioSource.PlayOneShot(deathSound);
+}
 
         IsDead = true;
 

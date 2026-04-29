@@ -21,12 +21,13 @@ public class CameraFollow : MonoBehaviour
     private bool initialized = false;
 
     void Start()
+{
+    if (target != null)
     {
-        if (target != null)
-        {
-            targetRigidbody = target.GetComponent<Rigidbody2D>();
-        }
+        targetRigidbody = target.GetComponent<Rigidbody2D>();
+        initialized = true; // TO JEST KLUCZ
     }
+}
 
     void FixedUpdate()
     {

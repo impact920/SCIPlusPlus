@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7737879480343717724, guid: d36c994d75a644c44beed51867bbffa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -212,3 +212,4 @@ MonoBehaviour:
   animator: {fileID: 824166915698138894}
   deathAnimationTrigger: Death
   IsDead: 0
+  deathSound: {fileID: 8300000, guid: dc81a0abd562848bb8687626b8d494b1, type: 3}

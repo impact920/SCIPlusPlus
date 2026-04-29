@@ -212,3 +212,4 @@ MonoBehaviour:
   animator: {fileID: 8907182798491893182}
   deathAnimationTrigger: Death
   IsDead: 0
+  deathSound: {fileID: 8300000, guid: dc81a0abd562848bb8687626b8d494b1, type: 3}
