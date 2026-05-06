@@ -18,7 +18,7 @@ public class SnailEnemy : MonoBehaviour
     public float detectRange = 5f;
 
     [Header("Attack")]
-    public float prepareRollTime = 0.5f; // 🔥 czas na animację CLOSE
+    public float prepareRollTime = 0.5f; // czas na animację CLOSE
     public float rollTime = 1.5f;
     public float restTime = 2f;
 
@@ -37,7 +37,7 @@ public class SnailEnemy : MonoBehaviour
     private enum State
     {
         Patrol,
-        PrepareRoll, // 🔥 NOWY STAN (zamykanie)
+        PrepareRoll, // NOWY STAN (zamykanie)
         Roll,
         Rest
     }
@@ -121,7 +121,7 @@ public class SnailEnemy : MonoBehaviour
         velocity = Vector2.zero;
 
         anim.SetBool("isWalking", false);
-        anim.SetTrigger("Close"); // 🔥 animacja zamykania
+        anim.SetTrigger("Close"); // animacja zamykania
     }
 
     void PrepareRoll()
@@ -191,7 +191,7 @@ public class SnailEnemy : MonoBehaviour
     {
         stateTimer -= Time.deltaTime;
 
-        // 🔥 tu można zadawać obrażenia ślimakowi
+        // tu można zadawać obrażenia ślimakowi
         if (enemyHealth != null)
             enemyHealth.canTakeDamage = true;
 

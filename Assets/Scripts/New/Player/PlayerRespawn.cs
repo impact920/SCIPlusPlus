@@ -14,7 +14,7 @@ public class PlayerRespawn : MonoBehaviour
 
     IEnumerator LoadCheckpoint()
     {
-        // 🔥 czekamy aż scena się ustabilizuje
+        // czekamy aż scena się ustabilizuje
         yield return null;
 
         rb = GetComponent<Rigidbody2D>();

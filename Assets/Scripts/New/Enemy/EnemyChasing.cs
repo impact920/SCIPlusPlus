@@ -40,7 +40,7 @@ public class EnemyChasing : MonoBehaviour
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
 
-        // 🔥 Aktualizuj kierunek tylko jeśli różnica jest większa niż dead zone
+        // Aktualizuj kierunek tylko jeśli różnica jest większa niż dead zone
         if (Mathf.Abs(distanceX) > directionDeadZone)
         {
             facingDirection = distanceX > 0 ? 1 : -1;

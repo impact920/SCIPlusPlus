@@ -55,7 +55,7 @@ public class CameraFollow : MonoBehaviour
         );
     }
 
-    // 🔥 wywoływane po respawnie
+    // wywoływane po respawnie
     public void SnapToTarget()
     {
         if (target == null) return;
