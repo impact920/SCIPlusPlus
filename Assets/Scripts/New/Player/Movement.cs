@@ -100,6 +100,18 @@ public AudioClip ghostEndSound;
 public AudioClip rewindStartSound;
 public AudioClip rewindEndSound;
 
+[Header("Smooth Movement")]
+public float acceleration = 70f;
+public float deceleration = 60f;
+public float velPower = 0.9f;
+
+[Header("Air Control")]
+public float airAccelerationMultiplier = 0.7f;
+public float airDecelerationMultiplier = 0.5f;
+
+[Header("Better Fall")]
+public float fallMultiplier = 3.5f;
+
     private float footstepTimer;
     public float footstepInterval = 0.4f;
 
@@ -243,17 +255,41 @@ public AudioClip rewindEndSound;
     }
 
     private void FixedUpdate()
+{
+    if (isDashing) return;
+
+    float targetSpeed = moveInput * moveSpeed;
+
+    if (isAttacking)
+        targetSpeed *= attackMoveSpeedMultiplier;
+
+    float accelRate;
+
+    if (isGrounded)
     {
-        if (!isDashing)
-        {
-            float currentSpeed = moveSpeed;
-
-            if (isAttacking)
-                currentSpeed *= attackMoveSpeedMultiplier;
-
-            rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
-        }
+        accelRate = Mathf.Abs(targetSpeed) > 0.01f
+            ? acceleration
+            : deceleration;
     }
+    else
+    {
+        accelRate = Mathf.Abs(targetSpeed) > 0.01f
+            ? acceleration * airAccelerationMultiplier
+            : deceleration * airDecelerationMultiplier;
+    }
+
+    float speedDif = targetSpeed - rb.linearVelocity.x;
+
+    float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+
+    rb.AddForce(movement * Vector2.right);
+
+    // LEPSZE SPADANIE
+    if (rb.linearVelocity.y < 0)
+    {
+        rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+    }
+}
 
     private void Jump()
     {
