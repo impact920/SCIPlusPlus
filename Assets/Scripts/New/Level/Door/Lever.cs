@@ -3,9 +3,11 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     [Header("Setup")]
-    [SerializeField] private string leverID;   // unikalne ID
+    [SerializeField] private string leverID;
     [SerializeField] private Animator animator;
-    [SerializeField] private Door door;
+
+    // 🔥 TERAZ WIELE DRZWI
+    [SerializeField] private Door[] doors;
 
     private bool playerInRange = false;
     private bool used = false;
@@ -21,10 +23,10 @@ public class Lever : MonoBehaviour
 
         used = PlayerPrefs.GetInt(saveKey, 0) == 1;
 
+        // jeśli już użyta ustaw animację dźwigni
         if (used)
         {
-            // ustaw stan dźwigni po użyciu
-            animator.Play("UsedState", 0, 1f); // opcjonalnie
+            animator.SetBool("Used", true);
         }
     }
 
@@ -52,10 +54,17 @@ public class Lever : MonoBehaviour
     // Animation Event
     public void OnLeverPulled()
     {
-        if (door != null)
+        // otwieranie WSZYSTKICH drzwi
+        foreach (Door door in doors)
         {
-            door.OpenDoor();
+            if (door != null)
+            {
+                door.OpenDoor();
+            }
         }
+
+        //  ustawienie stanu użycia
+        animator.SetBool("Used", true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

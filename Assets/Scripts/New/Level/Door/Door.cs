@@ -19,10 +19,9 @@ public class Door : MonoBehaviour
         if (boxCollider == null)
             boxCollider = GetComponent<BoxCollider2D>();
 
-        //  odczyt stanu
         isOpen = PlayerPrefs.GetInt(saveKey, 0) == 1;
 
-        ApplyState();
+        ApplyStateInstant();
     }
 
     public void OpenDoor()
@@ -34,15 +33,17 @@ public class Door : MonoBehaviour
         PlayerPrefs.SetInt(saveKey, 1);
         PlayerPrefs.Save();
 
-        ApplyState();
+        // OD RAZU animacja
+        animator.SetBool("IsOpen", true);
+
+        if (boxCollider != null)
+            boxCollider.enabled = false;
     }
 
-    private void ApplyState()
+    private void ApplyStateInstant()
     {
-        // najważniejsze: sterowanie animacją boolem
         animator.SetBool("IsOpen", isOpen);
 
-        // collider tylko gdy zamknięte
         if (boxCollider != null)
             boxCollider.enabled = !isOpen;
     }

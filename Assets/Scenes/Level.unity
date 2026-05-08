@@ -956,8 +956,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1707733024}
   - {fileID: 269378883}
+  - {fileID: 1707733024}
   - {fileID: 1287937731}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32752,6 +32752,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3542732418313338405, guid: 05164bc97c3fe4048a94f7da14f060b4, type: 3}
   m_PrefabInstance: {fileID: 253184509}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &254923659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5936866734368859072, guid: 1cd266d7a8c2249e0b6dcda1d44c97e8, type: 3}
+  m_PrefabInstance: {fileID: 1365908805219026416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b716bf73dc4489aadebdb73b903d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &269378882
 GameObject:
   m_ObjectHideFlags: 0
@@ -46981,6 +46992,7 @@ GameObject:
   - component: {fileID: 1246077120}
   - component: {fileID: 1246077119}
   - component: {fileID: 1246077118}
+  - component: {fileID: 1246077122}
   m_Layer: 0
   m_Name: Checkpoint (1)
   m_TagString: Untagged
@@ -47114,12 +47126,29 @@ Transform:
   m_GameObject: {fileID: 1246077117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.48967, y: -2.54409, z: 0}
+  m_LocalPosition: {x: 23.77, y: -2.54409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 59117083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246077122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246077117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0dd0479b08041d392bf37aa04f787c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealingItem2D
+  infiniteHealing: 1
+  healAmount: 2
+  healInterval: 0.2
+  pickupEffect: {fileID: 0}
+  pickupSound: {fileID: 0}
 --- !u!1001 &1264261121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47644,7 +47673,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Lever
   leverID: 2
   animator: {fileID: 1287937732}
-  door: {fileID: 1707733020}
+  doors:
+  - {fileID: 1707733020}
+  - {fileID: 269378885}
 --- !u!61 &1287937734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50016,6 +50047,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4899245219340300008, guid: abeebc91a928a4c6987a5f43808b2b08, type: 3}
   m_PrefabInstance: {fileID: 1406894198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1602189774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8829458774558591295, guid: 1cd266d7a8c2249e0b6dcda1d44c97e8, type: 3}
+  m_PrefabInstance: {fileID: 1365908805219026416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b716bf73dc4489aadebdb73b903d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1 &1609468128
 GameObject:
   m_ObjectHideFlags: 0
@@ -65830,6 +65872,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4082383077260447405, guid: 1cd266d7a8c2249e0b6dcda1d44c97e8, type: 3}
+      propertyPath: doors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082383077260447405, guid: 1cd266d7a8c2249e0b6dcda1d44c97e8, type: 3}
+      propertyPath: 'doors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 254923659}
+    - target: {fileID: 4082383077260447405, guid: 1cd266d7a8c2249e0b6dcda1d44c97e8, type: 3}
+      propertyPath: 'doors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1602189774}
     - target: {fileID: 4362267172800161674, guid: 1cd266d7a8c2249e0b6dcda1d44c97e8, type: 3}
       propertyPath: m_Layer
       value: 6
