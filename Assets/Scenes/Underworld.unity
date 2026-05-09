@@ -69329,6 +69329,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: c551e6bfc64eb460b9b87a3137a7a078, type: 3}
     - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: acceleration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: deceleration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: fallMultiplier
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: airAccelerationMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: airDecelerationMultiplier
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: 'footstepSounds.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 111b95c0d60f14a1ab2212985d10dcea, type: 3}
@@ -95373,7 +95393,7 @@ Tilemap:
       - {fileID: 622464734, guid: e1039161a47df465794059bafaac10f6, type: 3}
       - {fileID: 482239238, guid: e1039161a47df465794059bafaac10f6, type: 3}
       - {fileID: 1778532298, guid: e1039161a47df465794059bafaac10f6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -54, y: -40, z: 0}
