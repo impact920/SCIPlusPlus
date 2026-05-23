@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4c4a7bc1acf645a98c6bb87471b1842
-      internalID: -241194558
+      spriteID: 85f1cc3c484574438a266591b8716356
+      internalID: -1329717857
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d567f8087ec46a0a7a37634cced4cc
-      internalID: -468235750
+      spriteID: f2cb0552fa41049fd9865362d623d304
+      internalID: 1065988000
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb58d776899bc4d5bb29eba00e7ee38d
-      internalID: -757591196
+      spriteID: f87dbcb59c8684ac48a1462bf6a9c760
+      internalID: -801497055
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2331ea3cae9ce432892fe585e465a0ec
+    spriteID: aa34f054390424f00a5d403c10c9bae1
     internalID: 0
     vertices: []
     indices: 
@@ -204,9 +204,9 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Lava_Falling2_0: 3041929519885370775
-      Lava_Falling2_1: -241194558
-      Lava_Falling2_2: -468235750
-      Lava_Falling2_3: -757591196
+      Lava_Falling2_1: -1329717857
+      Lava_Falling2_2: 1065988000
+      Lava_Falling2_3: -801497055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

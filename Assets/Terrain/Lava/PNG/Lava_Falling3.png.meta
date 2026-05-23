@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48d2541ce7e0f478ba1860181f4cb03f
-      internalID: -1821316444
+      spriteID: 13158dacc38b54232863115b4cb5fb91
+      internalID: -1017237049
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2683095144cb426aab0e9bb0626184a
-      internalID: -1670696211
+      spriteID: 5cbb2c2b7c6914135bab4da73d253f0f
+      internalID: 40462764
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06cfd7a39fc214504b586735e6d232d2
-      internalID: -704633005
+      spriteID: 48673cd985c3a49a7bb12532b0fd9e28
+      internalID: 1965914948
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4a3dce7d2b404eb79b8ffa47841b977
-      internalID: -729935889
+      spriteID: 1b3fe82b949ed4aa9b38672d9b51e770
+      internalID: -1549961664
       vertices: []
       indices: 
       edges: []
@@ -225,8 +225,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 357843b93874c4041b1c7ac974c47a15
-      internalID: 1461663190
+      spriteID: bfad1a3dd738b4e50bfb1ce49744a27f
+      internalID: 1099235227
       vertices: []
       indices: 
       edges: []
@@ -247,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b561d7792d11c4136bcbdc377a6aebbf
-      internalID: 1526050036
+      spriteID: 995b49b7d52c74545850133eff74e066
+      internalID: 422096614
       vertices: []
       indices: 
       edges: []
@@ -269,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 184c1fcdc03e54e489a202b394cc7abf
-      internalID: -1243264296
+      spriteID: 8a5a15975b48e44c696e702908fae671
+      internalID: 518606787
       vertices: []
       indices: 
       edges: []
@@ -279,7 +279,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: de00a1c5f80c9404c84b5644697d2e30
+    spriteID: 3e45f1a94da294451830cf1eedb26ad3
     internalID: 0
     vertices: []
     indices: 
@@ -292,13 +292,13 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Lava_Falling3_0: 9063900499223628447
-      Lava_Falling3_1: -1821316444
-      Lava_Falling3_2: -1670696211
-      Lava_Falling3_3: -704633005
-      Lava_Falling3_4: -729935889
-      Lava_Falling3_5: 1461663190
-      Lava_Falling3_6: 1526050036
-      Lava_Falling3_7: -1243264296
+      Lava_Falling3_1: -1017237049
+      Lava_Falling3_2: 40462764
+      Lava_Falling3_3: 1965914948
+      Lava_Falling3_4: -1549961664
+      Lava_Falling3_5: 1099235227
+      Lava_Falling3_6: 422096614
+      Lava_Falling3_7: 518606787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
