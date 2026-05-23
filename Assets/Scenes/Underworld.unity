@@ -3273,7 +3273,7 @@ MonoBehaviour:
   m_Intensity: 0.88
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 13a50a2ddd8dcec07751b76b
+  m_ApplyToSortingLayers: 13a50a2ddd8dcec0
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -107835,8 +107835,8 @@ Tilemap:
   - first: {x: -79, y: -45, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 159
-      m_TileSpriteIndex: 159
+      m_TileIndex: 74
+      m_TileSpriteIndex: 74
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -271564,7 +271564,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7050b3aa025fa42f9a71f5f7dc883a90, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 768df334573274b8cb1e380a32fc8905, type: 2}
-  - m_RefCount: 42
+  - m_RefCount: 43
     m_Data: {fileID: 11400000, guid: 8c2167d6c877d46b38662bcf92988a99, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 992969d9f766f4cb88ef6ad982c8d46c, type: 2}
@@ -271734,7 +271734,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: c9f5b3cf37b1c4e9090113239522ac27, type: 2}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: e07d4b685e5434d8384c68d08e225b30, type: 2}
-  - m_RefCount: 8
+  - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 29675684155a046389155bc37844b544, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 030f2dbc4b19648d38ecd94ae30032a7, type: 2}
@@ -271901,7 +271901,7 @@ Tilemap:
     m_Data: {fileID: 2697843189244271566, guid: 765792b18f61c4a10952a0f1c03ce44f, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: -7015216101143206079, guid: 02865b528d1a74673b9f52229c9ea83e, type: 3}
-  - m_RefCount: 42
+  - m_RefCount: 43
     m_Data: {fileID: -343609291, guid: 765792b18f61c4a10952a0f1c03ce44f, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 9085326486882137266, guid: 02865b528d1a74673b9f52229c9ea83e, type: 3}
@@ -272071,7 +272071,7 @@ Tilemap:
     m_Data: {fileID: -411943160, guid: 26ee30a03ef944f36b762cc349146143, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: 711038095, guid: 26ee30a03ef944f36b762cc349146143, type: 3}
-  - m_RefCount: 8
+  - m_RefCount: 7
     m_Data: {fileID: 222667081, guid: 26ee30a03ef944f36b762cc349146143, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1048463846, guid: 817a01c2e665344a5a40d4b4e661e045, type: 3}
@@ -272422,6 +272422,18 @@ PrefabInstance:
     - target: {fileID: 712416881149970353, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531786726242518364, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531786726242518364, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531786726242518364, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1807176055
       objectReference: {fileID: 0}
     - target: {fileID: 5508010970464756228, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: playerLight
@@ -292856,7 +292868,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1807176055
   m_SortingLayer: -1
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -335344,6 +335356,10 @@ PrefabInstance:
     - target: {fileID: 5188900674978944405, guid: 7bdfb385814794f418606f57895bdba3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350187805990221493, guid: 7bdfb385814794f418606f57895bdba3, type: 3}
+      propertyPath: m_Mass
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8937659118007015411, guid: 7bdfb385814794f418606f57895bdba3, type: 3}
       propertyPath: m_Name
