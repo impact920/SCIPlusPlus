@@ -5,6 +5,8 @@ public class Checkpoint : MonoBehaviour
 {
     public string sceneToLoad;
 
+    public MinimapSector sectorToReveal;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player"))
@@ -29,6 +31,11 @@ public class Checkpoint : MonoBehaviour
             PlayerPrefs.SetInt("HasCheckpoint", 1);
 
             PlayerPrefs.Save();
+
+            if (sectorToReveal != null)
+            {
+            sectorToReveal.Reveal();
+            }       
 
             Debug.Log($"Zapisano checkpoint: {newPoint} w scenie: {currentScene}");
 
