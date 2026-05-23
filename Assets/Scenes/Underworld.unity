@@ -273450,8 +273450,28 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: maxChargeTime
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: fallMultiplier
       value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: isInvulnerable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: chargedDashForce
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
+      propertyPath: chargedDashDuration
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6704850045426644427, guid: 580d80ec2603f4180936fc6efd228225, type: 3}
       propertyPath: airAccelerationMultiplier
@@ -370843,7 +370863,7 @@ Tilemap:
       - {fileID: -3151152738362105943, guid: d36c994d75a644c44beed51867bbffa4, type: 3}
       - {fileID: -1762970238193431998, guid: d36c994d75a644c44beed51867bbffa4, type: 3}
       - {fileID: -5501086303987593757, guid: d36c994d75a644c44beed51867bbffa4, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 1, y: -11, z: 0}
