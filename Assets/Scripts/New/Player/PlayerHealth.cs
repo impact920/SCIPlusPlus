@@ -116,9 +116,20 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
 {
-    // jeśli gracz jest martwy, ma invincibility lub dashuje → ignoruj
-    if (isDead || isInvincible || (playerMovement != null && playerMovement.IsDashing()))
+    // jeśli gracz jest martwy → ignoruj
+    if (isDead)
         return;
+
+    // jeśli zwykła invincibility
+    if (isInvincible)
+        return;
+
+    // jeśli dash lub charged dash
+    if (playerMovement != null)
+    {
+        if (playerMovement.IsDashing() || playerMovement.isInvulnerable)
+            return;
+    }
 
     currentHealth -= damage;
     currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -132,11 +143,9 @@ public class PlayerHealth : MonoBehaviour
     if (currentHealth <= 0)
         Die();
     else
-{
-    StartCoroutine(InvincibilityCoroutine());
-}
+        StartCoroutine(InvincibilityCoroutine());
 
-PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+    PlayerPrefs.SetInt("PlayerHealth", currentHealth);
 }
 
 

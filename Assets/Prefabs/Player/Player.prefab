@@ -366,6 +366,15 @@ MonoBehaviour:
   airDecelerationMultiplier: 1.3
   fallMultiplier: 1.3
   footstepInterval: 0.4
+  maxChargeTime: 2
+  chargedDashForce: 20
+  chargedDashDuration: 0.4
+  chargedDashDamage: 50
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  isInvulnerable: 0
+  chargeMoveSpeedMultiplier: 0.3
 --- !u!114 &7779204696099102261
 MonoBehaviour:
   m_ObjectHideFlags: 0

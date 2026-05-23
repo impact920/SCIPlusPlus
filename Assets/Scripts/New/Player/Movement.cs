@@ -115,6 +115,28 @@ public float fallMultiplier = 3.5f;
     private float footstepTimer;
     public float footstepInterval = 0.4f;
 
+    [Header("Charged Dash Attack")]
+public float maxChargeTime = 2f;
+public float chargedDashForce = 35f;
+public float chargedDashDuration = 0.4f;
+public int minChargeDamage = 10;
+public int maxChargeDamage = 50;
+
+public LayerMask enemyLayer;
+
+private bool isChargingAttack;
+private float currentChargeTime;
+public bool isInvulnerable;
+
+[Header("Charge Movement")]
+[Range(0f, 1f)]
+public float chargeMoveSpeedMultiplier = 0.3f;
+public float chargedAttackCooldown = 10f;
+
+private bool canUseChargedAttack = true;
+
+private List<EnemyHealth> hitEnemiesDuringCharge = new List<EnemyHealth>();
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -252,6 +274,25 @@ public float fallMultiplier = 3.5f;
         {
             footstepTimer = 0f;
         }
+
+        // ŁADOWANIE ATAKU PPM
+if (Input.GetMouseButtonDown(1)
+    && !isChargingAttack
+    && !isDashing
+    && canUseChargedAttack)
+{
+    StartChargeAttack();
+}
+
+if (Input.GetMouseButton(1) && isChargingAttack)
+{
+    ChargeAttack();
+}
+
+if (Input.GetMouseButtonUp(1) && isChargingAttack)
+{
+    StartCoroutine(ReleaseChargeAttack());
+}
     }
 
     private void FixedUpdate()
@@ -261,7 +302,10 @@ public float fallMultiplier = 3.5f;
     float targetSpeed = moveInput * moveSpeed;
 
     if (isAttacking)
-        targetSpeed *= attackMoveSpeedMultiplier;
+    targetSpeed *= attackMoveSpeedMultiplier;
+
+if (isChargingAttack)
+    targetSpeed *= chargeMoveSpeedMultiplier;
 
     float accelRate;
 
@@ -312,6 +356,10 @@ public float fallMultiplier = 3.5f;
 
     private IEnumerator Dash()
     {
+        if (isChargingAttack)
+{
+    CancelChargeAttack();
+}
         canDash = false;
         isDashing = true;
         anim.SetTrigger("Dash");
@@ -358,6 +406,10 @@ isDashing = false;
 
     private void StartRandomAttack()
 {
+    if (isChargingAttack)
+{
+    CancelChargeAttack();
+}
     anim.ResetTrigger("Attack1");
     anim.ResetTrigger("Attack2");
     anim.ResetTrigger("Attack3");
@@ -504,4 +556,128 @@ isDashing = false;
         int i = Random.Range(0, footstepSounds.Length);
         footstepSource.PlayOneShot(footstepSounds[i]);
     }
+
+    private void StartChargeAttack()
+{
+    anim.ResetTrigger("ChargeRelease");
+    anim.ResetTrigger("ChargeStart");
+    isChargingAttack = true;
+    currentChargeTime = 0f;
+    anim.SetTrigger("ChargeStart");
+
+    rb.linearVelocity = Vector2.zero;
+
+}
+
+private void ChargeAttack()
+{
+    currentChargeTime += Time.deltaTime;
+
+    if (currentChargeTime > maxChargeTime)
+        currentChargeTime = maxChargeTime;
+}
+
+private IEnumerator ReleaseChargeAttack()
+{
+    isChargingAttack = false;
+
+    anim.SetTrigger("ChargeRelease");
+
+    isDashing = true;
+    isInvulnerable = true;
+    canUseChargedAttack = false;
+
+    StartCoroutine(ChargedAttackCooldown());
+
+    hitEnemiesDuringCharge.Clear();
+
+    float chargePercent = currentChargeTime / maxChargeTime;
+
+    float finalSpeed = Mathf.Lerp(
+        chargedDashForce * 0.5f,
+        chargedDashForce,
+        chargePercent
+    );
+
+    float direction = sr.flipX ? -1f : 1f;
+
+    float timer = 0f;
+
+    // NIE WYŁĄCZAMY GRAWITACJI
+    // rb.gravityScale zostaje normalne
+
+    while (timer < chargedDashDuration)
+    {
+        // tylko poziomy ruch
+        rb.linearVelocity = new Vector2(
+            direction * finalSpeed,
+            rb.linearVelocity.y
+        );
+
+        // wykrywanie przeciwników
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(
+            transform.position,
+            1.2f,
+            enemyLayer
+        );
+
+        foreach (Collider2D enemy in enemies)
+        {
+            EnemyHealth hp = enemy.GetComponent<EnemyHealth>();
+
+if (hp != null && !hitEnemiesDuringCharge.Contains(hp))
+{
+    hitEnemiesDuringCharge.Add(hp);
+
+    int finalDamage = Mathf.RoundToInt(
+        Mathf.Lerp(
+            minChargeDamage,
+            maxChargeDamage,
+            chargePercent
+        )
+    );
+
+    hp.TakeDamage(finalDamage);
+
+    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+
+    if (enemyRb != null)
+    {
+        Vector2 knockDir = new Vector2(direction, 0.2f).normalized;
+
+        enemyRb.AddForce(knockDir * 10f, ForceMode2D.Impulse);
+    }
+}
+        }
+
+        timer += Time.deltaTime;
+        yield return null;
+    }
+
+    isInvulnerable = false;
+    isDashing = false;
+
+    // zatrzymanie po skillu
+    rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+}
+
+private void CancelChargeAttack()
+{
+    isChargingAttack = false;
+
+    currentChargeTime = 0f;
+
+    anim.SetBool("ChargingAttack", false);
+
+    anim.ResetTrigger("ChargeStart");
+    anim.ResetTrigger("ChargeRelease");
+}
+
+private IEnumerator ChargedAttackCooldown()
+{
+    yield return new WaitForSeconds(chargedAttackCooldown);
+
+    canUseChargedAttack = true;
+}
+
 }
