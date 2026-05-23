@@ -106,8 +106,8 @@ TextureImporter:
       name: Mix2_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 32
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -128,8 +128,8 @@ TextureImporter:
       name: Mix2_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 128
+        x: 64
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -150,8 +150,8 @@ TextureImporter:
       name: Mix2_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 96
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -162,8 +162,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c80abf5d3644114b95414dcea152f3
-      internalID: -908652251
+      spriteID: 7113b20db20e44dda93658dc203c0473
+      internalID: -904164784
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       name: Mix2_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cdd67c0587d94ac08c0a4e788f52088
-      internalID: 1790015160
+      spriteID: 91b0f2dedc82e4ba7b0fae0fbdc5be85
+      internalID: -1476061688
       vertices: []
       indices: 
       edges: []
@@ -194,6 +194,94 @@ TextureImporter:
       name: Mix2_4
       rect:
         serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12c2584806384ad088674c0de909a29
+      internalID: -1224143244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mix2_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2b5a84af94e43ffbcb282c56496743
+      internalID: 1908232156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mix2_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57671ae13fb794c61908ff6411f1418f
+      internalID: -860139234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mix2_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341da1af9103e450096af3efdef57f12
+      internalID: -1325164013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mix2_8
+      rect:
+        serializedVersion: 2
         x: 96
         y: 96
         width: 32
@@ -206,96 +294,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15dc07083f1ea498cb413ba49d1ffbb0
-      internalID: -594251781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mix2_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 347f152ca9eac40038905d8ce4f628fb
-      internalID: 1808822492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mix2_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4adefd21fa1c4b7cb444c2e4e78f4c1
-      internalID: -2107907637
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mix2_7
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40b6cc449364f46b7a973cf9c203fe8b
-      internalID: -1048463846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mix2_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26c4da63d0e3e4a3792e18bc00ddb81a
-      internalID: -2118144276
+      spriteID: 7d93d8a628cbe4b33940d4bb1116d39e
+      internalID: -672369889
       vertices: []
       indices: 
       edges: []
@@ -304,8 +304,8 @@ TextureImporter:
       name: Mix2_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -316,8 +316,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb7e0b3bc8a154033979536948b6a44a
-      internalID: 1503483641
+      spriteID: 3ef192287018f42d9858801a83f23876
+      internalID: 72808525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mix2_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5429023e79e4f7c8d844aa7b81552e
+      internalID: -1910821222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mix2_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c4da33b97f6419a877a97ec9919365
+      internalID: -2017958764
       vertices: []
       indices: 
       edges: []
@@ -326,7 +370,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5871329c97fec4fbcb39b9f4ea105c43
+    spriteID: 887c300c6310c4f49958ec90d1cfcbeb
     internalID: 0
     vertices: []
     indices: 
@@ -340,14 +384,16 @@ TextureImporter:
     nameFileIdTable:
       Mix2_0: -8912271769702860193
       Mix2_1: 3870824204932049988
-      Mix2_2: -908652251
-      Mix2_3: 1790015160
-      Mix2_4: -594251781
-      Mix2_5: 1808822492
-      Mix2_6: -2107907637
-      Mix2_7: -1048463846
-      Mix2_8: -2118144276
-      Mix2_9: 1503483641
+      Mix2_10: -1910821222
+      Mix2_11: -2017958764
+      Mix2_2: -904164784
+      Mix2_3: -1476061688
+      Mix2_4: -1224143244
+      Mix2_5: 1908232156
+      Mix2_6: -860139234
+      Mix2_7: -1325164013
+      Mix2_8: -672369889
+      Mix2_9: 72808525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
