@@ -5,12 +5,12 @@ public class PlayerMinimapIcon : MonoBehaviour
     [Header("Player")]
     public Transform player;
 
-    [Header("Rect mapy")]
-    public RectTransform mapRect;
-
     [Header("Granice świata")]
-    public Vector2 worldMin;
-    public Vector2 worldMax;
+    public Transform worldMinMarker;
+    public Transform worldMaxMarker;
+
+    [Header("Mapa UI")]
+    public RectTransform mapRect;
 
     private RectTransform iconRect;
 
@@ -21,7 +21,7 @@ public class PlayerMinimapIcon : MonoBehaviour
 
     private void Update()
     {
-        if (player == null || mapRect == null)
+        if (player == null)
             return;
 
         UpdatePosition();
@@ -29,18 +29,21 @@ public class PlayerMinimapIcon : MonoBehaviour
 
     private void UpdatePosition()
     {
-        // 0-1
-        float percentX = Mathf.InverseLerp(worldMin.x, worldMax.x, player.position.x);
-        float percentY = Mathf.InverseLerp(worldMin.y, worldMax.y, player.position.y);
+        float percentX = Mathf.InverseLerp(
+            worldMinMarker.position.x,
+            worldMaxMarker.position.x,
+            player.position.x
+        );
 
-        // Pozycja w UI
-        float x = percentX * mapRect.rect.width;
-        float y = percentY * mapRect.rect.height;
+        float percentY = Mathf.InverseLerp(
+            worldMinMarker.position.y,
+            worldMaxMarker.position.y,
+            player.position.y
+        );
 
-        // Korekta środka
-        x -= mapRect.rect.width * 0.5f;
-        y -= mapRect.rect.height * 0.5f;
+        float mapX = (percentX * mapRect.rect.width) - (mapRect.rect.width / 2f);
+        float mapY = (percentY * mapRect.rect.height) - (mapRect.rect.height / 2f);
 
-        iconRect.anchoredPosition = new Vector2(x, y);
+        iconRect.anchoredPosition = new Vector2(mapX, mapY);
     }
 }
