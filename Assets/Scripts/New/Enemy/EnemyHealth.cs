@@ -18,8 +18,11 @@ public bool canTakeDamage = true; // uniwersalne blokowanie obrażeń
 
     [Header("Drops")]
     public GameObject coinPrefab;
+    public GameObject OtherDrop;
     public int minCoins = 1;
     public int maxCoins = 5;
+    [Range(0, 100)]
+public int otherDropChance = 25; 
 
     [Header("Animations")]
     public Animator animator;
@@ -146,6 +149,20 @@ if (audioSource == null)
         }
     }
 }
+void DropOther()
+{
+    if (OtherDrop == null) return;
+
+    int chance = Random.Range(0, 101);
+
+    if (chance <= otherDropChance)
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        Vector3 spawnPos = col.bounds.center;
+
+        Instantiate(OtherDrop, spawnPos, Quaternion.identity);
+    }
+}
 
     // Ta metoda powinna być wywołana z eventu animacji "Death" na końcu animacji
     public void OnDeathAnimationEnd()
@@ -154,10 +171,10 @@ if (audioSource == null)
     }
 
     public void DropCoinsAnimation()
-    {
-        // Drop coins natychmiast
-        DropCoins();
-    }
+{
+    DropCoins();
+    DropOther();
+}
 
     public float HealthPercent
 {
