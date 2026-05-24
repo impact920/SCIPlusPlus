@@ -395,6 +395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer2D
   damage: 10
   damageInterval: 1
+  randomizeDamage: 0
+  damageRange: {x: 5, y: 20}
 --- !u!1 &8756339478728425250
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +449,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 13a50a2d7751b76b00000000dd8dcec081818b02
+  m_ApplyToSortingLayers: 13a50a2d7751b76b00000000dd8dcec081818b022172084b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

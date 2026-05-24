@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 13a50a2d00000000dd8dcec081818b02
+  m_ApplyToSortingLayers: 13a50a2d00000000dd8dcec081818b022172084b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -214,6 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer2D
   damage: 10
   damageInterval: 2
+  randomizeDamage: 0
+  damageRange: {x: 5, y: 20}
 --- !u!61 &6101858587549683866
 BoxCollider2D:
   m_ObjectHideFlags: 0

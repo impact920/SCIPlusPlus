@@ -44,11 +44,17 @@ TagManager:
   - name: Background
     uniqueID: 755672339
     locked: 0
-  - name: Lava
+  - name: Lava_Falling
     uniqueID: 1807176055
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Lava_Flowing
+    uniqueID: 3723097327
+    locked: 0
+  - name: Ground
+    uniqueID: 1258844705
     locked: 0
   - name: Foreground
     uniqueID: 3234762205

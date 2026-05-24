@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 13a50a2d00000000dd8dcec081818b02
+  m_ApplyToSortingLayers: 13a50a2d00000000dd8dcec081818b022172084b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -286,11 +286,14 @@ MonoBehaviour:
   flashCount: 3
   flashColor: {r: 0.40049842, g: 0.6577513, b: 0.6792453, a: 1}
   coinPrefab: {fileID: 0}
+  OtherDrop: {fileID: 0}
   minCoins: 1
   maxCoins: 5
+  otherDropChance: 25
   animator: {fileID: 2650263411413661799}
   deathAnimationTrigger: Death
   IsDead: 0
+  deathSound: {fileID: 0}
 --- !u!95 &2650263411413661799
 Animator:
   serializedVersion: 7

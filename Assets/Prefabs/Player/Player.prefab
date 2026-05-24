@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000013a50a2ddd8dcec0
+  m_ApplyToSortingLayers: 0000000013a50a2ddd8dcec02172084b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -477,6 +477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinimapToggle
   minimapUI: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  fadeDuration: 0.25
 --- !u!95 &7409457032132997813
 Animator:
   serializedVersion: 7

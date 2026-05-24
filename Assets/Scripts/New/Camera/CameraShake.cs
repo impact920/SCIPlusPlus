@@ -19,12 +19,38 @@ public class CameraShake : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
+
+    // ===== STATIC CALLS =====
+
+    public static void ShakeCamera(float strength, float duration)
+    {
+        if (Instance != null)
+        {
+            Instance.Shake(strength, duration);
+        }
+    }
+
+    public static void ShakeFromDamageStatic(float damage)
+    {
+        if (Instance != null)
+        {
+            Instance.ShakeFromDamage(damage);
+        }
+    }
+
+    // ===== NORMAL METHODS =====
 
     public void ShakeFromDamage(float damage)
     {
-        // Normalizacja 0–1
         float t = Mathf.InverseLerp(minDamage, maxDamage, damage);
 
         float strength = Mathf.Lerp(minStrength, maxStrength, t);

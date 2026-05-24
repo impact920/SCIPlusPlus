@@ -10,7 +10,7 @@ public class MinimapSector : MonoBehaviour
 
     private bool discovered = false;
 
-    private void Start()
+    private void Awake()
     {
         LoadState();
     }

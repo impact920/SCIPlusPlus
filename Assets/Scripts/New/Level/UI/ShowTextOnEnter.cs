@@ -10,7 +10,7 @@ public class ShowTextOnEnter : MonoBehaviour
     public float displayTime = 0f;
 
     [Header("Opcjonalny limit")]
-    public int maxDisplays = 0; // 0 = brak limitu
+    public int maxDisplays = 0;
 
     [Header("Zapis (opcjonalny)")]
     public string triggerID;
@@ -21,9 +21,17 @@ public class ShowTextOnEnter : MonoBehaviour
 
     void Start()
     {
+        // NULL CHECK
+        if (textObject == null)
+        {
+            Debug.LogWarning("TextObject nie jest przypisany!");
+            return;
+        }
+
         textObject.SetActive(true);
 
         canvasGroup = textObject.GetComponent<CanvasGroup>();
+
         if (canvasGroup == null)
             canvasGroup = textObject.AddComponent<CanvasGroup>();
 
@@ -39,6 +47,9 @@ public class ShowTextOnEnter : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
+        // NULL CHECK
+        if (canvasGroup == null || textObject == null) return;
+
         if (maxDisplays > 0 && currentDisplays >= maxDisplays) return;
 
         currentDisplays++;
@@ -52,7 +63,6 @@ public class ShowTextOnEnter : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(FadeIn());
 
-        // jeśli ustawiono czas → ukryj po czasie
         if (displayTime > 0f)
         {
             if (hideCoroutine != null)
@@ -66,7 +76,9 @@ public class ShowTextOnEnter : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
-        // jeśli mamy ustawiony czas → ignorujemy wyjście
+        // NULL CHECK
+        if (canvasGroup == null || textObject == null) return;
+
         if (displayTime > 0f) return;
 
         if (canvasGroup.alpha <= 0f) return;
@@ -79,34 +91,51 @@ public class ShowTextOnEnter : MonoBehaviour
     {
         yield return new WaitForSeconds(displayTime);
 
-        StartCoroutine(FadeOut());
+        // NULL CHECK
+        if (canvasGroup != null)
+            StartCoroutine(FadeOut());
     }
 
     IEnumerator FadeIn()
     {
+        // NULL CHECK
+        if (canvasGroup == null) yield break;
+
         float time = 0f;
 
         while (time < fadeDuration)
         {
+            // jeśli obiekt został usunięty w trakcie
+            if (canvasGroup == null)
+                yield break;
+
             time += Time.deltaTime;
             canvasGroup.alpha = time / fadeDuration;
             yield return null;
         }
 
-        canvasGroup.alpha = 1f;
+        if (canvasGroup != null)
+            canvasGroup.alpha = 1f;
     }
 
     IEnumerator FadeOut()
     {
+        // NULL CHECK
+        if (canvasGroup == null) yield break;
+
         float time = 0f;
 
         while (time < fadeDuration)
         {
+            if (canvasGroup == null)
+                yield break;
+
             time += Time.deltaTime;
             canvasGroup.alpha = 1f - (time / fadeDuration);
             yield return null;
         }
 
-        canvasGroup.alpha = 0f;
+        if (canvasGroup != null)
+            canvasGroup.alpha = 0f;
     }
 }

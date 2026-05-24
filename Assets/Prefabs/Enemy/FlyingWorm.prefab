@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 1.06
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 13a50a2d00000000
+  m_ApplyToSortingLayers: 13a50a2d000000002172084b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -242,8 +242,10 @@ MonoBehaviour:
   flashCount: 3
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   coinPrefab: {fileID: 8799243671189670763, guid: 96d9f840af6924f82b976c8881f5f15c, type: 3}
+  OtherDrop: {fileID: 0}
   minCoins: 5
   maxCoins: 21
+  otherDropChance: 25
   animator: {fileID: 225355916864120545}
   deathAnimationTrigger: Death
   IsDead: 0
@@ -334,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAudio
   audioSource: {fileID: -4872571966365138080}
+  spawnSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 241b7496291f5451ab024f0c41c28277, type: 3}
   walkSound: {fileID: 8300000, guid: 6faee8ada800b4e6aac97c121b364876, type: 3}
   explosionSound: {fileID: 0}
@@ -527,3 +530,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer2D
   damage: 20
   damageInterval: 1
+  randomizeDamage: 0
+  damageRange: {x: 5, y: 20}

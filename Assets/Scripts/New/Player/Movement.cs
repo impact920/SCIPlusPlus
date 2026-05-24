@@ -355,49 +355,61 @@ if (isChargingAttack)
     }
 
     private IEnumerator Dash()
-    {
-        if (isChargingAttack)
 {
-    CancelChargeAttack();
-}
-        canDash = false;
-        isDashing = true;
-        anim.SetTrigger("Dash");
-        sfxSource.PlayOneShot(dashSound);
+    if (isChargingAttack)
+    {
+        CancelChargeAttack();
+    }
 
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
+    canDash = false;
+    isDashing = true;
 
-        float dashDirection = moveInput != 0 ? moveInput : (sr.flipX ? -1f : 1f);
-        float dashSpeed = dashForce;
-        float elapsed = 0f;
+    anim.SetTrigger("Dash");
 
-        while (elapsed < dashDuration)
+    sfxSource.PlayOneShot(dashSound);
+
+    // CAMERA SHAKE
+    CameraShake.ShakeCamera(0.12f, 0.1f);
+
+    float originalGravity = rb.gravityScale;
+    rb.gravityScale = 0f;
+
+    float dashDirection = moveInput != 0 ? moveInput : (sr.flipX ? -1f : 1f);
+    float dashSpeed = dashForce;
+    float elapsed = 0f;
+
+    while (elapsed < dashDuration)
+    {
+        float step = dashSpeed * Time.fixedDeltaTime;
+        Vector2 nextPos = rb.position + new Vector2(step * dashDirection, 0f);
+
+        Collider2D hit = Physics2D.OverlapCircle(nextPos, 0.2f, groundLayer);
+
+        if (hit != null)
         {
-            float step = dashSpeed * Time.fixedDeltaTime;
-            Vector2 nextPos = rb.position + new Vector2(step * dashDirection, 0f);
-
-            Collider2D hit = Physics2D.OverlapCircle(nextPos, 0.2f, groundLayer);
-            if (hit != null)
-            {
-                break;
-            }
-
-            rb.MovePosition(nextPos);
-            elapsed += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
+            break;
         }
 
-        rb.gravityScale = originalGravity;
+        rb.MovePosition(nextPos);
 
-rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, 0));
+        elapsed += Time.fixedDeltaTime;
 
-isDashing = false;
-        
-
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        yield return new WaitForFixedUpdate();
     }
+
+    rb.gravityScale = originalGravity;
+
+    rb.linearVelocity = new Vector2(
+        rb.linearVelocity.x,
+        Mathf.Max(rb.linearVelocity.y, 0)
+    );
+
+    isDashing = false;
+
+    yield return new WaitForSeconds(dashCooldown);
+
+    canDash = true;
+}
 
     public bool IsDashing()
     {
@@ -575,6 +587,11 @@ private void ChargeAttack()
 
     if (currentChargeTime > maxChargeTime)
         currentChargeTime = maxChargeTime;
+
+    // CAMERA SHAKE PODCZAS ŁADOWANIA
+    float shakeStrength = Mathf.Lerp(0.01f, 0.08f, currentChargeTime / maxChargeTime);
+
+    CameraShake.ShakeCamera(shakeStrength, 0.05f);
 }
 
 private IEnumerator ReleaseChargeAttack()

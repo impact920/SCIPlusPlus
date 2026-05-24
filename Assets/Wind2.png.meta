@@ -1,0 +1,400 @@
+fileFormatVersion: 2
+guid: 8ac66dc7243bc40dc9a1e44ea8a2cdfd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5361583254245842779
+    second: Wind2_0
+  - first:
+      213: 8251717845740592850
+    second: Wind2_1
+  - first:
+      213: -959491091694036873
+    second: Wind2_2
+  - first:
+      213: 910950190059245017
+    second: Wind2_3
+  - first:
+      213: 6436271279759119478
+    second: Wind2_4
+  - first:
+      213: -5169102595644743673
+    second: Wind2_5
+  - first:
+      213: -2725755492902750980
+    second: Wind2_6
+  - first:
+      213: 3337623546793726799
+    second: Wind2_7
+  - first:
+      213: 1131107751518282218
+    second: Wind2_8
+  - first:
+      213: -5042141654208711080
+    second: Wind2_9
+  - first:
+      213: 4290974662252654973
+    second: Wind2_10
+  - first:
+      213: -5572043911159024780
+    second: Wind2_11
+  - first:
+      213: 2920380155761215210
+    second: Wind2_12
+  - first:
+      213: 6078363441007311707
+    second: Wind2_13
+  - first:
+      213: -4908181842410868964
+    second: Wind2_14
+  - first:
+      213: 1826724821958067939
+    second: Wind2_15
+  - first:
+      213: -4706044606848212920
+    second: Wind2_16
+  - first:
+      213: 1212978951305079246
+    second: Wind2_17
+  - first:
+      213: -5256574302561745003
+    second: Wind2_18
+  - first:
+      213: -1037233676351745084
+    second: Wind2_19
+  - first:
+      213: -2615747572278813892
+    second: Wind2_20
+  - first:
+      213: -1163070839829154106
+    second: Wind2_21
+  - first:
+      213: 1000876416873254065
+    second: Wind2_22
+  - first:
+      213: 4114820248275706359
+    second: Wind2_23
+  - first:
+      213: -872359772631016885
+    second: Wind2_24
+  - first:
+      213: 4561154372025695678
+    second: Wind2_25
+  - first:
+      213: -1839395696526832809
+    second: Wind2_26
+  - first:
+      213: 4276199399869124272
+    second: Wind2_27
+  - first:
+      213: 5178260230664998844
+    second: Wind2_28
+  - first:
+      213: 7130486426216113567
+    second: Wind2_29
+  - first:
+      213: 3583716637329808108
+    second: Wind2_30
+  - first:
+      213: -4889484765175990716
+    second: Wind2_31
+  - first:
+      213: 7886913939615550898
+    second: Wind2_32
+  - first:
+      213: 3409408063237707933
+    second: Wind2_33
+  - first:
+      213: -5402957029189409685
+    second: Wind2_34
+  - first:
+      213: -85857967226863801
+    second: Wind2_35
+  - first:
+      213: 6682176481606790536
+    second: Wind2_36
+  - first:
+      213: -1868880351576061186
+    second: Wind2_37
+  - first:
+      213: 6417113654634833281
+    second: Wind2_38
+  - first:
+      213: 8118572176360725752
+    second: Wind2_39
+  - first:
+      213: -9193809670388149077
+    second: Wind2_40
+  - first:
+      213: 2043329830210871975
+    second: Wind2_41
+  - first:
+      213: 7013801455481076448
+    second: Wind2_42
+  - first:
+      213: 7280355821830420700
+    second: Wind2_43
+  - first:
+      213: 2784990514577010376
+    second: Wind2_44
+  - first:
+      213: -8218079370378824107
+    second: Wind2_45
+  - first:
+      213: 3848396502648515451
+    second: Wind2_46
+  - first:
+      213: -8855035067572947809
+    second: Wind2_47
+  - first:
+      213: 2185069230030128541
+    second: Wind2_48
+  - first:
+      213: 2899616180708450058
+    second: Wind2_49
+  - first:
+      213: 5977676600831518180
+    second: Wind2_50
+  - first:
+      213: -1620051548861775371
+    second: Wind2_51
+  - first:
+      213: 1125735482203467861
+    second: Wind2_52
+  - first:
+      213: 3369395765964429161
+    second: Wind2_53
+  - first:
+      213: 7865308160761229211
+    second: Wind2_54
+  - first:
+      213: 6552283876175328638
+    second: Wind2_55
+  - first:
+      213: 2208755043057464538
+    second: Wind2_56
+  - first:
+      213: -1563388748702585795
+    second: Wind2_57
+  - first:
+      213: 5839987300760243662
+    second: Wind2_58
+  - first:
+      213: -8247999862313894201
+    second: Wind2_59
+  - first:
+      213: -728181659800384946
+    second: Wind2_60
+  - first:
+      213: 3200689972746271878
+    second: Wind2_61
+  - first:
+      213: -6821577835843053669
+    second: Wind2_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wind2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f9107109b286a40800000000000000
+      internalID: 5361583254245842779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind2_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de9e1649adf38270800000000000000
+      internalID: 8251717845740592850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778dc6a8fe33fa2f0800000000000000
+      internalID: -959491091694036873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind2_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd4e861f5854ac00800000000000000
+      internalID: 910950190059245017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1d48afd777a744e929dd78be65a73127
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Wind2_0: 5361583254245842779
+      Wind2_1: 8251717845740592850
+      Wind2_2: -959491091694036873
+      Wind2_3: 910950190059245017
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

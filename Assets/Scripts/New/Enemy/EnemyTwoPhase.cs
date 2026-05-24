@@ -9,6 +9,7 @@ public class EnemyTwoPhase : MonoBehaviour
     public float groundChaseRange = 5f;
     public float groundAttackRange = 1f;
     public float groundMoveSpeed = 2f;
+    public float agility = 0.05f;
 
     [Header("Phase Change")]
 [Range(0f, 1f)]
@@ -20,8 +21,8 @@ public float flyingPhaseHealthPercent = 0.5f;
     public float flyingChaseRange = 7f;
 
     [Header("Flying Bounds")]
-    public float minY = -2f;
-    public float maxY = 2f;
+    public float minY = -100f;
+    public float maxY = 200f;
     [Header("Flying Dash")]
 public float dashSpeed = 10f;
 public float dashDuration = 0.4f;
@@ -35,13 +36,19 @@ public float dashSlowdown = 15f;
     public float directionDeadZone = 0.2f;
     [Header("Random Dash Stats")]
 public bool randomizeDashStats = true;
-public Vector2 dashSpeedRange = new Vector2(8f, 14f);
+public Vector2 dashSpeedRange = new Vector2(8f, 25f);
 
 public Vector2 dashCooldownRange = new Vector2(2f, 5f);
 
-public Vector2 dashDurationRange = new Vector2(0.3f, 0.7f);
+public Vector2 dashDurationRange = new Vector2(0.3f, 0.5f);
 
 public Vector2 dashChargeTimeRange = new Vector2(0.1f, 0.4f);
+[Header("Random Movement")]
+public bool randomizeMovement = false;
+
+public Vector2 moveSpeedRange = new Vector2(2f, 4f);
+
+public Vector2 agilityRange = new Vector2(0.12f, 1f);
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -100,6 +107,23 @@ private Vector2 dashDirection;
     dashChargeTime = Random.Range(
         dashChargeTimeRange.x,
         dashChargeTimeRange.y
+    );
+}
+if (randomizeMovement)
+{
+    groundMoveSpeed = Random.Range(
+        moveSpeedRange.x,
+        moveSpeedRange.y
+    );
+
+    flyingSpeed = Random.Range(
+        moveSpeedRange.x,
+        moveSpeedRange.y
+    );
+
+    agility = Random.Range(
+        agilityRange.x,
+        agilityRange.y
     );
 }
     }
@@ -202,14 +226,12 @@ private Vector2 dashDirection;
     sr.flipX = facingDirection > 0;
 }
 
-            anim.SetFloat("Speed", Mathf.Abs(move));
         }
         else
         {
             rb.linearVelocity =
                 new Vector2(0, rb.linearVelocity.y);
 
-            anim.SetFloat("Speed", 0f);
         }
     }
 
@@ -282,7 +304,6 @@ private Vector2 dashDirection;
         // atak
         if (distance <= flyingAttackRange && attackTimer <= 0f)
         {
-            anim.SetTrigger("Attack");
             attackTimer = attackCooldown;
         }
 
@@ -306,7 +327,7 @@ private Vector2 dashDirection;
             (player.position - transform.position).normalized;
 
         flyingDirection =
-            Vector2.Lerp(flyingDirection, targetDir, 0.03f).normalized;
+            Vector2.Lerp(flyingDirection, targetDir, agility).normalized;
     }
 
     // płynny ruch

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MinimapToggle : MonoBehaviour
 {
-    public GameObject minimapUI;
     public CanvasGroup canvasGroup;
 
     public float fadeDuration = 0.25f;
@@ -13,9 +12,11 @@ public class MinimapToggle : MonoBehaviour
 
     private void Start()
     {
-        minimapUI.SetActive(false);
-
         canvasGroup.alpha = 0f;
+
+        // Ukrycie interakcji
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 
     private void Update()
@@ -33,11 +34,12 @@ public class MinimapToggle : MonoBehaviour
     {
         isAnimating = true;
 
-        minimapUI.SetActive(true);
+        Time.timeScale = 0f;
+
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
 
         float time = 0f;
-
-        Time.timeScale = 0f;
 
         while (time < fadeDuration)
         {
@@ -56,7 +58,6 @@ public class MinimapToggle : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        Time.timeScale = 1f;
         isAnimating = true;
 
         float time = 0f;
@@ -72,7 +73,10 @@ public class MinimapToggle : MonoBehaviour
 
         canvasGroup.alpha = 0f;
 
-        minimapUI.SetActive(false);
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+
+        Time.timeScale = 1f;
 
         isOpen = false;
         isAnimating = false;
