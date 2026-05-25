@@ -589,7 +589,7 @@ private void ChargeAttack()
         currentChargeTime = maxChargeTime;
 
     // CAMERA SHAKE PODCZAS ŁADOWANIA
-    float shakeStrength = Mathf.Lerp(0.01f, 0.08f, currentChargeTime / maxChargeTime);
+    float shakeStrength = Mathf.Lerp(0.01f, 0.05f, currentChargeTime / maxChargeTime);
 
     CameraShake.ShakeCamera(shakeStrength, 0.05f);
 }

@@ -87,7 +87,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 42697089
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -625305861853611950, guid: 97824572ecc125740a0527b14e22cd5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -165,8 +165,10 @@ MonoBehaviour:
   flashCount: 3
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   coinPrefab: {fileID: 8799243671189670763, guid: 96d9f840af6924f82b976c8881f5f15c, type: 3}
+  OtherDrop: {fileID: 0}
   minCoins: 4
   maxCoins: 8
+  otherDropChance: 25
   animator: {fileID: 9020387063558770422}
   deathAnimationTrigger: Die
   IsDead: 0
@@ -283,9 +285,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 4
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -513,3 +515,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer2D
   damage: 5
   damageInterval: 0.4
+  randomizeDamage: 0
+  damageRange: {x: 5, y: 20}
