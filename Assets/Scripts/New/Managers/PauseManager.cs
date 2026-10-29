@@ -13,7 +13,7 @@ public class PauseManager : MonoBehaviour
         if (GameState.UIBlocking)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause"))
         {
             if (isPaused) ResumeGame();
             else PauseGame();

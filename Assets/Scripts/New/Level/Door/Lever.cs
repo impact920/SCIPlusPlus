@@ -34,7 +34,7 @@ public class Lever : MonoBehaviour
     {
         if (playerInRange && !used)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButtonDown("Interact"))
             {
                 ActivateLever();
             }

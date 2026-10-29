@@ -93,6 +93,11 @@ public class PlayerMovement : MonoBehaviour
 public AudioClip attackSound1;
 public AudioClip attackSound2;
 
+[Header("Charge Attack Sounds")]
+public AudioClip chargeLoopSound;     // dźwięk ładowania
+public AudioClip chargeReleaseSound;  // dźwięk release
+private AudioSource chargeAudioSource;
+
 [Header("Skill Sounds")]
 public AudioClip ghostStartSound;
 public AudioClip ghostEndSound;
@@ -135,6 +140,7 @@ public float chargedAttackCooldown = 10f;
 
 private bool canUseChargedAttack = true;
 
+
 private List<EnemyHealth> hitEnemiesDuringCharge = new List<EnemyHealth>();
 
     private void Start()
@@ -147,6 +153,9 @@ private List<EnemyHealth> hitEnemiesDuringCharge = new List<EnemyHealth>();
         {
             Debug.LogWarning("Brak AudioSource na graczu!");
         }
+        chargeAudioSource = gameObject.AddComponent<AudioSource>();
+        chargeAudioSource.loop = true;
+        chargeAudioSource.playOnAwake = false;
     }
 
     private void Update()
@@ -201,19 +210,19 @@ private List<EnemyHealth> hitEnemiesDuringCharge = new List<EnemyHealth>();
         }
 
         // DASH
-        if (Input.GetKeyDown(KeyCode.E) && canDash)
+        if (Input.GetButtonDown("Dash") && canDash)
         {
             StartCoroutine(Dash());
         }
 
         // GHOST TELEPORT Q
-        if (Input.GetKeyDown(KeyCode.Q) && canUseGhost && !abilityInUse)
+        if (Input.GetButtonDown("Teleport Ghost") && canUseGhost && !abilityInUse)
         {
             StartCoroutine(SpawnGhost());
         }
 
         // STATIC GHOST F
-        if (Input.GetKeyDown(KeyCode.F) && canUseStaticGhost && !abilityInUse)
+        if (Input.GetButtonDown("Static Ghost") && canUseStaticGhost && !abilityInUse)
         {
             StartCoroutine(SpawnStaticGhostAndRewind());
         }
@@ -245,7 +254,7 @@ private List<EnemyHealth> hitEnemiesDuringCharge = new List<EnemyHealth>();
         anim.SetBool("IsDashing", isDashing);
 
         // Atak
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Attack"))
         {
             attackBufferCounter = attackBufferTime;
         }
@@ -276,7 +285,7 @@ private List<EnemyHealth> hitEnemiesDuringCharge = new List<EnemyHealth>();
         }
 
         // ŁADOWANIE ATAKU PPM
-if (Input.GetMouseButtonDown(1)
+if (Input.GetButtonDown("Charged Attack")
     && !isChargingAttack
     && !isDashing
     && canUseChargedAttack)
@@ -284,12 +293,12 @@ if (Input.GetMouseButtonDown(1)
     StartChargeAttack();
 }
 
-if (Input.GetMouseButton(1) && isChargingAttack)
+if (Input.GetButton("Charged Attack") && isChargingAttack)
 {
     ChargeAttack();
 }
 
-if (Input.GetMouseButtonUp(1) && isChargingAttack)
+if (Input.GetButtonUp("Charged Attack") && isChargingAttack)
 {
     StartCoroutine(ReleaseChargeAttack());
 }
@@ -365,25 +374,30 @@ if (isChargingAttack)
     isDashing = true;
 
     anim.SetTrigger("Dash");
-
     sfxSource.PlayOneShot(dashSound);
 
-    // CAMERA SHAKE
     CameraShake.ShakeCamera(0.12f, 0.1f);
 
     float originalGravity = rb.gravityScale;
+
     rb.gravityScale = 0f;
 
+    // Zatrzymuje pionowy ruch podczas dasha
+    rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+
     float dashDirection = moveInput != 0 ? moveInput : (sr.flipX ? -1f : 1f);
-    float dashSpeed = dashForce;
     float elapsed = 0f;
 
     while (elapsed < dashDuration)
     {
-        float step = dashSpeed * Time.fixedDeltaTime;
+        float step = dashForce * Time.fixedDeltaTime;
         Vector2 nextPos = rb.position + new Vector2(step * dashDirection, 0f);
 
-        Collider2D hit = Physics2D.OverlapCircle(nextPos, 0.2f, groundLayer);
+        Collider2D hit = Physics2D.OverlapCircle(
+            nextPos,
+            0.2f,
+            groundLayer
+        );
 
         if (hit != null)
         {
@@ -399,9 +413,10 @@ if (isChargingAttack)
 
     rb.gravityScale = originalGravity;
 
+    // Najważniejsze — brak pionowego podskoku po dashu
     rb.linearVelocity = new Vector2(
         rb.linearVelocity.x,
-        Mathf.Max(rb.linearVelocity.y, 0)
+        0f
     );
 
     isDashing = false;
@@ -573,12 +588,20 @@ if (isChargingAttack)
 {
     anim.ResetTrigger("ChargeRelease");
     anim.ResetTrigger("ChargeStart");
+
     isChargingAttack = true;
     currentChargeTime = 0f;
+
     anim.SetTrigger("ChargeStart");
 
     rb.linearVelocity = Vector2.zero;
 
+    // START ŁADOWANIA SOUND
+    if (chargeLoopSound != null)
+    {
+        chargeAudioSource.clip = chargeLoopSound;
+        chargeAudioSource.Play();
+    }
 }
 
 private void ChargeAttack()
@@ -597,6 +620,18 @@ private void ChargeAttack()
 private IEnumerator ReleaseChargeAttack()
 {
     isChargingAttack = false;
+
+    // STOP ładowania sound
+    if (chargeAudioSource.isPlaying)
+    {
+        chargeAudioSource.Stop();
+    }
+
+    // RELEASE SOUND
+    if (chargeReleaseSound != null)
+    {
+        sfxSource.PlayOneShot(chargeReleaseSound);
+    }
 
     anim.SetTrigger("ChargeRelease");
 
@@ -620,18 +655,13 @@ private IEnumerator ReleaseChargeAttack()
 
     float timer = 0f;
 
-    // NIE WYŁĄCZAMY GRAWITACJI
-    // rb.gravityScale zostaje normalne
-
     while (timer < chargedDashDuration)
     {
-        // tylko poziomy ruch
         rb.linearVelocity = new Vector2(
             direction * finalSpeed,
             rb.linearVelocity.y
         );
 
-        // wykrywanie przeciwników
         Collider2D[] enemies = Physics2D.OverlapCircleAll(
             transform.position,
             1.2f,
@@ -642,29 +672,29 @@ private IEnumerator ReleaseChargeAttack()
         {
             EnemyHealth hp = enemy.GetComponent<EnemyHealth>();
 
-if (hp != null && !hitEnemiesDuringCharge.Contains(hp))
-{
-    hitEnemiesDuringCharge.Add(hp);
+            if (hp != null && !hitEnemiesDuringCharge.Contains(hp))
+            {
+                hitEnemiesDuringCharge.Add(hp);
 
-    int finalDamage = Mathf.RoundToInt(
-        Mathf.Lerp(
-            minChargeDamage,
-            maxChargeDamage,
-            chargePercent
-        )
-    );
+                int finalDamage = Mathf.RoundToInt(
+                    Mathf.Lerp(
+                        minChargeDamage,
+                        maxChargeDamage,
+                        chargePercent
+                    )
+                );
 
-    hp.TakeDamage(finalDamage);
+                hp.TakeDamage(finalDamage);
 
-    Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+                Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
 
-    if (enemyRb != null)
-    {
-        Vector2 knockDir = new Vector2(direction, 0.2f).normalized;
+                if (enemyRb != null)
+                {
+                    Vector2 knockDir = new Vector2(direction, 0.2f).normalized;
 
-        enemyRb.AddForce(knockDir * 10f, ForceMode2D.Impulse);
-    }
-}
+                    enemyRb.AddForce(knockDir * 10f, ForceMode2D.Impulse);
+                }
+            }
         }
 
         timer += Time.deltaTime;
@@ -674,7 +704,6 @@ if (hp != null && !hitEnemiesDuringCharge.Contains(hp))
     isInvulnerable = false;
     isDashing = false;
 
-    // zatrzymanie po skillu
     rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 }
 
@@ -685,6 +714,10 @@ private void CancelChargeAttack()
     currentChargeTime = 0f;
 
     anim.SetBool("ChargingAttack", false);
+    if (chargeAudioSource.isPlaying)
+{
+    chargeAudioSource.Stop();
+}
 
     anim.ResetTrigger("ChargeStart");
     anim.ResetTrigger("ChargeRelease");

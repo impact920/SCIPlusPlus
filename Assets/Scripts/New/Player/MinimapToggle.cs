@@ -21,7 +21,7 @@ public class MinimapToggle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M) && !isAnimating)
+        if (Input.GetButtonDown("Minimap") && !isAnimating)
         {
             if (isOpen)
                 StartCoroutine(FadeOut());

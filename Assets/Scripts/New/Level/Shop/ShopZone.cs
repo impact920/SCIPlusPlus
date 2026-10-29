@@ -3,14 +3,13 @@ using UnityEngine;
 public class ShopZone : MonoBehaviour
 {
     public GameObject shopUI;
-    public KeyCode interactKey = KeyCode.E;
     private bool playerInside = false;
     private bool shopOpen = false;
 
     void Update()
     {
         // jeśli gracz w strefie LUB sklep jest otwarty
-        if ((playerInside || shopOpen) && Input.GetKeyDown(interactKey))
+        if ((playerInside || shopOpen) && Input.GetButtonDown("Interact"))
         {
             ToggleShop();
         }

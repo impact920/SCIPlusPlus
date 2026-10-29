@@ -356,6 +356,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4c5940ed74c5f4f67aa8e048f6f8f688, type: 3}
   attackSound1: {fileID: 8300000, guid: d3ad9878edf8144c4a571782128f26ab, type: 3}
   attackSound2: {fileID: 8300000, guid: fe148f9822bd34f7aa106821e60192a7, type: 3}
+  chargeLoopSound: {fileID: 8300000, guid: 67e81bc2c911f44fc96e33b140b95a85, type: 3}
+  chargeReleaseSound: {fileID: 8300000, guid: 66953b7baa2964eeabc5fc48cfab5d5a, type: 3}
   ghostStartSound: {fileID: 8300000, guid: c14d333e39d4742e8b1f363181f7912a, type: 3}
   ghostEndSound: {fileID: 8300000, guid: f23b024fb057142c38b32b1782102e1c, type: 3}
   rewindStartSound: {fileID: 8300000, guid: c14d333e39d4742e8b1f363181f7912a, type: 3}
@@ -476,7 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a0872c361994e6f9a1005e0370b0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinimapToggle
-  minimapUI: {fileID: 0}
   canvasGroup: {fileID: 0}
   fadeDuration: 0.25
 --- !u!95 &7409457032132997813
